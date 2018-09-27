@@ -1,6 +1,63 @@
-.main-div {
-    width: 500px;
-    height: 300px;
+body {
+    background-color: #424242
+}
+
+.main-container {
+    overflow: hidden;
+    width: 701px;
+    height: 501px;
     position: relative;
-    background-color: #88d8c0;
+    margin-left: 420px
+}
+
+.slider {
+    width: 3000px;
+    list-style: none;
+    position: absolute;
+
+}
+
+.slider li {
+    float: left;
+}
+
+.middle {
+    margin: 0 auto;
+    height: 20px;
+    width: 20px;
+
+}
+
+
+
+.prev {
+    position: fixed;
+    top: 200px;
+    left: 420px;
+    background-color: transparent;
+    border: 0px;
+}
+
+.next {
+    position: fixed;
+    top: 200px;
+    left: 985px;
+    border: 0px;
+    background-color: transparent;
+}
+
+
+
+.navigation-li {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-image: url("../images/dot-icon-hover.png");
+}
+
+.navigation-li-active {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-image: url("../images/dot-icon.png");
 }

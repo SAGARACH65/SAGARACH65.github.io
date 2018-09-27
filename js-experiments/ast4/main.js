@@ -1,7 +1,7 @@
 var images = document.getElementsByClassName('slider')[0];
 
 var currentIndex = 0,
-    IMG_WIDTH = 701,
+    IMG_WIDTH = 701,    
     nextIndex = 1,
     IMAGES_MAX_COUNT = 3;
 
