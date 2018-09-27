@@ -132,7 +132,7 @@ var drawBox = function (box) {
  * @param {number} dy the rate of change of y coordinate
  */
 var generateBox = function (x, y, width, dx, dy) {
-    console.log(width);
+
     boxArr.push({
         x: x,
         y: y,
