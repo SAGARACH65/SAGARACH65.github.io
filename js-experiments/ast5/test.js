@@ -1,57 +1,69 @@
 var images = document.getElementsByClassName('slider')[0];
 
 var currentIndex = 0,
-    imgWidth = 701,
-    nextIndex,
-    imagesMaxCount = 3;
+    IMG_WIDTH = 701,
+    nextIndex = 1,
+    IMAGES_MAX_COUNT = 3;
 
-//isSlidingRight is provided as a argument to this fxn to make it pure despite it being global
+//the global currentIndex is passes so to make it a pure function
 var calculateNextIndex = function (currentIndex) {
-    var next = (currentIndex + 1) % 4;
-    //if none of the above conditions meet we check the flag to return the next index
-    return (next);
+
+    return ((currentIndex + 1) % 4);
+}
+
+var calculatePreviousIndex = function (currentIndex) {
+    //for calculating previous index we send 3  if current index is 0 else decrease by 1
+    return ((currentIndex === 0) ? 3 : currentIndex - 1);
+
 }
 
 var prevClickHandler = function () {
-    console.log(currentIndex);
-    currentIndex = calculateNextIndex(currentIndex);
-    console.log(currentIndex);
+    nextIndex = calculatePreviousIndex(currentIndex);
+
     clearInterval(mainLoop);
+    addEventListeners();
+
     animateTransition();
+    currentIndex = nextIndex;
 }
 
 var nextClickHandler = function () {
-    console.log(currentIndex);
-    currentIndex = calculateNextIndex(currentIndex);
-    console.log(currentIndex);
+
+    nextIndex = calculateNextIndex(currentIndex);
     clearInterval(mainLoop);
+    addEventListeners();
+
     animateTransition();
+    currentIndex = nextIndex;
+
 }
 
 var addEventListeners = function () {
-    var buttonPrev = document.getElementsByClassName('prev')[0];
-    var buttonNext = document.getElementsByClassName('next')[0];
-    buttonPrev.addEventListener('click', prevClickHandler);
-    buttonNext.addEventListener('click', nextClickHandler);
-}
 
+    document.getElementsByClassName('prev')[0].addEventListener('click', prevClickHandler);
+    document.getElementsByClassName('next')[0].addEventListener('click', nextClickHandler);
+
+}
+var removeEventListeners = function () {
+
+    document.getElementsByClassName('prev')[0].removeEventListener('click', prevClickHandler);
+    document.getElementsByClassName('next')[0].removeEventListener('click', nextClickHandler);
+
+}
 
 var animate = function () {
 
-    let frameCount = 15,
+    let FRAME_COUNT = 25,
         currentCount = 1;
 
-    console.log(nextIndex + "2")
-    var startingImagePosition = -currentIndex * imgWidth,
-        endingImagePosition = -nextIndex * imgWidth;
+    var startingImagePosition = -currentIndex * IMG_WIDTH,
+        endingImagePosition = -nextIndex * IMG_WIDTH;
 
-    // console.log(typeof (currentIndex))
-    // console.log(startingImagePosition, endingImagePosition)
+    //for animation we divide the transition into the number of frames that is defined
+    var increment = (endingImagePosition - startingImagePosition) / FRAME_COUNT;
 
-
-    //for animation we divide the transition into 5 parts
-    var increment = (endingImagePosition - startingImagePosition) / frameCount;
-
+    //removing the evnet listeners before animation so that the user cant move during the animation
+    removeEventListeners();
 
     var animateInterval = setInterval(function () {
 
@@ -59,36 +71,85 @@ var animate = function () {
 
             images.style.left = startingImagePosition + 'px';
 
-            if (currentCount === frameCount) {
+            if (currentCount === FRAME_COUNT) {
                 //clear the current interval and start the main interval
                 clearInterval(animateInterval);
                 runMainInterval();
             }
             currentCount++;
-
         },
         20);
 }
 
 var animateTransition = function () {
     //for animation we clear the main interval and run the animation interval
-    console.log(nextIndex + 'hi');
 
     clearInterval(mainLoop);
 
     setInterval(animate(), 200);
 }
 
+
 var changeImage = function () {
     nextIndex = calculateNextIndex(currentIndex);
     animateTransition();
     currentIndex = nextIndex;
+
 }
 
-addEventListeners();
+var navigationDots = document.getElementsByClassName("nav");
+var drawDotNavigation = function () {
+
+    for (let i = 0; i < navigationDots.length; i++) {
+
+        if (i === currentIndex) {
+            navigationDots[i].className = "navigation-li nav";
+        } else {
+            navigationDots[i].className = "navigation-li-active nav";
+        }
+        navigationDots[i].onclick = function () {
+            nextIndex = i;
+            animateTransition();
+            currentIndex = nextIndex;
+
+        };
+    }
+}
+
+
 
 var mainLoop;
 var runMainInterval = function () {
-    mainLoop = setInterval(changeImage, 1000);
+    //adding the event listeners
+    addEventListeners();
+    drawDotNavigation();
+    mainLoop = setInterval(changeImage, 2000);
 }
+
+
+var createDotNavigation = function () {
+    var mainContainer = document.getElementsByClassName("main-container")[0];
+
+    var dots = document.createElement("ul");
+
+    var dotArray = [];
+
+    for (var i = 0; i <= IMAGES_MAX_COUNT; i++) {
+        var li = document.createElement("li");
+        li.classList.add('nav');
+        dots.appendChild(li);
+    }
+    dots.style.listStyleType = "none"
+    dots.style.top = "451px"
+    dots.style.left = "450px"
+    dots.style.width = "900px"
+    dots.style.height = "900px"
+    dots.style.position = 'fixed';
+    mainContainer.appendChild(dots);
+}
+
+//creates the li and ul for the bottom navigation element
+createDotNavigation();
+
+//starts the main slider loop
 runMainInterval();

@@ -1,6 +1,6 @@
 var boxArr = [];
 
-var boxWidth = boxHeight = 15;
+
 var gameWorldHeight = 280,
     gameWorldWidth = 480;
 
@@ -22,7 +22,7 @@ var handlePlayersCollision = function (box, boxIndex) {
         var otherBox = boxArr[i];
 
         //change variable changes the orientation of the ball everytime a player hits it
-        let change = generateRandomNO(2);
+        let change = generateRandomNO(1);
 
         //dont compare the box with itself
         if (i !== boxIndex) {
@@ -145,7 +145,7 @@ var generateBox = function (x, y, width, dx, dy) {
 var generateBoxes = function () {
     for (var i = 0; i < 20; i++) {
 
-        generateBox(generateRandomNO(gameWorldWidth), generateRandomNO(gameWorldHeight), generateRandomNO(12, 8), generateRandomNO(10, 3), generateRandomNO(10, 3));
+        generateBox(generateRandomNO(gameWorldWidth), generateRandomNO(gameWorldHeight), generateRandomNO(20, 15), generateRandomNO(10, 3), generateRandomNO(10, 3));
 
         drawBox(boxArr[i]);
     }

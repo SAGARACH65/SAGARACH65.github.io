@@ -35,9 +35,7 @@ for (var i = 0; i < 10; i++) {
 
 setInterval(function () {
     for (var x = 0; x < array.length; x++) {
-        generateBox(array[x].x, array[x].y)
+        generateBox(array[x].x, array[x].y);
 
-        console.log(array[x].x);
-      
     }
 }, 100);
