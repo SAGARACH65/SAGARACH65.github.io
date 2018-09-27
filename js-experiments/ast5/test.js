@@ -71,6 +71,8 @@ var animate = function () {
 
             images.style.left = startingImagePosition + 'px';
 
+            //if all the frames that needed to be calculated have 
+            //been rendered stop the animation and run the main loop
             if (currentCount === FRAME_COUNT) {
                 //clear the current interval and start the main interval
                 clearInterval(animateInterval);
@@ -108,6 +110,7 @@ var drawDotNavigation = function () {
             navigationDots[i].className = "navigation-li-active nav";
         }
         navigationDots[i].onclick = function () {
+            //setting the picture that need to be generated as the index of the image that was pressed
             nextIndex = i;
             animateTransition();
             currentIndex = nextIndex;

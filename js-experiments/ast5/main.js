@@ -1,112 +1,158 @@
 var images = document.getElementsByClassName('slider')[0];
 
 var currentIndex = 0,
-    imgWidth = 701,
-    imagesMaxCount = 3,
-    isSlidingRight = true;
+    IMG_WIDTH = 701,
+    nextIndex = 1,
+    IMAGES_MAX_COUNT = 3;
 
+//the global currentIndex is passes so to make it a pure function
+var calculateNextIndex = function (currentIndex) {
 
-//isSlidingRight is provided as a argument to this fxn to make it pure despite it being global
-var calculateNextIndex = function (currentIndex, isSlidingRight) {
-    if (currentIndex === 3) return 2;
-    if (currentIndex === 0) return 1;
-    //if none of the above conditions meet we check the flag to return the next index
-    return ((isSlidingRight) ? currentIndex + 1 : currentIndex - 1)
+    return ((currentIndex + 1) % 4);
 }
 
+var calculatePreviousIndex = function (currentIndex) {
+    //for calculating previous index we send 3  if current index is 0 else decrease by 1
+    return ((currentIndex === 0) ? 3 : currentIndex - 1);
+
+}
 
 var prevClickHandler = function () {
-    console.log(currentIndex);
-    currentIndex = calculateNextIndex(currentIndex, false);
-    console.log(currentIndex);
+    nextIndex = calculatePreviousIndex(currentIndex);
+
     clearInterval(mainLoop);
-    // runMainInterval();
+    addEventListeners();
+
+    animateTransition();
+    currentIndex = nextIndex;
 }
 
 var nextClickHandler = function () {
-    console.log(currentIndex);
-    currentIndex = calculateNextIndex(currentIndex, true);
-    console.log(currentIndex);
+
+    nextIndex = calculateNextIndex(currentIndex);
     clearInterval(mainLoop);
-    // runMainInterval();
+    addEventListeners();
+
+    animateTransition();
+    currentIndex = nextIndex;
+
 }
 
 var addEventListeners = function () {
-    var buttonPrev = document.getElementsByClassName('prev')[0];
-    var buttonNext = document.getElementsByClassName('next')[0];
-    buttonPrev.addEventListener('click', prevClickHandler);
-    buttonNext.addEventListener('click', nextClickHandler);
+
+    document.getElementsByClassName('prev')[0].addEventListener('click', prevClickHandler);
+    document.getElementsByClassName('next')[0].addEventListener('click', nextClickHandler);
+
+}
+var removeEventListeners = function () {
+
+    document.getElementsByClassName('prev')[0].removeEventListener('click', prevClickHandler);
+    document.getElementsByClassName('next')[0].removeEventListener('click', nextClickHandler);
 
 }
 
+var animate = function () {
 
-var animate = function (currentIndex, nextIndex) {
+    let FRAME_COUNT = 25,
+        currentCount = 1;
 
-    
-    var startingImagePosition = -currentIndex * imgWidth,
-        endingImagePosition = -nextIndex * imgWidth;
+    var startingImagePosition = -currentIndex * IMG_WIDTH,
+        endingImagePosition = -nextIndex * IMG_WIDTH;
 
-       
-        // console.log(startingImagePosition,endingImagePosition)
-     
-       
-    //for animation we divide the transition into 5 parts
-    var increment = (endingImagePosition - startingImagePosition) / 5;
-  
-    console.log(increment);
+    //for animation we divide the transition into the number of frames that is defined
+    var increment = (endingImagePosition - startingImagePosition) / FRAME_COUNT;
+
+    //removing the evnet listeners before animation so that the user cant move during the animation
+    removeEventListeners();
+
     var animateInterval = setInterval(function () {
 
-        startingImagePosition += increment;
+            startingImagePosition += increment;
 
-        images.style.left = startingImagePosition + 'px';
+            images.style.left = startingImagePosition + 'px';
 
-        //checking if we have completed the animation and ending if we have done so
-        if ((startingImagePosition <= endingImagePosition && isSlidingRight) || (startingImagePosition >= endingImagePosition && !isSlidingRight)) {
-
-            //clear the current interval and start the main interval
-            clearInterval(animateInterval);
-            runMainInterval();
-        }
-
-    }, 100);
+            //if all the frames that needed to be calculated have 
+            //been rendered stop the animation and run the main loop
+            if (currentCount === FRAME_COUNT) {
+                //clear the current interval and start the main interval
+                clearInterval(animateInterval);
+                runMainInterval();
+            }
+            currentCount++;
+        },
+        20);
 }
 
-
-var animateTransition = function (currentIndex, nextIndex) {
+var animateTransition = function () {
     //for animation we clear the main interval and run the animation interval
-    console.log(currentIndex, nextIndex);
-    console.log(isSlidingRight);
-    clearInterval(mainLoop);
-    setInterval(animate(currentIndex, nextIndex), 200);
-}
 
+    clearInterval(mainLoop);
+
+    setInterval(animate(), 200);
+}
 
 
 var changeImage = function () {
-
-
-    animateTransition(currentIndex, calculateNextIndex(currentIndex, isSlidingRight));
-  
-    if (isSlidingRight) {
-
-        currentIndex++;
-        if (currentIndex === imagesMaxCount) isSlidingRight = false;
-        
-
-    } else {
-       
-        if (currentIndex === 0) isSlidingRight = true;
-        currentIndex--; 
-
-    }
+    nextIndex = calculateNextIndex(currentIndex);
+    animateTransition();
+    currentIndex = nextIndex;
 
 }
 
+var navigationDots = document.getElementsByClassName("nav");
+var drawDotNavigation = function () {
 
-addEventListeners();
+    for (let i = 0; i < navigationDots.length; i++) {
+
+        if (i === currentIndex) {
+            navigationDots[i].className = "navigation-li nav";
+        } else {
+            navigationDots[i].className = "navigation-li-active nav";
+        }
+        navigationDots[i].onclick = function () {
+            //setting the picture that need to be generated as the index of the image that was pressed
+            nextIndex = i;
+            animateTransition();
+            currentIndex = nextIndex;
+
+        };
+    }
+}
+
+
 
 var mainLoop;
 var runMainInterval = function () {
-    mainLoop = setInterval(changeImage, 1000);
+    //adding the event listeners
+    addEventListeners();
+    drawDotNavigation();
+    mainLoop = setInterval(changeImage, 2000);
 }
+
+
+var createDotNavigation = function () {
+    var mainContainer = document.getElementsByClassName("main-container")[0];
+
+    var dots = document.createElement("ul");
+
+    var dotArray = [];
+
+    for (var i = 0; i <= IMAGES_MAX_COUNT; i++) {
+        var li = document.createElement("li");
+        li.classList.add('nav');
+        dots.appendChild(li);
+    }
+    dots.style.listStyleType = "none"
+    dots.style.top = "451px"
+    dots.style.left = "750px"
+    dots.style.width = "900px"
+    dots.style.height = "900px"
+    dots.style.position = 'fixed';
+    mainContainer.appendChild(dots);
+}
+
+//creates the li and ul for the bottom navigation element
+createDotNavigation();
+
+//starts the main slider loop
 runMainInterval();
