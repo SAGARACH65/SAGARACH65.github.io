@@ -26,10 +26,11 @@ var handlePlayersCollision = function (box, boxIndex) {
 
         //dont compare the box with itself
         if (i !== boxIndex) {
-            if (box.x < otherBox.x + boxWidth &&
-                box.x + boxWidth > otherBox.x &&
-                box.y < otherBox.y + boxHeight &&
-                boxHeight + box.y > otherBox.y) {
+            //as we have a square box width==height
+            if (box.x < otherBox.x + otherBox.width &&
+                box.x + box.width > otherBox.x &&
+                box.y < otherBox.y + otherBox.width &&
+                box.width + box.y > otherBox.y) {
 
                 console.log('hit')
                 box.dx = -box.dx + change;
@@ -56,15 +57,15 @@ var handleBoxBorderCollision = function (box) {
         //just reversing the direction the box hits the wall
         box.dx = -box.dx;
         box.x = 4;
-    } else if (box.x > gameWorldWidth-4) {
+    } else if (box.x > gameWorldWidth - 4) {
         box.dx = -box.dx;
-        box.x = gameWorldWidth-4;
+        box.x = gameWorldWidth - 4;
     } else if (box.y < 0) {
         box.dy = -box.dy;
         box.y = 4
-    } else if (box.y > gameWorldHeight-4) {
+    } else if (box.y > gameWorldHeight - 4) {
         box.dy = -box.dy;
-        box.y = gameWorldHeight-4;
+        box.y = gameWorldHeight - 4;
     }
 
 }
@@ -112,8 +113,8 @@ var drawBox = function (box) {
 
     var smallDiv = document.createElement('div');
     smallDiv.style.background = getRandomColor();
-    smallDiv.style.width = boxWidth + "px";
-    smallDiv.style.height = boxHeight + "px";
+    smallDiv.style.width = box.width + "px";
+    smallDiv.style.height = box.width + "px";
     smallDiv.style.position = "absolute";
     smallDiv.style.left = box.x + "px";
     smallDiv.style.top = box.y + "px";
@@ -126,13 +127,16 @@ var drawBox = function (box) {
  * 
  * @param {number} x the original x coordinate of the box   
  * @param {number} y the original y coordinate of the box
+ *@param {number} width as we have a square box it is the same 
  * @param {number} dx the rate of change of x coordinate
  * @param {number} dy the rate of change of y coordinate
  */
-var generateBox = function (x, y, dx, dy) {
+var generateBox = function (x, y, width, dx, dy) {
+    console.log(width);
     boxArr.push({
         x: x,
         y: y,
+        width: width,
         dx: dx,
         dy: dy
     })
@@ -141,7 +145,7 @@ var generateBox = function (x, y, dx, dy) {
 var generateBoxes = function () {
     for (var i = 0; i < 20; i++) {
 
-        generateBox(generateRandomNO(gameWorldWidth), generateRandomNO(gameWorldHeight), generateRandomNO(10, 3), generateRandomNO(10, 3));
+        generateBox(generateRandomNO(gameWorldWidth), generateRandomNO(gameWorldHeight), generateRandomNO(12, 8), generateRandomNO(10, 3), generateRandomNO(10, 3));
 
         drawBox(boxArr[i]);
     }
