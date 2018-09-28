@@ -1,5 +1,5 @@
 function Ant(x, y, dimension, dx, dy) {
-
+    var that = this;
     this.x = x;
     this.y = y;
     //here since we have a square ant dimension gives both height and width
@@ -8,7 +8,6 @@ function Ant(x, y, dimension, dx, dy) {
     this.dy = dy;
     //all the ants will be alive when created
     this.isAlive = true;
-
 
     //function to generate random colors for each ant
     var getRandomColor = function () {
@@ -25,10 +24,18 @@ function Ant(x, y, dimension, dx, dy) {
         antDiv.style.background = getRandomColor();
         antDiv.style.width = this.dimension + 'px';
         antDiv.style.height = this.dimension + 'px';
-       
+
         antDiv.style.position = 'absolute';
         antDiv.style.left = this.x + 'px';
         antDiv.style.top = this.y + 'px';
+
+        antDiv.addEventListener('click', function () {
+            console.log('hit');
+            that.dx = 0;
+            that.dy = 0;
+            that.isAlive = false;
+            antDiv.style.background = 'white';
+        });
 
         antDiv.setAttribute('class', 'ant');
         document.body.appendChild(antDiv);
@@ -75,6 +82,9 @@ function Ant(x, y, dimension, dx, dy) {
             // //change variable changes the orientation of the ball everytime a player hits it
             // let change = generateRandomNO(2);
 
+            if (!this.isAlive) {
+                console.log(this.dx)
+            }
             if (otherAnt.isAlive) {
 
                 //dont compare the ant with itself
@@ -92,27 +102,12 @@ function Ant(x, y, dimension, dx, dy) {
                         this.dy = -this.dy;
 
                         // the ants that are stuck together get out
-                        if (this.y < otherAnt.y) this.y -= (otherAnt.y - this.y)
-                        else if (this.y > otherAnt.y) this.y -= (otherAnt.y - this.y)
+                        if (this.y < otherAnt.y) this.y -= (otherAnt.y - this.y);
+                        else if (this.y > otherAnt.y) this.y -= (otherAnt.y - this.y);
 
                     }
                 }
             }
         }
     }
-
-    //this function check the location of the mouseclick against
-    //the location of the ants
-    this.handleMouseClick = function (pressX, pressY, antRef) {
-
-        if (pressX >= this.x && (pressX <= this.x + this.dimension) &&
-            (pressY >= this.y) && (pressY <= this.x + this.dimension)) {
-
-            this.dx = 0;
-            this.dy = 0;
-            this.isAlive = false;
-            antRef.style.background = 'white';
-        }
-    }
-
 }

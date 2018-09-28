@@ -4,7 +4,7 @@ var currentIndex = 0,
     IMG_WIDTH = 701,
     nextIndex = 1,
     IMAGES_MAX_COUNT = 3,
-    isAnimating = false;
+    isAnimationRunning = false;
 
 //the global currentIndex is passes so to make it a pure function
 var calculateNextIndex = function (currentIndex) {
@@ -53,7 +53,7 @@ var removeEventListeners = function () {
 }
 
 var animate = function () {
-    isAnimating = true;
+    isAnimationRunning = true;
     let FRAME_COUNT = 25,
         currentCount = 1;
 
@@ -112,7 +112,7 @@ var drawDotNavigation = function () {
         }
 
         navigationDots[i].onclick = function () {
-            if (!isAnimating) {
+            if (!isAnimationRunning) {
                 //setting the picture that need to be generated as the index of the image that was pressed
                 nextIndex = i;
                 animateTransition();
@@ -126,7 +126,7 @@ var drawDotNavigation = function () {
 
 var mainLoop;
 var runMainInterval = function () {
-    isAnimating = false;
+    isAnimationRunning = false;
     //adding the event listeners
     addEventListeners();
     drawDotNavigation();

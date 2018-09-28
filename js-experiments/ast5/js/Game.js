@@ -2,19 +2,11 @@ var antArr = [];
 
 var GAME_WORLD_HEIGHT = 665,
     GAME_WORLD_WIDTH = 665,
-    ANT_COUNT = 30,
+    ANT_COUNT = 5,
     MAXIMUM_ANT_WIDTH = 30,
     MINIMUM_ANT_WIDTH = 20,
     MAXIMUM_RATE_OF_CHANGE = 4, //ie maximum dx or dy
     MINIMUM_RATE_OF_CHANGE = 2;
-
-var handleMouseClicks = function (event) {
-    var antDiv = document.getElementsByClassName('ant');
-
-    for (var i = 0; i < antArr.length; i++) {
-        antArr[i].handleMouseClick(event.clientX, event.clientY, antDiv[i])
-    }
-}
 
 /**
  * 
@@ -34,7 +26,6 @@ var handleCollision = function (ant, index) {
 }
 
 var gameLoop = function () {
-
     var antDiv = document.getElementsByClassName('ant');
 
     for (var i = 0; i < antArr.length; i++) {
@@ -48,9 +39,7 @@ var gameLoop = function () {
     }
 }
 
-
 var generateAndDrawAnt = function (x, y, dimension, dx, dy) {
-
     var ant = new Ant(x, y, dimension, dx, dy);
     antArr.push(ant);
 
@@ -73,9 +62,7 @@ var generateAndDrawAnts = function () {
 }
 
 //initially the ant objects are generated and the game loop is run
-generateAndDrawAnts();
-
-document.addEventListener('click', handleMouseClicks);
+generateAndDrawAnts()
 
 //runs the main game loop
 setInterval(gameLoop, 20);
