@@ -75,7 +75,7 @@ function Ant(x, y, dimension, dx, dy) {
             // let change = generateRandomNO(2);
 
             if (otherAnt.isAlive) {
-console.log(otherAnt.isAlive);
+
                 //dont compare the ant with itself
                 if (i !== antIndex) {
 
