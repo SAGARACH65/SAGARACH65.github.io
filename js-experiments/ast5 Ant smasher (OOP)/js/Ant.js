@@ -25,6 +25,7 @@ function Ant(x, y, dimension, dx, dy) {
         antDiv.style.background = getRandomColor();
         antDiv.style.width = this.dimension + 'px';
         antDiv.style.height = this.dimension + 'px';
+       
         antDiv.style.position = 'absolute';
         antDiv.style.left = this.x + 'px';
         antDiv.style.top = this.y + 'px';
