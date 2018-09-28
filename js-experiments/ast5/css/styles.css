@@ -1,9 +1,8 @@
 .main-div {
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 800px;
     position: relative;
     background-color: black;
-
 }
 
 body {
