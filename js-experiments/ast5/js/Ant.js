@@ -34,7 +34,6 @@ function Ant(x, y, dimension, dx, dy) {
 
             removeAnt(antDiv);
             document.body.removeChild(antDiv);
-            console.log(document.body);
         });
 
         antDiv.setAttribute('class', 'ant');

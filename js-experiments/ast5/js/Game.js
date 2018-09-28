@@ -14,7 +14,7 @@ var removeAnt = function (clickedAnt) {
 
     for (var i = antArr.length - 1; i >= 0; i--) {
         if (antDiv[i] === clickedAnt) {
-            console.log(i);
+          
             antArr.splice(i, 1);
 
             //since ant is removed increase the score
@@ -47,9 +47,8 @@ var handlePlayersCollision = function (currentAntIndex) {
                     otherAnt.invertChangeInY();
 
                     // the ants that are stuck together get out
-                    if (currentAnt.y < otherAnt.y || currentAnt.y > otherAnt.y) {
-                        currentAnt.handleAntsOverLap(otherAnt.y);
-                    }
+                    if (currentAnt.y < otherAnt.y || currentAnt.y > otherAnt.y) currentAnt.handleAntsOverLap(otherAnt.y);
+
                 }
             }
         }
@@ -65,7 +64,7 @@ var handleAntBorderCollision = function (ant) {
      * 
      * 4 is used here is used as a refinement factor 
      */
-    //console.log(ant)
+   
     if (ant.x < 0) {
         ant.invertChangeInX();
         //left world exit so 0+4 is used
@@ -154,16 +153,15 @@ var startGame = function () {
     //initially the ant objects are generated and the game loop is run
     generateAndDrawAnts();
     antDiv = document.getElementsByClassName('ant');
-
-    console.log(antArr);
+    
 
     //runs the main game loop
-    gameLoopReference= setInterval(gameLoop, 20);
+    gameLoopReference = setInterval(gameLoop, 20);
 }
 
 var resetGame = function () {
 
-    //clear all the previous variables and then strat the game again
+    //clear all the previous variables and then start the game again
     antArr = [];
     currentScore = 0;
     for (var i = antDiv.length - 1; i >= 0; i--) {
@@ -175,6 +173,6 @@ var resetGame = function () {
     startGame();
 }
 
-
 document.getElementsByClassName("reset")[0].addEventListener("click", resetGame);
+
 startGame();
