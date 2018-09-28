@@ -1,9 +1,10 @@
 var images = document.getElementsByClassName('slider')[0];
 
 var currentIndex = 0,
-    IMG_WIDTH = 701,    
+    IMG_WIDTH = 701,
     nextIndex = 1,
-    IMAGES_MAX_COUNT = 3;
+    IMAGES_MAX_COUNT = 3,
+    isAnimating = false;
 
 //the global currentIndex is passes so to make it a pure function
 var calculateNextIndex = function (currentIndex) {
@@ -52,7 +53,7 @@ var removeEventListeners = function () {
 }
 
 var animate = function () {
-
+    isAnimating = true;
     let FRAME_COUNT = 25,
         currentCount = 1;
 
@@ -109,12 +110,14 @@ var drawDotNavigation = function () {
         } else {
             navigationDots[i].className = "navigation-li-active nav";
         }
-        navigationDots[i].onclick = function () {
-            //setting the picture that need to be generated as the index of the image that was pressed
-            nextIndex = i;
-            animateTransition();
-            currentIndex = nextIndex;
 
+        navigationDots[i].onclick = function () {
+            if (!isAnimating) {
+                //setting the picture that need to be generated as the index of the image that was pressed
+                nextIndex = i;
+                animateTransition();
+                currentIndex = nextIndex;
+            }
         };
     }
 }
@@ -123,6 +126,7 @@ var drawDotNavigation = function () {
 
 var mainLoop;
 var runMainInterval = function () {
+    isAnimating = false;
     //adding the event listeners
     addEventListeners();
     drawDotNavigation();
