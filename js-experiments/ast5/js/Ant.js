@@ -34,7 +34,7 @@ function Ant(x, y, dimension, dx, dy) {
             that.dx = 0;
             that.dy = 0;
             that.isAlive = false;
-            antDiv.style.background = 'white';
+            antDiv.style.background = 'black';
         });
 
         antDiv.setAttribute('class', 'ant');
