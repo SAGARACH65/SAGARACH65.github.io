@@ -147,6 +147,8 @@ var generateAndDrawAnts = function () {
     }
 }
 
+//used so we can clear the previous setinterval after each reset
+var gameLoopReference;
 var startGame = function () {
 
     //initially the ant objects are generated and the game loop is run
@@ -154,8 +156,9 @@ var startGame = function () {
     antDiv = document.getElementsByClassName('ant');
 
     console.log(antArr);
+
     //runs the main game loop
-    setInterval(gameLoop, 20);
+    gameLoopReference= setInterval(gameLoop, 20);
 }
 
 var resetGame = function () {
@@ -166,6 +169,8 @@ var resetGame = function () {
     for (var i = antDiv.length - 1; i >= 0; i--) {
         document.body.removeChild(antDiv[i]);
     }
+    //clear the previous iteration of the loop
+    clearInterval(gameLoopReference);
 
     startGame();
 }
