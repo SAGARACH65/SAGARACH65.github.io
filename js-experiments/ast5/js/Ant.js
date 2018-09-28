@@ -19,99 +19,50 @@ function Ant(x, y, dimension, dx, dy) {
         return color;
     }
 
-    this.drawAnt = function () {
+    this.draw = function () {
         var antDiv = document.createElement('div');
         antDiv.style.background = getRandomColor();
         antDiv.style.width = this.dimension + 'px';
         antDiv.style.height = this.dimension + 'px';
-
         antDiv.style.position = 'absolute';
         antDiv.style.left = this.x + 'px';
         antDiv.style.top = this.y + 'px';
 
         antDiv.addEventListener('click', function () {
-            // console.log('hit');
-            that.dx = 0;
-            that.dy = 0;
+
             that.isAlive = false;
-            that.x=0;
-            that.y=0;
+
+            removeAnt(antDiv);
+            document.body.removeChild(antDiv);
+            console.log(document.body);
         });
 
         antDiv.setAttribute('class', 'ant');
         document.body.appendChild(antDiv);
     }
 
-    this.changePosition = function (antDiv) {
+    this.changePosition = function () {
         this.x += this.dx;
         this.y += this.dy;
-
-        antDiv.style.left = this.x + 'px';
-        antDiv.style.top = this.y + 'px';
     }
 
-    this.handleAntBorderCollision = function () {
-        /**
-         * i have set the x and y cordinates of the ant to the size of the div element
-         * because due to random increase in the dx and dy element 
-         * sometimes the ants were running out of the div
-         * and beyond the scope of the collision handler function to correct
-         * 
-         * 4 is used here is used as a refinement factor 
-         */
-        if (this.x < 0) {
-            //just reversing the direction the ant hits the wall
-            this.dx = -this.dx;
-            this.x = 4;
-        } else if (this.x > GAME_WORLD_WIDTH - 4) {
-            this.dx = -this.dx;
-            this.x = GAME_WORLD_WIDTH - 4;
-        } else if (this.y < 0) {
-            this.dy = -this.dy;
-            this.y = 4
-        } else if (this.y > GAME_WORLD_HEIGHT - 4) {
-            this.dy = -this.dy;
-            this.y = GAME_WORLD_HEIGHT - 4;
-        }
+    this.invertChangeInX = function () {
+        this.dx = -this.dx;
     }
 
-    this.handlePlayersCollision = function (antIndex, antObjArray) {
-        for (var i = 0; i < antObjArray.length; i++) {
+    this.invertChangeInY = function () {
+        this.dy = -this.dy;
+    }
 
-            var otherAnt = antObjArray[i];
+    this.handleLeftRightWorldExceed = function (value) {
+        this.x = value;
+    }
 
-            // //change variable changes the orientation of the ball everytime a player hits it
-            // let change = generateRandomNO(2);
+    this.handleTopBottomWorldExceed = function (value) {
+        this.y = value;
+    }
 
-
-            if (otherAnt.isAlive) {
-
-                //dont compare the ant with itself
-                if (i !== antIndex) {
-
-                    if (this.x < otherAnt.x + otherAnt.dimension &&
-                        this.x + this.dimension > otherAnt.x &&
-                        this.y < otherAnt.y + otherAnt.dimension &&
-                        this.dimension + this.y > otherAnt.y) {
-
-                        // this.dx = -this.dx + change;
-                        // this.dy = -this.dy + change;
-
-                        this.dx = -this.dx;
-                        this.dy = -this.dy;
-
-
-                        //TODO: ask if this is a good approach
-                        otherAnt.dx = -otherAnt.dx;
-                        otherAnt.dy = -otherAnt.dy;
-
-                        // the ants that are stuck together get out
-                        if (this.y < otherAnt.y) this.y -= (otherAnt.y - this.y);
-                        else if (this.y > otherAnt.y) this.y -= (otherAnt.y - this.y);
-
-                    }
-                }
-            }
-        }
+    this.handleAntsOverLap = function (otherAntYPos) {
+        this.y -= (otherAntYPos - this.y);
     }
 }
