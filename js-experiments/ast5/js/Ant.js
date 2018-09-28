@@ -82,9 +82,7 @@ function Ant(x, y, dimension, dx, dy) {
             // //change variable changes the orientation of the ball everytime a player hits it
             // let change = generateRandomNO(2);
 
-            if (!this.isAlive) {
-                // console.log(this.dx)
-            }
+
             if (otherAnt.isAlive) {
 
                 //dont compare the ant with itself
@@ -102,9 +100,9 @@ function Ant(x, y, dimension, dx, dy) {
                         this.dy = -this.dy;
 
 
-                        //todo ask if this is a good approach
-                        otherAnt.dx=-otherAnt.dx;
-                        otherAnt.dy=-otherAnt.dy;
+                        //TODO: ask if this is a good approach
+                        otherAnt.dx = -otherAnt.dx;
+                        otherAnt.dy = -otherAnt.dy;
 
                         // the ants that are stuck together get out
                         if (this.y < otherAnt.y) this.y -= (otherAnt.y - this.y);

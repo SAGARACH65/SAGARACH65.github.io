@@ -20,9 +20,10 @@ var generateRandomNO = function (max = 1, min = 0) {
 }
 
 var handleCollision = function (ant, index) {
-    //  console.log(ant);
-    ant.handleAntBorderCollision();
-    ant.handlePlayersCollision(index, antArr);
+   if (ant.isAlive) {
+        ant.handleAntBorderCollision();
+        ant.handlePlayersCollision(index, antArr);
+    }
 }
 
 var gameLoop = function () {
