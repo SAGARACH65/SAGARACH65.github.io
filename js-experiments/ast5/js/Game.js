@@ -2,7 +2,7 @@ var antArr = [];
 
 var GAME_WORLD_HEIGHT = 665,
     GAME_WORLD_WIDTH = 665,
-    ANT_COUNT = 5,
+    ANT_COUNT = 30,
     MAXIMUM_ANT_WIDTH = 30,
     MINIMUM_ANT_WIDTH = 20,
     MAXIMUM_RATE_OF_CHANGE = 4, //ie maximum dx or dy

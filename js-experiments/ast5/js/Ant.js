@@ -30,7 +30,7 @@ function Ant(x, y, dimension, dx, dy) {
         antDiv.style.top = this.y + 'px';
 
         antDiv.addEventListener('click', function () {
-            console.log('hit');
+            // console.log('hit');
             that.dx = 0;
             that.dy = 0;
             that.isAlive = false;
@@ -83,7 +83,7 @@ function Ant(x, y, dimension, dx, dy) {
             // let change = generateRandomNO(2);
 
             if (!this.isAlive) {
-                console.log(this.dx)
+                // console.log(this.dx)
             }
             if (otherAnt.isAlive) {
 
@@ -100,6 +100,11 @@ function Ant(x, y, dimension, dx, dy) {
 
                         this.dx = -this.dx;
                         this.dy = -this.dy;
+
+
+                        //todo ask if this is a good approach
+                        otherAnt.dx=-otherAnt.dx;
+                        otherAnt.dy=-otherAnt.dy;
 
                         // the ants that are stuck together get out
                         if (this.y < otherAnt.y) this.y -= (otherAnt.y - this.y);
