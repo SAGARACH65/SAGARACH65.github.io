@@ -1,13 +1,10 @@
 function Ant(x, y, dimension, dx, dy) {
-    var that = this;
     this.x = x;
     this.y = y;
     //here since we have a square ant dimension gives both height and width
     this.dimension = dimension;
     this.dx = dx;
     this.dy = dy;
-    //all the ants will be alive when created
-    this.isAlive = true;
 
     //function to generate random colors for each ant
     var getRandomColor = function () {
@@ -29,8 +26,6 @@ function Ant(x, y, dimension, dx, dy) {
         antDiv.style.top = this.y + 'px';
 
         antDiv.addEventListener('click', function () {
-
-            that.isAlive = false;
 
             removeAnt(antDiv);
             document.body.removeChild(antDiv);

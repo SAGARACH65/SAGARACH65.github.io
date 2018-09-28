@@ -14,7 +14,7 @@ var removeAnt = function (clickedAnt) {
 
     for (var i = antArr.length - 1; i >= 0; i--) {
         if (antDiv[i] === clickedAnt) {
-          
+
             antArr.splice(i, 1);
 
             //since ant is removed increase the score
@@ -29,29 +29,29 @@ var handlePlayersCollision = function (currentAntIndex) {
         var otherAnt = antArr[i];
         var currentAnt = antArr[currentAntIndex];
 
-        if (otherAnt.isAlive) {
 
-            //dont compare the ant with itself
-            if (i !== currentAntIndex) {
 
-                if (currentAnt.x < otherAnt.x + otherAnt.dimension &&
-                    currentAnt.x + currentAnt.dimension > otherAnt.x &&
-                    currentAnt.y < otherAnt.y + otherAnt.dimension &&
-                    currentAnt.dimension + currentAnt.y > otherAnt.y) {
+        //dont compare the ant with itself
+        if (i !== currentAntIndex) {
 
-                    //reverses dx and dy
-                    currentAnt.invertChangeInX();
-                    currentAnt.invertChangeInY();
+            if (currentAnt.x < otherAnt.x + otherAnt.dimension &&
+                currentAnt.x + currentAnt.dimension > otherAnt.x &&
+                currentAnt.y < otherAnt.y + otherAnt.dimension &&
+                currentAnt.dimension + currentAnt.y > otherAnt.y) {
 
-                    otherAnt.invertChangeInX();
-                    otherAnt.invertChangeInY();
+                //reverses dx and dy
+                currentAnt.invertChangeInX();
+                currentAnt.invertChangeInY();
 
-                    // the ants that are stuck together get out
-                    if (currentAnt.y < otherAnt.y || currentAnt.y > otherAnt.y) currentAnt.handleAntsOverLap(otherAnt.y);
+                otherAnt.invertChangeInX();
+                otherAnt.invertChangeInY();
 
-                }
+                // the ants that are stuck together get out
+                if (currentAnt.y < otherAnt.y || currentAnt.y > otherAnt.y) currentAnt.handleAntsOverLap(otherAnt.y);
+
             }
         }
+
     }
 }
 
@@ -64,7 +64,7 @@ var handleAntBorderCollision = function (ant) {
      * 
      * 4 is used here is used as a refinement factor 
      */
-   
+
     if (ant.x < 0) {
         ant.invertChangeInX();
         //left world exit so 0+4 is used
@@ -114,10 +114,10 @@ var gameLoop = function () {
 
         changePositionOfAntInDOM(antDiv[i], ant.x, ant.y);
 
-        if (ant.isAlive) {
-            // we send the variable i so that we dont compare the ant with itself 
-            handleCollision(antArr[i], i);
-        }
+
+        // we send the variable i so that we dont compare the ant with itself 
+        handleCollision(antArr[i], i);
+
 
         showScore();
     }
@@ -153,7 +153,7 @@ var startGame = function () {
     //initially the ant objects are generated and the game loop is run
     generateAndDrawAnts();
     antDiv = document.getElementsByClassName('ant');
-    
+
 
     //runs the main game loop
     gameLoopReference = setInterval(gameLoop, 20);
