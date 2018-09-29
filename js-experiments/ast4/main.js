@@ -139,7 +139,6 @@ var createDotNavigation = function () {
 
     var dots = document.createElement("ul");
 
-    var dotArray = [];
 
     for (var i = 0; i <= IMAGES_MAX_COUNT; i++) {
         var li = document.createElement("li");

@@ -29,8 +29,6 @@ var handlePlayersCollision = function (currentAntIndex) {
         var otherAnt = antArr[i];
         var currentAnt = antArr[currentAntIndex];
 
-
-
         //dont compare the ant with itself
         if (i !== currentAntIndex) {
 
@@ -51,7 +49,6 @@ var handlePlayersCollision = function (currentAntIndex) {
 
             }
         }
-
     }
 }
 
@@ -114,10 +111,8 @@ var gameLoop = function () {
 
         changePositionOfAntInDOM(antDiv[i], ant.x, ant.y);
 
-
         // we send the variable i so that we dont compare the ant with itself 
         handleCollision(antArr[i], i);
-
 
         showScore();
     }
@@ -153,7 +148,6 @@ var startGame = function () {
     //initially the ant objects are generated and the game loop is run
     generateAndDrawAnts();
     antDiv = document.getElementsByClassName('ant');
-
 
     //runs the main game loop
     gameLoopReference = setInterval(gameLoop, 20);
