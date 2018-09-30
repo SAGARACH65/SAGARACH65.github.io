@@ -1,22 +1,19 @@
 var canvas = document.getElementById('main-canvas');
 var ctx = canvas.getContext('2d');
-
 var currentScore = 0;
 
 var isRightPressed = false,
     isLeftPressed = false;
 
-var mainCar = new Car(82, 123, 3, 'images/car4.png');
+var mainCar = new Car(82, 123, 4, 'images/car4.png');
 
 var OPPONENT_CAR_IMAGES = ['images/car2.png', 'images/car3.png', 'images/car1.png', 'images/car5.png'];
 var opponentCarsArr = [];
 
 var ROAD_WIDTH = 600;
-
 //width at each side of the road.
 var SIDE_LANE_WIDTH = 100;
 var NO_OF_LANE_DIVIDERS = 4;
-
 //checks the y position of the lane  
 var laneTracker = -canvas.height;
 
@@ -29,10 +26,13 @@ var LANE_DIVIDER_HEIGHT = (canvas.height / NO_OF_LANE_DIVIDERS) - LANE_DIVIDER_S
 
 var PROTAGONIST_SPEED = 4;
 
+
 var handleCollision = function () {
     //collision is handle by showing the score, stopping the loop and storing if current score is the highest score
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     clearInterval(mainLoop);
+
     ctx.fillStyle = 'white';
     ctx.fillText("Score:" + currentScore, canvas.width / 2 - 30, canvas.height / 2 - 20);
     ctx.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
@@ -67,6 +67,13 @@ var updateOpponentCar = function () {
     }
 }
 
+var checkIfOpponentHaveExceededWidow = function () {
+    //if the opponent exceeeds the window remove them form the array
+    for (var i = opponentCarsArr.length - 1; i >= 0; i--) {
+        if (opponentCarsArr[i].y > canvas.height) opponentCarsArr.splice(i, 1);
+    }
+}
+
 var updateMainCar = function () {
 
     if (isRightPressed) {
@@ -75,13 +82,6 @@ var updateMainCar = function () {
     }
     if (isLeftPressed) {
         if (mainCar.x - PROTAGONIST_SPEED > LANE_X_POS[0]) mainCar.updateX('left');
-    }
-}
-
-var checkIfOpponentHaveExceededWidow = function () {
-    //if the opponent exceeeds the window remove them form the array
-    for (var i = opponentCarsArr.length - 1; i >= 0; i--) {
-        if (opponentCarsArr[i].y > canvas.height) opponentCarsArr.splice(i, 1);
     }
 }
 
@@ -100,7 +100,8 @@ var drawEnemyCars = function () {
         for (var x = 0; x < LANE_X_POS.length - 1; x++) {
             if (emptyLane !== x) {
 
-                var speed = generateRandomNO(2, 5);
+                var speed = generateRandomNO(2, 4);
+                //we generate a random image for each car
                 var img = OPPONENT_CAR_IMAGES[generateRandomNO(-1, OPPONENT_CAR_IMAGES.length)];
                 var yPos = generateRandomNO(generateRandomNO(-100, 0), 0);
                 //the y position can be between 0 and some random number between 0 and 50
@@ -112,10 +113,8 @@ var drawEnemyCars = function () {
         for (var i = 0; i < opponentCarsArr.length; i++) {
             opponentCarsArr[i].draw();
         }
-
     }
 }
-
 
 var drawCars = function () {
     mainCar.draw();
@@ -137,9 +136,9 @@ var drawSideLanes = function () {
         currentY += 40;
     }
 
-    //for static side lanes
-    // drawRect(0, 0, LANE_X_POS[0] - 2, canvas.height, ' #C6C7CB');
-    // drawRect(LANE_X_POS[3] + 4, 0, LANE_X_POS[0], canvas.height, ' #C6C7CB');
+//    // for static side lanes
+//     drawRect(0, 0, LANE_X_POS[0] - 2, canvas.height, ' #C6C7CB');
+//     drawRect(LANE_X_POS[3] + 4, 0, LANE_X_POS[0], canvas.height, ' #C6C7CB');
 }
 
 /**
@@ -183,8 +182,8 @@ var showScore = function () {
     scoreDiv.innerHTML = 'SCORE : ' + currentScore;
 
     var highScoreDiv = document.getElementsByClassName('high-score')[0];
-    highScoreDiv.innerHTML='HIGH SCORE : '+getHighScore();
-    
+    highScoreDiv.innerHTML = 'HIGH SCORE : ' + getHighScore();
+
 }
 var updateScore = function () {
     currentScore += 1;
@@ -199,6 +198,7 @@ var gameLoop = function () {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawRoad();
+
     drawCars();
     updateCarsLocation();
     //if the opponent exceed the window we draw new opponents
