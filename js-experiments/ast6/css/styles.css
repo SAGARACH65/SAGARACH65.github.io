@@ -2,11 +2,37 @@ body{
     background-color: #424242
 }
 
-
 #main-canvas {
     background: #000;
     display: block;
     margin: 0 auto;
     width: 750px;
     height: 700px;
+}
+
+.button {
+    background-color: #10f1ae;
+    color: black;
+    border: 2px solid #fff;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    margin-left: 1250px;
+    border-radius: 8px;
+    position: fixed;
+}
+
+.score {
+    margin-top: 100px;
+    background-color: #424242;
+    border: 3px dotted rgb(35, 195, 243);
+    color: white
+}
+
+.reset:hover {
+    background-color: #424242;
+    color: white;
 }

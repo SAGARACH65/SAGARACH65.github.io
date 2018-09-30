@@ -1,14 +1,25 @@
-function Car() {
+function Car(x, y, speed, isProtaganist, src) {
 
-    this.height = 22;
-    //75 is the height of the image used for the car
-    this.y = canvas.height - this.height-5;
-    this.x = 82;
-    this.width = 20;
-    this.src = "images/car1.png"
+    this.height = 24;
+    this.y = y;
+    this.x = x;
+    this.width = 24;
+    this.src = src;
+    this.isProtaganist = isProtaganist;
+    this.speed = speed;
 
     this.draw = function () {
         drawImage(this.src, this.x, this.y, this.width, this.height);
     }
 
+    //used only by the enemy car 
+    this.updateY = function () {
+        this.y += this.speed;
+    }
+
+    //used only by the protaganists car
+    this.updateX = function (direction) {
+        if (direction === 'right') this.x += this.speed;
+        else this.x -= this.speed;
+    }
 }
