@@ -1,11 +1,10 @@
-function Car(x, y, speed, isProtaganist, src) {
+function Car(x, y, speed, src) {
 
     this.height = 24;
     this.y = y;
     this.x = x;
-    this.width = 24;
+    this.width = 29;
     this.src = src;
-    this.isProtaganist = isProtaganist;
     this.speed = speed;
 
     this.draw = function () {

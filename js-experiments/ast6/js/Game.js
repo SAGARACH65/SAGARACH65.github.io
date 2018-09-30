@@ -6,7 +6,7 @@ var currentScore = 0;
 var isRightPressed = false,
     isLeftPressed = false;
 
-var mainCar = new Car(82, 123, 3, true, 'images/car4.png');
+var mainCar = new Car(82, 123, 3, 'images/car4.png');
 
 var OPPONENT_CAR_IMAGES = ['images/car2.png', 'images/car3.png', 'images/car1.png', 'images/car5.png'];
 var opponentCarsArr = [];
@@ -27,9 +27,38 @@ var LANE_X_POS = [60, 118.33, 176.66, 235];
 var LANE_DIVIDER_WIDTH = 2;
 var LANE_DIVIDER_HEIGHT = (canvas.height / NO_OF_LANE_DIVIDERS) - LANE_DIVIDER_SPACING;
 
-var PROTAGONIST_SPEED = 3;
-var checkAndHandleCollision = function () {
+var PROTAGONIST_SPEED = 4;
 
+var handleCollision = function () {
+    //collision is handle by showing the score, stopping the loop and storing if current score is the highest score
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    clearInterval(mainLoop);
+    ctx.fillStyle = 'white';
+    ctx.fillText("Score:" + currentScore, canvas.width / 2 - 30, canvas.height / 2 - 20);
+    ctx.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
+
+    //this is used to check if the variable has been set. 
+    if (localStorage.highScore) {
+        var hightScore = getHighScore();
+        if (currentScore > hightScore) storeHighScore(currentScore);
+    } else {
+        storeHighScore(currentScore);
+    }
+}
+
+var checkAndHandleCollision = function () {
+    for (var i = 0; i < opponentCarsArr.length; i++) {
+
+        var opponentCar = opponentCarsArr[i];
+
+        if (mainCar.x < opponentCar.x + opponentCar.width &&
+            mainCar.x + mainCar.width > opponentCar.x &&
+            mainCar.y < opponentCar.y + opponentCar.height &&
+            mainCar.height + mainCar.y > opponentCar.y) {
+
+            handleCollision();
+        }
+    }
 }
 
 var updateOpponentCar = function () {
@@ -46,11 +75,7 @@ var updateMainCar = function () {
     }
     if (isLeftPressed) {
         if (mainCar.x - PROTAGONIST_SPEED > LANE_X_POS[0]) mainCar.updateX('left');
-
-
     }
-
-
 }
 
 var checkIfOpponentHaveExceededWidow = function () {
@@ -75,12 +100,11 @@ var drawEnemyCars = function () {
         for (var x = 0; x < LANE_X_POS.length - 1; x++) {
             if (emptyLane !== x) {
 
-
                 var speed = generateRandomNO(2, 5);
                 var img = OPPONENT_CAR_IMAGES[generateRandomNO(-1, OPPONENT_CAR_IMAGES.length)];
                 var yPos = generateRandomNO(generateRandomNO(-100, 0), 0);
                 //the y position can be between 0 and some random number between 0 and 50
-                opponentCarsArr.push(new Car(LANE_X_POS[x] + 20, yPos, speed, false, img));
+                opponentCarsArr.push(new Car(LANE_X_POS[x] + 20, yPos, speed, img));
             }
         }
 
@@ -157,6 +181,10 @@ var drawRoad = function () {
 var showScore = function () {
     var scoreDiv = document.getElementsByClassName('score')[0];
     scoreDiv.innerHTML = 'SCORE : ' + currentScore;
+
+    var highScoreDiv = document.getElementsByClassName('high-score')[0];
+    highScoreDiv.innerHTML='HIGH SCORE : '+getHighScore();
+    
 }
 var updateScore = function () {
     currentScore += 1;
@@ -165,6 +193,7 @@ var updateScore = function () {
 var gameLoop = function () {
     //CLEARING THE SCREEN BEFORE EACH UPDATE
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     //setting th background color of the canvass
     ctx.fillStyle = '#333335';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -196,17 +225,25 @@ function keyUpHandler(e) {
     }
 }
 
-console.log(canvas.height);
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
 
 // window.requestAnimationFrame(gameLoop);
 
 var resetGame = function () {
+    clearInterval(mainLoop);
     currentScore = 0;
     opponentCarsArr = [];
+    startGame();
 }
 
 document.getElementsByClassName('reset')[0].addEventListener('click', resetGame);
-//running the animation  for 60fps.
-setInterval(gameLoop, 1000 / 60);
+
+var mainLoop;
+var startGame = function () {
+    //running the animation  for 60fps.
+
+    mainLoop = setInterval(gameLoop, 1000 / 60);
+}
+
+startGame();
