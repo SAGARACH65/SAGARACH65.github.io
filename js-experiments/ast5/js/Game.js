@@ -5,10 +5,10 @@ var currentScore = 0;
 var GAME_WORLD_HEIGHT = 670,
     GAME_WORLD_WIDTH = 670,
     ANT_COUNT = 24,
-    MAXIMUM_ANT_WIDTH = 25,
-    MINIMUM_ANT_WIDTH = 21,
-    MAXIMUM_RATE_OF_CHANGE = 5, //ie maximum dx or dy
-    MINIMUM_RATE_OF_CHANGE = 3;
+    MAXIMUM_ANT_WIDTH = 45,
+    MINIMUM_ANT_WIDTH = 31,
+    MAXIMUM_RATE_OF_CHANGE = 7, //ie maximum dx or dy
+    MINIMUM_RATE_OF_CHANGE = 4;
 
 var removeAnt = function (clickedAnt) {
 
