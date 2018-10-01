@@ -18,7 +18,7 @@ let showElements = () => {
 
         //removing the object if it is beyond the screen
         //and if the object is removed update the score
-        if (pipe.x < 0) {
+        if (pipe.x+pipe.width < 0) {
             pipesCollection.splice(index, 1);
             bird.updateScore();
         }
@@ -99,10 +99,11 @@ let gameLoop = () => {
         checkCollision();
 
         //we generate a new pipe at certain time
-        if (frameCounter % 150 === 0) {
+        if (frameCounter % 110 === 0) {
             generatePipe();
         }
     }
+    requestAnimationFrame(gameLoop);
 }
 
 let SpaceHandler = e => {
@@ -117,4 +118,4 @@ let bird = new Bird();
 let background = new Background();
 
 //running the loop every 10 milliseconds for 60fps.
-setInterval(gameLoop, 10);
+gameLoop();

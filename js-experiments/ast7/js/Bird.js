@@ -1,7 +1,7 @@
 const gravity = 0.05;
 const birdImages = ['images/bird1_1.png', 'images/bird2.png', 'images/bird3.png', 'images/bird4.png'];
 let count = 0;
-let currentIndex=0;
+let currentIndex = 0;
 class Bird {
     constructor() {
         this.x = 50;
@@ -14,9 +14,8 @@ class Bird {
 
     show() {
         let birdImg = new Image();
-        birdImg.src =  birdImages[currentIndex%4];
-        if(count%10===9) currentIndex++;
-        //'images/bird.png';
+        birdImg.src = birdImages[currentIndex % 4];
+        if (count % 10 === 9) currentIndex++;
         ctx.drawImage(birdImg, this.x, this.y, this.width, this.height);
         count++;
     }
