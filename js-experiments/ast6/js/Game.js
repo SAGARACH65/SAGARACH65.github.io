@@ -138,7 +138,7 @@ var gameLoop = function () {
     //CLEARING THE SCREEN BEFORE EACH UPDATE
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //setting th background color of the canvass
+    //setting th backgroungit pd color of the canvass
     ctx.fillStyle = '#333335';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
