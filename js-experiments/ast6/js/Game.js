@@ -1,12 +1,16 @@
 var canvas = document.getElementById('main-canvas');
 var ctx = canvas.getContext('2d');
+
+var canvasSecond = document.getElementById('second-canvas');
+var ctxSecond = canvasSecond.getContext('2d');
+
 var currentScore = 0;
 
 var isRightPressed = false,
     isLeftPressed = false;
 
 var mainCar = new Car(82, 123, 4, 'images/car4.png');
-var road=new Background();
+var road = new Background();
 
 var OPPONENT_CAR_IMAGES = ['images/car2.png', 'images/car3.png', 'images/car1.png', 'images/car5.png'];
 var opponentCarsArr = [];
@@ -15,7 +19,6 @@ var ROAD_WIDTH = 600;
 //width at each side of the road.
 var SIDE_LANE_WIDTH = 100;
 var NO_OF_LANE_DIVIDERS = 4;
-
 
 //between each other
 var LANE_DIVIDER_SPACING = 15;
@@ -26,16 +29,27 @@ var LANE_DIVIDER_HEIGHT = (canvas.height / NO_OF_LANE_DIVIDERS) - LANE_DIVIDER_S
 
 var PROTAGONIST_SPEED = 4;
 
+var showGameEndScreen = function () {
+
+    clearInterval(mainLoop);
+    ctx.font = " Comic Sans MS";
+    ctx.fillStyle = 'white';
+    ctx.fillText("Score:" + currentScore, canvas.width / 2 - 30, canvas.height / 2 - 20);
+    ctx.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
+
+    ctxSecond.font = " Comic Sans MS";
+    ctxSecond.fillStyle = 'white';
+    ctxSecond.fillText("Score:" + currentScore, canvas.width / 2 - 30, canvas.height / 2 - 20);
+    ctxSecond.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
+}
 
 var handleCollision = function () {
     //collision is handle by showing the score, stopping the loop and storing if current score is the highest score
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    clearInterval(mainLoop);
+    ctxSecond.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = 'white';
-    ctx.fillText("Score:" + currentScore, canvas.width / 2 - 30, canvas.height / 2 - 20);
-    ctx.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
+    showGameEndScreen();
 
     //this is used to check if the variable has been set. 
     if (localStorage.highScore) {
@@ -68,7 +82,7 @@ var updateOpponentCar = function () {
 }
 
 var checkIfOpponentHaveExceededWidow = function () {
-    //if the opponent exceeeds the window remove them form the array
+    //if the opponent exceeds the window remove them form the array
     for (var i = opponentCarsArr.length - 1; i >= 0; i--) {
         if (opponentCarsArr[i].y > canvas.height) opponentCarsArr.splice(i, 1);
     }
@@ -104,11 +118,10 @@ var drawEnemyCars = function () {
                 //we generate a random image for each car
                 var img = OPPONENT_CAR_IMAGES[generateRandomNO(-1, OPPONENT_CAR_IMAGES.length)];
                 var yPos = generateRandomNO(generateRandomNO(-200, 0), 0);
-                //the y position can be between 0 and some random number between 0 and 50
+
                 opponentCarsArr.push(new Car(LANE_X_POS[x] + 20, yPos, speed, img));
             }
         }
-
     } else {
         for (var i = 0; i < opponentCarsArr.length; i++) {
             opponentCarsArr[i].draw();
@@ -121,7 +134,6 @@ var drawCars = function () {
     drawEnemyCars();
 }
 
-
 var showScore = function () {
     var scoreDiv = document.getElementsByClassName('score')[0];
     scoreDiv.innerHTML = 'SCORE : ' + currentScore;
@@ -131,16 +143,13 @@ var showScore = function () {
 
 }
 var updateScore = function () {
-    currentScore += 1;
+    currentScore++;
 }
 
+var mainLoop;
 var gameLoop = function () {
     //CLEARING THE SCREEN BEFORE EACH UPDATE
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    //setting th backgroungit pd color of the canvass
-    ctx.fillStyle = '#333335';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     road.draw();
 
@@ -173,21 +182,17 @@ function keyUpHandler(e) {
 document.addEventListener('keydown', keyDownHandler, false);
 document.addEventListener('keyup', keyUpHandler, false);
 
-// window.requestAnimationFrame(gameLoop);
-
 var resetGame = function () {
-    clearInterval(mainLoop);
     currentScore = 0;
+    clearInterval(mainLoop);
     opponentCarsArr = [];
     startGame();
 }
 
 document.getElementsByClassName('reset')[0].addEventListener('click', resetGame);
 
-var mainLoop;
 var startGame = function () {
     //running the animation  for 60fps.
-
     mainLoop = setInterval(gameLoop, 1000 / 60);
 }
 

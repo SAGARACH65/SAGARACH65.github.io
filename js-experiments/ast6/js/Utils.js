@@ -2,6 +2,7 @@ var drawImage = function (src, x, y, width, height) {
     var img = new Image();
     img.src = src;
     ctx.drawImage(img, x, y, width, height);
+    ctxSecond.drawImage(img, x, y, width, height);
 }
 
 var drawRect = function (xPos, yPos, width, height, color) {
@@ -10,6 +11,11 @@ var drawRect = function (xPos, yPos, width, height, color) {
     ctx.fillStyle = color;
     ctx.fill();
     ctx.closePath();
+    ctxSecond.beginPath();
+    ctxSecond.rect(xPos, yPos, width, height);
+    ctxSecond.fillStyle = color;
+    ctxSecond.fill();
+    ctxSecond.closePath();
 }
 
 /**
