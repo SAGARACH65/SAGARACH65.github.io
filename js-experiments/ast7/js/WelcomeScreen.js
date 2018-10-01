@@ -79,7 +79,7 @@ let gameLoop = () => {
     if (isOver) {
 
         drawImage('images/message.png ', 0, 0, canvas.width, canvas.height);
-      
+
         ctx.fillStyle = 'white';
         if (bird.score !== 0) {
 
@@ -119,6 +119,7 @@ let enterHandler = e => {
     if (e.keyCode == 13) {
         isOver = false;
         bird = new Bird();
+        background = new Background();
         frameCounter = 0;
         pipesCollection = [];
     }
