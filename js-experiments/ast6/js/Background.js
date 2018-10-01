@@ -60,9 +60,6 @@ function Background() {
         ctx.fillStyle = '#333335';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctxSecond.fillStyle = '#333335';
-        ctxSecond.fillRect(0, 0, canvas.width, canvas.height);
-
     }
     this.draw = function () {
 

@@ -40,14 +40,14 @@ let checkBottomTopCollision = () => {
     bird.checkBottomCollision();
 }
 
-let checkForCollisionWithTopPipe = (pipe) => {
+let checkForCollisionWithTopPipe = pipe => {
     return (bird.x < pipe.x + pipe.width &&
         bird.x + bird.width > pipe.x &&
         bird.y < 0 + pipe.top &&
         bird.height + bird.y > 0);
 }
 
-let checkForCollisionWithBottomPipe = (pipe) => {
+let checkForCollisionWithBottomPipe = pipe => {
     return (bird.x < pipe.x + pipe.width &&
         bird.x + bird.width > pipe.x &&
         bird.y < pipe.bottom + (canvas.height - pipe.bottom) &&
@@ -105,7 +105,7 @@ let gameLoop = () => {
     }
 }
 
-function SpaceHandler(e) {
+let SpaceHandler = e => {
     if (e.keyCode == 32) {
         bird.jumpBird();
     }

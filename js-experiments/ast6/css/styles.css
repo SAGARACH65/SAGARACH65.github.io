@@ -2,20 +2,10 @@ body {
     background-color: #424242
 }
 
-#main-canvas {
+#canvas {
     background: #000;
     display: block;
     margin: 0;
-    width: 750px;
-    display: inline;
-    height: 700px;
-}
-
-#second-canvas {
-    background: #000;
-    display: block;
-    margin: 0;
-    display: inline;
     width: 750px;
     height: 700px;
 }
