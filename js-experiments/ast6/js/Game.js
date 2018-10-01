@@ -100,10 +100,10 @@ var drawEnemyCars = function () {
         for (var x = 0; x < LANE_X_POS.length - 1; x++) {
             if (emptyLane !== x) {
 
-                var speed = generateRandomNO(2, 4);
+                var speed = generateRandomNO(1, 4);
                 //we generate a random image for each car
                 var img = OPPONENT_CAR_IMAGES[generateRandomNO(-1, OPPONENT_CAR_IMAGES.length)];
-                var yPos = generateRandomNO(generateRandomNO(-100, 0), 0);
+                var yPos = generateRandomNO(generateRandomNO(-200, 0), 0);
                 //the y position can be between 0 and some random number between 0 and 50
                 opponentCarsArr.push(new Car(LANE_X_POS[x] + 20, yPos, speed, img));
             }
