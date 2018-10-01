@@ -9,3 +9,9 @@ let generateRandomNO = (max = 1, min = 0) => {
 
     return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
+
+var drawImage = (src, x, y, width, height) => {
+    let img = new Image();
+    img.src = src;
+    ctx.drawImage(img, x, y, width, height);
+}

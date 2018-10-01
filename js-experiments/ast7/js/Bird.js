@@ -13,10 +13,8 @@ class Bird {
     }
 
     show() {
-        let birdImg = new Image();
-        birdImg.src = birdImages[currentIndex % 4];
+        drawImage(birdImages[currentIndex % 4], this.x, this.y, this.width, this.height);
         if (count % 10 === 9) currentIndex++;
-        ctx.drawImage(birdImg, this.x, this.y, this.width, this.height);
         count++;
     }
 
@@ -50,6 +48,6 @@ class Bird {
     }
 
     showScore() {
-        ctx.fillText("Score:" + this.score, canvas.width - 50, 10);
+        ctx.fillText('Score:' + this.score, canvas.width - 50, 10);
     }
 }

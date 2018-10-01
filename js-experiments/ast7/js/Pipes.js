@@ -11,13 +11,10 @@ class Pipes {
     }
 
     show() {
-        let pipeImgTop = new Image();
-        pipeImgTop.src = 'images/pipe-top.png';
-        ctx.drawImage(pipeImgTop, this.x, 0, this.width, this.top);
 
-        let pipeImgBottom = new Image();
-        pipeImgBottom.src = 'images/pipe-bottom.png';
-        ctx.drawImage(pipeImgBottom, this.x, this.bottom, this.width,canvas.height);
+        drawImage('images/pipe-top.png', this.x, 0, this.width, this.top);
+
+        drawImage('images/pipe-bottom.png', this.x, this.bottom, this.width, canvas.height);
 
     }
 

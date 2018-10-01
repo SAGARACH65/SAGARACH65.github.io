@@ -1,12 +1,12 @@
-let canvas = document.getElementById("main-canvas");
-let ctx = canvas.getContext("2d");
+let canvas = document.getElementById('main-canvas');
+let ctx = canvas.getContext('2d');
 
 //this variable is used to generate the pipes only at certain times
 let frameCounter = 0;
 let pipesCollection = [];
 
 //used to check if game is over
-let isOver = false;
+let isOver = true;
 
 let showElements = () => {
 
@@ -18,7 +18,7 @@ let showElements = () => {
 
         //removing the object if it is beyond the screen
         //and if the object is removed update the score
-        if (pipe.x+pipe.width < 0) {
+        if (pipe.x + pipe.width < 0) {
             pipesCollection.splice(index, 1);
             bird.updateScore();
         }
@@ -58,11 +58,9 @@ let checkCollision = () => {
     //checks collision with te top and bottom
     checkBottomTopCollision();
 
-    console.log('before');
     //checks collision with the pipes
     pipesCollection.map(pipe => {
 
-        console.log('after');
         if (checkForCollisionWithBottomPipe(pipe) || checkForCollisionWithTopPipe(pipe)) {
             isOver = true;
         }
@@ -79,10 +77,16 @@ let gameLoop = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (isOver) {
+
+        drawImage('images/message.png ', 0, 0, canvas.width, canvas.height);
+      
         ctx.fillStyle = 'white';
-        ctx.fillText("Score:" + bird.score, canvas.width / 2 - 30, canvas.height / 2 - 20);
-        ctx.fillText("GAME OVER!!", canvas.width / 2 - 40, canvas.height / 2);
-        ctx.fillText("RESTART THE PAGE TO TRY AGAIN", canvas.width / 2 - 80, canvas.height / 2 + 20);
+        if (bird.score !== 0) {
+
+            ctx.fillText('Score:' + bird.score, canvas.width / 2 - 30, canvas.height / 2 - 30);
+        }
+
+        ctx.fillText('PRESS ENTER TO PLAY', canvas.width / 2 - 60, canvas.height / 2 + 15);
 
     } else {
 
@@ -106,13 +110,23 @@ let gameLoop = () => {
     requestAnimationFrame(gameLoop);
 }
 
-let SpaceHandler = e => {
+let spaceHandler = e => {
     if (e.keyCode == 32) {
         bird.jumpBird();
     }
 }
+let enterHandler = e => {
+    if (e.keyCode == 13) {
+        isOver = false;
+        bird = new Bird();
+        frameCounter = 0;
+        pipesCollection = [];
+    }
+}
 
-document.addEventListener("keydown", SpaceHandler, false);
+document.addEventListener('keydown', spaceHandler, false);
+document.addEventListener('keydown', enterHandler, false);
+
 
 let bird = new Bird();
 let background = new Background();
