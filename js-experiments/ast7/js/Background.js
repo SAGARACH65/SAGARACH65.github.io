@@ -1,8 +1,8 @@
-var images = ['images/background.png', 'images/background1.png', 'images/background-day.png'];
+var images = ['images/background.png', 'images/background-day.png'];
 
 class Background {
     constructor() {
-        this.image = images[generateRandomNO(-1, 3)];
+        this.image = images[generateRandomNO(-1, 2)];
     }
 
     showBackgroundImage() {
