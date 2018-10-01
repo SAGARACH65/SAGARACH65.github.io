@@ -99,7 +99,7 @@ let gameLoop = () => {
         checkCollision();
 
         //we generate a new pipe at certain time
-        if (frameCounter % 110 === 0) {
+        if (frameCounter % 100 === 0) {
             generatePipe();
         }
     }

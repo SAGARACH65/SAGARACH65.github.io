@@ -6,7 +6,7 @@ class Pipes {
         this.bottom = this.top + this.spacing; //starting position of the bottom tile
         this.speed = 1.8;
         this.isPassed = false; // to update the score if the tile has been passed
-        this.x = canvas.width - 50;
+        this.x = canvas.width + 35;
         this.width = 35;
     }
 
