@@ -155,7 +155,9 @@ function Game(canvas_id) {
     }
 
     //handling user inputs
-    function keyDownHandler(e) {
+
+
+    this.keyDownHandler = function (e) {
         if (e.keyCode == 39) {
             isRightPressed = true;
         } else if (e.keyCode == 37) {
@@ -163,13 +165,15 @@ function Game(canvas_id) {
         }
     }
 
-    function keyUpHandler(e) {
+    this.keyUpHandler = function (e) {
         if (e.keyCode == 39) {
             isRightPressed = false;
         } else if (e.keyCode == 37) {
             isLeftPressed = false;
         }
     }
+
+
 
     var resetGame = function () {
         currentScore = 0;
@@ -180,8 +184,6 @@ function Game(canvas_id) {
 
     this.startGame = function () {
         LANE_DIVIDER_HEIGHT = (that.canvas.height / NO_OF_LANE_DIVIDERS) - LANE_DIVIDER_SPACING;
-        document.addEventListener('keydown', keyDownHandler, false);
-        document.addEventListener('keyup', keyUpHandler, false);
         document.getElementsByClassName('reset')[0].addEventListener('click', resetGame);
 
         //running the animation  for 60fps.
@@ -191,6 +193,13 @@ function Game(canvas_id) {
 
 var game1 = new Game('main-canvas');
 var game2 = new Game('second-canvas');
+
+document.addEventListener('keydown', game1.keyDownHandler, false);
+document.addEventListener('keyup', game1.keyUpHandler, false);
+
+document.addEventListener('keydown', game2.keyDownHandler, false);
+document.addEventListener('keyup', game2.keyUpHandler, false);
+
 
 game1.startGame();
 game2.startGame();
