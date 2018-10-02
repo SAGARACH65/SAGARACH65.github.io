@@ -14,7 +14,7 @@ class Bird {
 
     show() {
         drawImage(birdImages[currentIndex % 4], this.x, this.y, this.width, this.height);
-        if (count % 10 === 9) currentIndex++;
+        if (count % 15 === 14) currentIndex++;
         count++;
     }
 
