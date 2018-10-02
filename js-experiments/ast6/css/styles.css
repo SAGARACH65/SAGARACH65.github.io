@@ -2,13 +2,13 @@ body {
     background-color: #424242
 }
 
-#main-canvas {
+.canvas {
     background: #000;
-    display: block;
+    display: inline;
     margin: 0;
     width: 750px;
     height: 700px;
-    margin-left: 400px;
+ 
 }
 
 .button {

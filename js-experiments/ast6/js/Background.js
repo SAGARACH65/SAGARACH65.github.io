@@ -1,9 +1,11 @@
-function Background() {
+function Background(height,width) {
     var that = this;
     //checks the y position of the lane 
-    this.laneTracker = -canvas.height;
+    this.laneTracker = -height;
+    this.height=height;
+    this.width=width;
 
-    var drawSideLanes = function () {
+    var drawSideLanes = function (ctx) {
 
         // //this version is for moving side lanes
         // var currentY = that.laneTracker;
@@ -19,8 +21,8 @@ function Background() {
         // }
 
         // for static side lanes
-        drawRect(0, 0, LANE_X_POS[0] - 2, canvas.height, ' #C6C7CB');
-        drawRect(LANE_X_POS[3] + 4, 0, LANE_X_POS[0], canvas.height, ' #C6C7CB');
+        drawRect(0, 0, LANE_X_POS[0] - 2, height, ' #C6C7CB',ctx);
+        drawRect(LANE_X_POS[3] + 4, 0, LANE_X_POS[0], height, ' #C6C7CB',ctx);
     }
 
     /**
@@ -28,45 +30,45 @@ function Background() {
      * @param {number} x :the x coordinate of the individual lane 
      * @param {string} color: the color of the box to make(either yellow or white) 
      */
-    var drawIndividualLane = function (x, color) {
+    var drawIndividualLane = function (x, color,ctx) {
 
 
         var currentY = that.laneTracker;
         for (var i = 0; i < NO_OF_LANE_DIVIDERS * 2; i++) {
 
-            drawRect(x, currentY + x / 10, LANE_DIVIDER_WIDTH, LANE_DIVIDER_HEIGHT, color);
+            drawRect(x, currentY + x / 10, LANE_DIVIDER_WIDTH, LANE_DIVIDER_HEIGHT, color,ctx);
             currentY += LANE_DIVIDER_HEIGHT + LANE_DIVIDER_SPACING;
         }
         //for resetting the position of the lanes at certain intervals
-        if (that.laneTracker > 0) that.laneTracker = -canvas.height;
+        if (that.laneTracker > 0) that.laneTracker = - height;
 
     }
 
-    var drawLanes = function () {
+    var drawLanes = function (ctx) {
 
         //yellow separator between the left sideLane and the road
-        drawIndividualLane(LANE_X_POS[0], '#B89E4A');
+        drawIndividualLane(LANE_X_POS[0], '#B89E4A',ctx);
 
         //the white separators between lanes making the 3 lanes
-        drawIndividualLane(LANE_X_POS[1], 'white');
-        drawIndividualLane(LANE_X_POS[2], 'white');
+        drawIndividualLane(LANE_X_POS[1], 'white',ctx);
+        drawIndividualLane(LANE_X_POS[2], 'white',ctx);
 
         //yellow separator between the right sideLane and the road
-        drawIndividualLane(LANE_X_POS[3], '#B89E4A');
+        drawIndividualLane(LANE_X_POS[3], '#B89E4A',ctx);
     }
 
-    var drawBackground = function () {
+    var drawBackground = function (ctx) {
         //setting th background color of the canvass
         ctx.fillStyle = '#333335';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, width, height);
 
     }
-    this.draw = function () {
+    this.draw = function (ctx) {
 
-        drawBackground();
-        drawLanes();
+        drawBackground(ctx);
+        drawLanes(ctx);
         //things that are present at the side of the road
-        drawSideLanes();
+        drawSideLanes(ctx);
         this.laneTracker += 1.5;
     }
 };

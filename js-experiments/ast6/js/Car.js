@@ -7,8 +7,8 @@ function Car(x, y, speed, src) {
     this.src = src;
     this.speed = speed;
 
-    this.draw = function () {
-        drawImage(this.src, this.x, this.y, this.width, this.height);
+    this.draw = function (ctx) {
+        drawImage(this.src, this.x, this.y, this.width, this.height,ctx);
     }
 
     //used only by the enemy car 
