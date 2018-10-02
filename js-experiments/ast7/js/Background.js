@@ -1,4 +1,4 @@
-var images = ['images/background.png', 'images/background-day.png'];
+const images = ['images/background.png', 'images/background-day.png'];
 
 class Background {
     constructor() {
