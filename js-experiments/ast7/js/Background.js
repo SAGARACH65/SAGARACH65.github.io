@@ -1,14 +1,15 @@
-const IMAGES = ['images/background.png', 'images/background-day.png', 'images/background2.png'];
+// const IMAGES = ['images/background.png', 'images/background-day.png', 'images/background2.png'];
 
+const IMAGE = 'images/background2.png';
 class Background {
     constructor(canvasHeight, canvasWidth) {
-        this.image = IMAGES[generateRandomNO(-1, 3)];
+        this.image = IMAGE;
         this.canvasHeight = canvasHeight;
         this.canvasWidth = canvasWidth;
     }
 
     showBackgroundImage(ctx) {
-       // console.log(this.canvasHeight);
+        // console.log(this.canvasHeight);
         drawImage(this.image, 0, 0, this.canvasWidth, this.canvasHeight, ctx)
     }
 
