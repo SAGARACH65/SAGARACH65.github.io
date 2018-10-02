@@ -32,7 +32,6 @@ function Background(height,width) {
      */
     var drawIndividualLane = function (x, color,ctx) {
 
-
         var currentY = that.laneTracker;
         for (var i = 0; i < NO_OF_LANE_DIVIDERS * 2; i++) {
 
