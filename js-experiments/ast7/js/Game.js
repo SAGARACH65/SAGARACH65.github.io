@@ -13,6 +13,7 @@
          this.bird;
          this.background;
 
+     
          this.setup = this.setup.bind(this);
          this.gameLoop = this.gameLoop.bind(this);
          this.showElements = this.showElements.bind(this);
@@ -89,7 +90,7 @@
      }
 
      generatePipe() {
-         this.pipesCollection.push(new Pipes(this.canvas.height,this.canvas.width));
+         this.pipesCollection.push(new Pipes(this.canvas.height, this.canvas.width));
      }
 
      gameLoop() {

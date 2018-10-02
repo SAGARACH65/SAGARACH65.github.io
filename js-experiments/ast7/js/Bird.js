@@ -12,13 +12,28 @@ class Bird {
         this.velocity = 0;
         this.width = 30;
         this.height = 11;
-
+        // this.degrees=0;
     }
 
     show(ctx) {
+        this.degrees = this.velocity*2.4;
+        ctx.save();
+
+        // // move to the center of the canvas
+        // ctx.translate(this.x, this.y);
+
+        // // rotate the canvas to the specified degrees
+        ctx.rotate(this.degrees * Math.PI / 180);
+
         drawImage(BIRD_IMAGES[currentIndex % 4], this.x, this.y, this.width, this.height, ctx);
         if (count % 15 === 14) currentIndex++;
         count++;
+
+
+        // we’re done with the rotating so restore the unrotated context
+        ctx.restore();
+
+
     }
 
     updatePerGravity() {
