@@ -2,9 +2,10 @@
     background: #000;
     display: block;
     margin: 0 auto;
-    width: 460px;
+    width: 500px;
     height: 720px;
 }
-body{
-background-color: #424242;
+
+body {
+    background-color: #424242;
 }
