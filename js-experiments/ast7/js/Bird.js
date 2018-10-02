@@ -19,9 +19,6 @@ class Bird {
         this.degrees = this.velocity*2.4;
         ctx.save();
 
-        // // move to the center of the canvas
-        // ctx.translate(this.x, this.y);
-
         // // rotate the canvas to the specified degrees
         ctx.rotate(this.degrees * Math.PI / 180);
 

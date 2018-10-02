@@ -25,6 +25,10 @@ body {
     border-radius: 8px;
     position: fixed;
 }
+.game-info{
+    margin-top:720px;
+    margin-left:500px;
+}
 
 .score {
     margin-top: 100px;

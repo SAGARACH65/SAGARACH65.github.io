@@ -12,7 +12,6 @@ var PROTAGONIST_SPEED = 4;
 var OPPONENT_CAR_IMAGES = ['images/car2.png', 'images/car3.png', 'images/car1.png', 'images/car5.png'];
 var LANE_DIVIDER_HEIGHT;
 
-
 function Game(canvas_id) {
     var that = this;
     this.canvas = document.getElementsByClassName(canvas_id)[0];
@@ -157,7 +156,7 @@ function Game(canvas_id) {
     //handling user inputs
 
 
-    this.keyDownHandler = function (e) {
+    this.rightSideKeyDownHandlerKey = function (e) {
         if (e.keyCode == 39) {
             isRightPressed = true;
         } else if (e.keyCode == 37) {
@@ -165,14 +164,28 @@ function Game(canvas_id) {
         }
     }
 
-    this.keyUpHandler = function (e) {
+    this.rightSideKeyUpHandlerKey = function (e) {
         if (e.keyCode == 39) {
             isRightPressed = false;
         } else if (e.keyCode == 37) {
             isLeftPressed = false;
         }
     }
+    this.leftSideKeyDownHandler = function (e) {
+        if (e.keyCode == 68) {
+            isRightPressed = true;
+        } else if (e.keyCode == 65) {
+            isLeftPressed = true;
+        }
+    }
 
+    this.leftSideKeyUpHandler = function (e) {
+        if (e.keyCode == 68) {
+            isRightPressed = false;
+        } else if (e.keyCode == 65) {
+            isLeftPressed = false;
+        }
+    }
 
 
     var resetGame = function () {
@@ -191,14 +204,16 @@ function Game(canvas_id) {
     }
 }
 
-var game1 = new Game('main-canvas');
+
 var game2 = new Game('second-canvas');
+var game1 = new Game('main-canvas');
 
-document.addEventListener('keydown', game1.keyDownHandler, false);
-document.addEventListener('keyup', game1.keyUpHandler, false);
+document.addEventListener('keydown', game2.leftSideKeyDownHandler, false);
+document.addEventListener('keyup', game2.leftSideKeyUpHandler, false);
 
-document.addEventListener('keydown', game2.keyDownHandler, false);
-document.addEventListener('keyup', game2.keyUpHandler, false);
+document.addEventListener('keydown', game1.rightSideKeyDownHandlerKey, false);
+document.addEventListener('keyup', game1.rightSideKeyUpHandlerKey, false);
+
 
 
 game1.startGame();
