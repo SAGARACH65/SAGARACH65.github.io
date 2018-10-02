@@ -1,25 +1,28 @@
-const gravity = 0.05;
-const birdImages = ['images/bird1_1.png', 'images/bird2.png', 'images/bird3.png', 'images/bird4.png'];
+const GRAVITY = 0.05;
+const BIRD_IMAGES = ['images/bird1_1.png', 'images/bird2.png', 'images/bird3.png', 'images/bird4.png'];
 let count = 0;
 let currentIndex = 0;
 class Bird {
-    constructor() {
+    constructor(canvasHeight, canvasWidth) {
         this.x = 50;
-        this.y = canvas.height / 2 - 30;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.y = canvasHeight / 2 - 30;
         this.score = 0;
         this.velocity = 0;
         this.width = 30;
         this.height = 11;
+
     }
 
-    show() {
-        drawImage(birdImages[currentIndex % 4], this.x, this.y, this.width, this.height);
+    show(ctx) {
+        drawImage(BIRD_IMAGES[currentIndex % 4], this.x, this.y, this.width, this.height, ctx);
         if (count % 15 === 14) currentIndex++;
         count++;
     }
 
     updatePerGravity() {
-        this.velocity += gravity;
+        this.velocity += GRAVITY;
         this.y += this.velocity;
     }
 
@@ -32,7 +35,7 @@ class Bird {
     }
 
     checkBottomCollision() {
-        if (this.y + 11 > canvas.height - 14) {
+        if (this.y + 11 > this.canvasHeight - 14) {
             this.velocity = 0;
             isOver = true;
         }
@@ -47,7 +50,7 @@ class Bird {
         this.score++;
     }
 
-    showScore() {
-        ctx.fillText('Score:' + this.score, canvas.width - 50, 10);
+    showScore(ctx) {
+        ctx.fillText('Score:' + this.score, this.canvasWidth - 50, 10);
     }
 }
