@@ -1,9 +1,26 @@
 ﻿
+@font-face {
+    font-family: Playfair Display;
+    src: url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.eot");
+    src: local(Playfair Display), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.woff") format('woff'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.woff2") format('woff2'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.eot?#iefix") format('embedded-opentype'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.ttf") format('truetype'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.svg#PlayfairDisplay_italic") format('svg');
+    font-style: italic;
+    font-weight: lighter;
+  }
+ 
+  @font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato_regular.eot");
+    src: local(Lato), url("../fonts/Lato/Lato_regular.woff") format('woff'), url("../fonts/Lato/Lato_regular.woff2") format('woff2'), url("../fonts/Lato/Lato_regular.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato/Lato_regular.ttf") format('truetype'), url("../fonts/Lato/Lato_regular.svg#Lato_regular") format('svg');
+    font-style: normal;
+    font-weight: lighter;
+  }
 
+  
 .right-header-content options {
-    margin-left: 2.5px;
-    font-size: 12px;
+  
+    font-size: 11px;
     color: black;
+    font-family:"Playfair Display";
 }
 
 .right-header-content .options li {
@@ -16,23 +33,28 @@
     margin-left:80px;   
     
 }
-.bottom-left-header-content options {
+.bottom-left-header-content options-bot {
     margin-left: 2.5px;
     color: black;
    
 }
 
-.bottom-left-header-content .options li {
+.bottom-left-header-content .options-bot li {
     display: inline;
     font-size: 18px;
-    margin-right:13px;
+    margin-right:18px;
     
 }
 .options li :hover {
     color: white;
 }
-.options a {
+.options li a {
     color: black;
+    font-family: "Lato"
+}
+.options-bot li a {
+    color: black;
+    font-family: "Playfair Display"
 }
 
 
@@ -40,6 +62,7 @@
     font-size: 12px;
     float:right;
     margin-left: 14px;
+   
 }
 
 .logo{
@@ -61,6 +84,10 @@ ul {
     position: absolute;
 
 }
+.triangle-img{
+    position:absolute;
+    margin-left:538px;  
+}
 
 .slider li {
     float: left;
@@ -79,4 +106,100 @@ ul {
     margin-right:9px;
     display: inline-block;
     background-image: url("../images/nav-white.png");
+}
+.header-right .social-options-header li {
+    display: inline;
+    line-height: 31px;
+}
+.social-options-header{
+    display:inline;
+   
+}   
+button{
+    float:right; 
+    margin-right:9px;
+    widows: 20.87%
+}
+
+.list {
+	display: block;
+	list-style: none;
+}
+.currency-selector__list {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+.currency-selector__value_display_block {
+	display: block;
+}
+
+.support__icon_shipping {
+	left: 7.4419%;
+	width: 38px;
+	height:38px;
+	max-width: 38px;
+	max-height: 38px;
+	background-image: url("../images/shipping.png");
+}
+.support__text {
+	font-size: 29px;
+	font-weight: 600;
+    line-height: 1.6;
+    font-family:Lato;
+    margin-right:110px;
+   
+    float:right;
+	text-transform: uppercase;
+}
+.support__text_sm {
+	padding-left: 5px;
+    font-size: 14px;
+    font-family:Lato;
+    float:right;
+    margin-right:185px;
+   
+	line-height: 1.7143;
+	text-transform: capitalize;
+}
+.support__icon_shipping {
+	/* left: 7.4419%; */
+	width: 2.37em;
+    height: 2.37em;
+    display: inline-block;
+    max-width: 38px;
+    margin-left:32px;   
+    margin-top:12px;
+	max-height: 38px;
+	background-image: url("../images/shipping.png");
+}
+.support__icon_return {
+	/* left: 14.4737%; */
+    width: 2.56em;
+    display: inline-block;
+	height: 2.62em;
+    max-width: 41px;
+   
+	max-height: 42px;
+	background-image: url("../images/return.png");
+}
+.support__icon_support {
+	top: 1.37em;
+	/* left: 15.3488%; */
+    width: 3em;
+    display: inline-block;
+	height: 3.06em;
+	max-width: 48px;
+	max-height: 49px;
+	background-image: url("../images/support.png");
+}
+.support__icon {
+	/* position: absolute; */
+	top: 1.67em;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }

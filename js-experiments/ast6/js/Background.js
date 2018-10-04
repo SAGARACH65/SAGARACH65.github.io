@@ -9,6 +9,7 @@ function Background(height,width) {
 
         // //this version is for moving side lanes
         // var currentY = that.laneTracker;
+        // var currentY = that.laneTracker;
         // for (var i = 0; i < 8; i++) {
         //     //drawing side-left lane
         //     drawRect(0, currentY, LANE_X_POS[0] - 2, 20, ' #388E3C');

@@ -87,7 +87,6 @@ var drawDotNavigation = function () {
 }
 
 
-
 var mainLoop;
 var runMainInterval = function () {
     isAnimationRunning = false;
