@@ -15,9 +15,7 @@
     font-weight: lighter;
   }
 
-  
 .right-header-content options {
-  
     font-size: 11px;
     color: black;
     font-family:"Playfair Display";
@@ -36,18 +34,21 @@
 .bottom-left-header-content options-bot {
     margin-left: 2.5px;
     color: black;
-   
 }
 
 .bottom-left-header-content .options-bot li {
     display: inline;
     font-size: 18px;
-    margin-right:18px;
-    
+    margin-right:18px;   
 }
+
 .options li :hover {
     color: white;
 }
+.phn-img{
+    float:left;
+}
+
 .options li a {
     color: black;
     font-family: "Lato"
@@ -60,9 +61,8 @@
 
 .phn-no{
     font-size: 12px;
-    float:right;
+    float:left;
     margin-left: 14px;
-   
 }
 
 .logo{
@@ -125,7 +125,7 @@ button{
 	display: block;
 	list-style: none;
 }
-.currency-selector__list {
+.currency-selector-list {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -133,11 +133,11 @@ button{
 	height: 100%;
 	z-index: 100;
 }
-.currency-selector__value_display_block {
+.currency-selector-value_display_block {
 	display: block;
 }
 
-.support__icon_shipping {
+.support-icon_shipping {
 	left: 7.4419%;
 	width: 38px;
 	height:38px;
@@ -145,7 +145,7 @@ button{
 	max-height: 38px;
 	background-image: url("../images/shipping.png");
 }
-.support__text {
+.support-text {
 	font-size: 29px;
 	font-weight: 600;
     line-height: 1.6;
@@ -155,7 +155,7 @@ button{
     float:right;
 	text-transform: uppercase;
 }
-.support__text_sm {
+.support-text_sm {
 	padding-left: 5px;
     font-size: 14px;
     font-family:Lato;
@@ -165,8 +165,7 @@ button{
 	line-height: 1.7143;
 	text-transform: capitalize;
 }
-.support__icon_shipping {
-	/* left: 7.4419%; */
+.support-icon_shipping {
 	width: 2.37em;
     height: 2.37em;
     display: inline-block;
@@ -176,17 +175,16 @@ button{
 	max-height: 38px;
 	background-image: url("../images/shipping.png");
 }
-.support__icon_return {
+.support-icon_return {
 	/* left: 14.4737%; */
     width: 2.56em;
     display: inline-block;
 	height: 2.62em;
     max-width: 41px;
-   
 	max-height: 42px;
 	background-image: url("../images/return.png");
 }
-.support__icon_support {
+.support-icon_support {
 	top: 1.37em;
 	/* left: 15.3488%; */
     width: 3em;
@@ -196,10 +194,34 @@ button{
 	max-height: 49px;
 	background-image: url("../images/support.png");
 }
-.support__icon {
+.support-icon {
 	/* position: absolute; */
 	top: 1.67em;
 	left: 0;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+}
+
+.featured-col{
+    width: 31.0078%;
+}
+.container {
+	display: block;
+	margin: 0 auto;
+	padding-left: 75px;
+	padding-right: 75px;
+}
+
+.title-text {
+	
+	padding-left: 10px;
+	padding-right: 170px;
+	font-family: 'Playfair Display', serif;
+	font-size: 29.6px;
+	font-style: italic;
+	line-height: 34px;
+	font-weight: 700;
+    background: url("../images/bg.jpg") ;
+    background-repeat: no-repeat;
+    background-size: auto;
 }

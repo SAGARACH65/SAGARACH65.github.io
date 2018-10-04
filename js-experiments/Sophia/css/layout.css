@@ -29,10 +29,9 @@ body {
     margin:auto;
 }
 .left-info {
-    width: 8.29994444%;
+    width: 9.49994444%;
     float: left;
     margin-left:80px;
-  
 }
 
 .right-header-content{
@@ -66,10 +65,34 @@ body {
 .main-container{
     margin-bottom:66px;
 }
+
 .container{
-    width:100%;
-    
+    width:90em;
 }
+
+.container-handpicked{
+    width:90em; 
+    margin: auto;
+
+}
+.main-handpicked-container{
+    margin: auto;
+}
+ .sub-container-first{
+margin-right:14px;
+margin-left: 108px;
+display:inline-block;
+}
+
+.sub-container-second{
+    margin-right:14px;
+    margin-top:20px;
+    display:inline-block;
+    }
+     .sub-container-third{
+        margin-right:10px;
+        display:inline-block;
+        }
 .site-info{
     width:89.5833333333%;
     margin:auto;
@@ -87,21 +110,21 @@ body {
   
 }
 
-.support__item_shipping {
+.support-item_shipping {
     flex:31.19388;
     
     background-size: contain; 
 	/* padding-left: 98px; */
 	background-image: url("../images/support-left.png");
 }
-.support__item_return {
+.support-item_return {
     flex:32.25; 
     /* padding-left: 119px; */
     background-size: contain; 
     /* padding-left: 28.0702%; */
 	background-image: url("../images/support-center.png");
 }
-.support__item_support {
+.support-item_support {
     padding-left: 28px;
     /* padding-left: 140px; */
     flex:29.819444;
@@ -116,6 +139,57 @@ body {
     /* background-size: 100% 100%; */
     
 }
+.featured-item{
+    margin-bottom: 3.25%;
+}
+.title-super{
+    width:auto;
+}
 
+.title {
+    width:90em;
+    margin:auto;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 41px;
+	}
 
+.container {
+	display: block;
+	margin: 0 auto;
+	padding-left: 75px;
+	padding-right: 75px;
+}
+.title-container {
+   
+}
+.container {
+	display: flex;
+	margin: 0 auto;
+	margin-left: 75px;
+    margin-right: 75px;
+    
+}
 
+.summer-collection-container {
+    padding-top: 28px;
+    margin: auto;
+}
+
+.collection {
+	display: block;
+    margin: 0 auto;
+    margin-top:5px;
+	padding-left: 75px;
+	padding-right: 75px;
+}
+.container-collection{
+    width:70em;
+}
+
+.products {
+    margin-top: 0;
+    
+    padding: 15px 15px 0;
+    border: 1px solid #f2f2f2;
+}
