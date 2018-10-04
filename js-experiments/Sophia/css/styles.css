@@ -225,3 +225,55 @@ button{
     background-repeat: no-repeat;
     background-size: auto;
 }
+
+.product {
+	position: relative;
+	/* display: block; */
+    width: 100%;
+    padding-bottom: 116.66%;
+	overflow: hidden;
+}
+.products-item .product .product-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 100%;
+}
+.button {
+	display: inline-block;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	background-color: #f2a471;
+	border: 1px solid transparent;
+	cursor: pointer;
+	
+}
+.product-button_cart {
+	bottom: 0;
+	padding: 0.71em 0.57em 0.28em;
+	background-color: #000;
+}
+.product__sale_percent {
+	margin-left: -0.36em;
+	font-size: 11px;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.testimonial__text {
+	font-family: 'Playfair Display', serif;
+	font-size: 1.125em;
+	font-style: italic;
+	line-height: 1.6667;
+	color: #fff;
+}
+.testimonial__text {
+	font-family: 'Playfair Display', serif;
+	font-size: 1.125em;
+	font-style: italic;
+	line-height: 1.6667;
+	color: #fff;
+}
