@@ -7,13 +7,15 @@ body {
     width: 701px;
     height: 501px;
     position: relative;
-    margin-left: 420px
+    margin-left: 420px;
+    overflow:hidden;
 }
 
 .slider {
     width: 3000px;
     list-style: none;
     position: absolute;
+    overflow:hidden;
 
 }
 

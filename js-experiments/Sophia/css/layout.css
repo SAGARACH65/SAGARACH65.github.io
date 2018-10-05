@@ -206,7 +206,6 @@ display:inline-block;
 .container-main .container{
     width:90em;
     padding-left: 40px;
-	padding-right: 75px;
 }
 .col-1-6 {
 	width: 14.367%;
@@ -406,8 +405,8 @@ text-align: center;
 .footer__block_bottom .container {
 	display: block;
 	margin: 0 auto;
-	padding-left: 75px;
-	padding-right: 75px;
+	padding-left: 40px;
+	
 }
 .copyright {
 	font-size: 11px;
