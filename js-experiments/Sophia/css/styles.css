@@ -77,6 +77,9 @@ content:"";
     float:left;
     margin-left: 14px;
 }
+.collection-column{
+    display: inline-block;
+}
 
 .logo{
     display:inline;  
@@ -131,7 +134,7 @@ ul {
 button{
     float:right; 
     margin-right:9px;
-    widows: 20.87%
+    width: 20.87%
 }
 
 .list {
@@ -232,12 +235,19 @@ margin-top:10px;
 .featured-col{
     width: 31.0078%;
 }
+
 .container {
 	display: block;
     margin: 0 auto;
     width:90em;
 	padding-left: 40px;
 	
+}
+.container-brands{
+    width: 90em;
+padding-left: 189px;
+margin:auto;
+padding-top:68px;
 }
 
 .title-text {
@@ -253,19 +263,70 @@ margin-top:10px;
     background-size: auto;
 }
 
+
+.products {
+    margin-top: 0;
+    padding: 15px 15px 0px 0px;
+    /* border: 1px solid #f2f2f2; */
+}
+
+
+.collection {
+	display: block;
+    margin: 0 auto;
+    margin-top:5px;
+    
+	padding-left: 75px;
+	padding-right: 75px;
+}
+
+.collection-container{
+   width:90em;
+   margin:auto;
+}
+.collection-list li{
+    margin-bottom: 15px;
+}
+.collection-list{
+    width: 24.8095%;
+
+}
+
+/* .product-sale {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	width: 2.73em;
+	height: 2.73em;
+	max-width: 60px;
+	max-height: 60px;
+	padding: 3.33%;
+	font-size: 22px;
+	line-height: 1.8182;
+	color: #fff;
+	text-align: right;
+	white-space: nowrap;
+	background-color: #feb42e;
+	border-radius: 50%;
+} */
+
 .product {
 	position: relative;
-	/* display: block; */
+	
     width: 100%;
     padding-bottom: 116.66%;
 	overflow: hidden;
 }
+.summer-collection-container .product{
+    display: block;
+}
 .products-item .product .product-img {
 	position: absolute;
 	top: 0;
-	left: 0;
-	min-width: 100%;
-	height: 100%;
+	left: 0;   
+}
+.product-button-wrapper{
+    position:absolute;
 }
 .button {
 	display: inline-block;
