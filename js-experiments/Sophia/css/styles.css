@@ -21,6 +21,19 @@
     font-family:"Playfair Display";
 }
 
+.options a:hover{
+    text-decoration: underline;
+  }
+  
+  .options li::after{
+    content: "|";
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+  .options li:last-child:after{
+content:"";
+  }
+
 .right-header-content .options li {
     display: inline;
     font-size: 12px;
@@ -147,59 +160,73 @@ button{
 }
 .support-text {
 	font-size: 29px;
-	font-weight: 600;
     line-height: 1.6;
     font-family:Lato;
-    margin-right:110px;
-   
+    /* margin-right:110px; */
     float:right;
 	text-transform: uppercase;
 }
+.support-item_shipping .support-text{
+    margin-right:128px;
+}
+.support-item_return .support-text{
+    margin-right:74px; 
+}
+.support-item_support .support-text{
+    margin-right:94px;
+}
+
+
 .support-text_sm {
 	padding-left: 5px;
     font-size: 14px;
     font-family:Lato;
     float:right;
-    margin-right:185px;
    
-	line-height: 1.7143;
-	text-transform: capitalize;
+	line-height: 0.8;
 }
+.support-item_shipping .support-text_sm{
+    margin-right:213px;
+}
+.support-item_return .support-text_sm{
+    margin-right:182px; 
+    margin-top:-10px;
+}
+.support-item_support .support-text_sm{
+    margin-right:184px;
+    margin-top:-10px;
+}
+
+
 .support-icon_shipping {
-	width: 2.37em;
-    height: 2.37em;
+	width: 38px;
+    height: 38px;
     display: inline-block;
-    max-width: 38px;
-    margin-left:32px;   
+     margin-left:32px;   
     margin-top:12px;
-	max-height: 38px;
 	background-image: url("../images/shipping.png");
 }
 .support-icon_return {
-	/* left: 14.4737%; */
-    width: 2.56em;
+    margin-left: 61px;
+    margin-top:16px;
+    width: 41px;
     display: inline-block;
-	height: 2.62em;
-    max-width: 41px;
-	max-height: 42px;
-	background-image: url("../images/return.png");
+	height: 41px;
+  	background-image: url("../images/return.png");
 }
 .support-icon_support {
-	top: 1.37em;
-	/* left: 15.3488%; */
-    width: 3em;
+    margin-left: 70px;
+margin-top:10px;
+    width: 48px;
     display: inline-block;
-	height: 3.06em;
-	max-width: 48px;
-	max-height: 49px;
+	height: 49px;
 	background-image: url("../images/support.png");
 }
 .support-icon {
 	/* position: absolute; */
-	top: 1.67em;
+	top: 27px;
 	left: 0;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
 }
 
 .featured-col{
@@ -207,15 +234,15 @@ button{
 }
 .container {
 	display: block;
-	margin: 0 auto;
-	padding-left: 75px;
-	padding-right: 75px;
+    margin: 0 auto;
+    width:90em;
+	padding-left: 40px;
+	
 }
 
 .title-text {
 	
-	padding-left: 10px;
-	padding-right: 170px;
+	margin-right:95px;
 	font-family: 'Playfair Display', serif;
 	font-size: 29.6px;
 	font-style: italic;

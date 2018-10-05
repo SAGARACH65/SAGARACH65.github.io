@@ -80,10 +80,13 @@ body {
 }
  .sub-container-first{
 margin-right:14px;
-margin-left: 108px;
+margin-left: 69px;
 display:inline-block;
 }
 
+.body{
+    margin:auto;
+}
 .sub-container-second{
     margin-right:14px;
     margin-top:20px;
@@ -93,41 +96,38 @@ display:inline-block;
         margin-right:10px;
         display:inline-block;
         }
-.site-info{
-    width:89.5833333333%;
-    margin:auto;
-    padding-left:75px;
-    padding-right:75px;
-    /* position:relative; */
-}
+
 .support-col{
-    width:100%;
-    
-   display:flex;
-}
-.support-col li{
-    width:31.25%;
-  
+   width:100%;
+   margin-left: 38px;
+   position: relative;
 }
 
+
 .support-item_shipping {
-    flex:31.19388;
-    
+    display: inline-block;
+    width:30.15%;
     background-size: contain; 
 	/* padding-left: 98px; */
-	background-image: url("../images/support-left.png");
+    margin-left:35px;
+    background-image: url("../images/support-left.png");
 }
 .support-item_return {
-    flex:32.25; 
+    width:31.35%;
+    position:absolute;
+    top:1px;    
+    left:454px;
     /* padding-left: 119px; */
     background-size: contain; 
     /* padding-left: 28.0702%; */
 	background-image: url("../images/support-center.png");
 }
 .support-item_support {
-    padding-left: 28px;
+    width:30.15%;
+    left:892px;
+    display: inline-block;
+    position: absolute;
     /* padding-left: 140px; */
-    flex:29.819444;
 	background-image: url("../images/support-right.png");
 }
 .support-item {
@@ -140,7 +140,7 @@ display:inline-block;
     
 }
 .featured-item{
-    margin-bottom: 3.25%;
+    margin-bottom: 16px;
 }
 .title-super{
     width:auto;
@@ -150,28 +150,38 @@ display:inline-block;
     width:90em;
     margin:auto;
 	text-align: center;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	}
+	padding-top: 60px;
+    padding-bottom: 43px;
+   
+    }
+/*     
+    .HandPicked-title{
+        font-family:"Playfair Display";
+        font-size: 29.58px;
+        background:url('../images/bg.jpg');
+        text-align: center;
+        margin-left: 72px;
+        background-repeat: no-repeat;
+        width: 1298px;
+       
+       } */
     .brands__title {
         margin-bottom: 61px;
     }
-.container {
-	display: block;
-	margin: 0 auto;
-	padding-left: 75px;
-	padding-right: 75px;
+
+    .site-info{  
+        display: block;
+        margin:0 auto;
+        /* position:relative; */
+    }
+
+.site-info-container {
+        width: 90em;
+        margin:auto;
+        /*  */
 }
-.title-container {
-   
-}
-.container {
-	display: flex;
-	margin: 0 auto;
-	margin-left: 75px;
-    margin-right: 75px;
-    
-}
+
+
 
 .summer-collection-container {
     padding-top: 28px;
@@ -231,7 +241,7 @@ margin-right:15px;
 	
 }
 .container-main .container{
-    width:70em;
+    width:90em;
     padding-left: 75px;
 	padding-right: 75px;
 }
