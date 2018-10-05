@@ -13,7 +13,7 @@ body {
 
 .slider {
     width: 3000px;
-    list-style: none;
+    list-style: none; 
     position: absolute;
     overflow:hidden;
 
