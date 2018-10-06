@@ -257,11 +257,14 @@ margin-top:10px;
 }
 .container-brands{
     width: 90em;
-padding-left: 79px;
+/* padding-left: 79px; */
 margin:auto;
 padding-top:68px;
 }
-
+.container-brands-inner{
+    float:right;
+    padding-right: 129px;   
+}
 .title-text {
 	
 	margin-right:95px;
@@ -309,10 +312,32 @@ padding-top:68px;
 .testimonial__author-name {
 	margin-top: 1.6em;
 	font-family: 'Playfair Display', serif;
-	font-size: 30px;
+    font-size: 30px;
+    font-weight:900;    
 	font-style: italic;
 	color: #000;
 	
+}
+.horizontal-line {
+	position: relative;
+	margin-bottom: 1.62em;
+	border: none;
+	border-bottom: 1px solid #363636;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+.horizontal-line::after {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 24px;
+	height: 10px;
+	margin-left: -12px;
+	content: '';
+	background: url("../images/footer-triangle.png") no-repeat;
 }
 
 .testimonial__author-job {

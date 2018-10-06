@@ -157,6 +157,7 @@ display:inline-block;
 	padding-top: 60px;
     padding-bottom: 52px;
     }
+
 /*     
     .HandPicked-title{
         font-family:"Playfair Display";
@@ -211,11 +212,12 @@ display:inline-block;
     padding-left: 40px;
 }
 .col-1-6 {
-	width: 14.367%;
+    width: 16.30%;
 }
 .brands__column {
 	display: inline-block;
-	float: none;
+    float: none;
+  
 	vertical-align: middle;
 }
 
@@ -223,7 +225,7 @@ display:inline-block;
 	width: 100%;
 	text-align: center;
 	padding-left: 15px;
-	padding-right: 15px;
+	padding-right: 54px;
 	overflow: hidden;
 }
 .main__row_testimonials {
@@ -241,7 +243,7 @@ display:inline-block;
     width:90em;
     margin: 0 auto;
    display:block;
-   background-color: #d9bf8f;
+   background: url('../images/Rectangle25.png');
    
 }
 .testimonials__container .inner-container{
@@ -385,14 +387,19 @@ a {
 	font-size: 0.75em;
     color: #363636;
     color:white;
+    border-radius: 0;
+box-shadow: none;
 	background-color: #141414;
 	border: none;
 }
 .form__button {
     padding:0.75em 0.6em;
     line-height:5px;
-margin-top:-5px;
+margin-top:-22px;
 text-align: center;
+border: 1px solid transparent;
+white-space: nowrap;
+cursor: pointer;
     font-size: 0.75em;
 	color: #fff;
 	background-color: #363636;
@@ -418,7 +425,9 @@ text-align: center;
 .footer__block_bottom .container {
 	display: block;
 	margin: 0 auto;
-	padding-left: 40px;
+    padding-left: 75px;
+    margin-right:40px;
+    width: 93%;
 	
 }
 .copyright {
@@ -432,8 +441,8 @@ text-align: center;
 	float: left;
 	width: 40px;
 	height: 40px;
-	margin-top: -34px;
-	margin-left: 1300px;
+	margin-top: -23px;
+margin-left: 1259px;
     background: url('../images/arrow-up.png');
     background-repeat: no-repeat;
 }
