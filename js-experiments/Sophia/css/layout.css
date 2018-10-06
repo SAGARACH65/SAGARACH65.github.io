@@ -50,12 +50,13 @@ body {
     position: relative;
 }    
 .header-right{
-    float:left;
+    float:right;
     width:21.875%;
-    margin-right:21px;
+    margin-right: 79px;
     margin-top:12px;
-    margin-left:200px;
-    display:inline;
+   
+    /* display:inline; */
+    position:relative;
   
 }
 .header-right .social-options-header li{
@@ -389,7 +390,7 @@ a {
     color:white;
     border-radius: 0;
 box-shadow: none;
-	background-color: #141414;
+	background-color: #000;
 	border: none;
 }
 .form__button {
@@ -441,12 +442,15 @@ cursor: pointer;
 	float: left;
 	width: 40px;
 	height: 40px;
-	margin-top: -23px;
-margin-left: 1259px;
+	margin-top: -33px;
+    margin-left: 1246px;
     background: url('../images/arrow-up.png');
     background-repeat: no-repeat;
+    background-position:center;
 }
-
+.arrow-up:hover{
+    background-color: #363636; 
+}
 .payments{
     margin-top:20px;
 }

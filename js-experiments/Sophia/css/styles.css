@@ -34,6 +34,46 @@
 content:"";
   }
 
+
+  .currency-selector-value{
+   display: none;
+	padding-left: 1.16em;
+	padding-right: 2.5em;
+	padding-top: 0.83em;
+	padding-bottom: 0.83em;
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1.25;
+	color: #fff;
+	text-align: left;
+	text-transform: uppercase;
+    background-color: #000;
+  
+}
+.currency-selector-value::after {
+    position: absolute;
+    top: 1em;
+    right: 0.625em;
+    width: 8px;
+    height: 4px;
+    content: '';
+    background: url("../images/down.png") no-repeat;
+    z-index: 101;
+  }
+  
+  .currency-selector-list:hover .currency-selector-value {
+    display: block;
+    cursor: pointer;
+  }
+.main-currency-selector{
+    display:block;
+}
+
+.currency-selector-value:hover {
+
+    background-color: #363636;
+    
+}
 .right-header-content .options li {
     display: inline;
     font-size: 12px;
@@ -61,6 +101,7 @@ content:"";
 }
 .phn-img{
     float:left;
+    margin-top: 4px;
 }
 
 .options li a {
@@ -141,7 +182,7 @@ ul {
 }
 .social-options-header{
     display:inline;
-   
+  
 }   
 button{
     float:right; 
@@ -155,14 +196,12 @@ button{
 }
 .currency-selector-list {
 	position: absolute;
-	top: 0;
+    top: 4px;
+left: 228px;
 	bottom: 0;
-	width: 100%;
+    width: 28%;
 	height: 100%;
-	z-index: 100;
-}
-.currency-selector-value_display_block {
-	display: block;
+
 }
 
 .support-icon_shipping {
