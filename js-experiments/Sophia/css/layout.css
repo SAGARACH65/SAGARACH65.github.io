@@ -212,10 +212,10 @@ display:inline-block;
     width:90em;
     padding-left: 40px;
 }
-.col {
+.col-1-6 {
     width: 16.30%;
 }
-.brands-column {
+.brands__column {
 	display: inline-block;
     float: none;
   
@@ -341,7 +341,7 @@ display:inline-block;
     padding-right: 8px;
 
 }
-.menu-group-title {
+.menu-group__title {
 	margin-bottom: 2.375em;
 	font-weight: 700;
 	line-height: 1.875;
@@ -363,13 +363,13 @@ color: #6a6a6a;
 .menu-group-item a:hover{
     color: #fff;
     }
-.menu-group-title{
+.menu-group__title{
     font-size: 14px;
 }
 a {
 	text-decoration: none;
 }
-.social .social-item{
+.social .social__item{
     display: inline-block;
     margin-right:13px;
     margin-bottom:42px;
@@ -471,9 +471,9 @@ cursor: pointer;
 .payments .payments-item img{
     cursor: pointer;
 }
-.social social-item a img{
+.social social__item a img{
     cursor: pointer;
 }
-.menu-group-title{
+.menu-group__title{
     cursor:pointer;
 }
