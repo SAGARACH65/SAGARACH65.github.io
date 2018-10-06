@@ -57,6 +57,7 @@ content:"";
 
 .options li :hover {
     color: white;
+    color:skyblue;
 }
 .phn-img{
     float:left;
@@ -66,6 +67,13 @@ content:"";
     color: black;
     font-family: "Lato"
 }
+.options-bot li a:hover {
+    color: skyblue;
+}
+.logo:hover{
+cursor: pointer;
+}
+
 .options-bot li a {
     color: black;
     font-family: "Playfair Display"
@@ -76,6 +84,10 @@ content:"";
     font-size: 12px;
     float:left;
     margin-left: 14px;
+}
+.phn-no:hover{
+    color:skyblue;
+    cursor: pointer;
 }
 .collection-column{
     display: inline-block;
@@ -268,6 +280,8 @@ padding-top:68px;
     margin-top: 0;
     padding: 15px 15px 0px 0px;
     /* border: 1px solid #f2f2f2; */
+    float:right;
+    margin-right: 67px;
 }
 
 
@@ -276,8 +290,8 @@ padding-top:68px;
     margin: 0 auto;
     margin-top:5px;
     
-	padding-left: 75px;
-	padding-right: 75px;
+	/* padding-left: 75px;
+	padding-right: 75px; */
 }
 
 .collection-container{
@@ -288,13 +302,14 @@ padding-top:68px;
     margin-bottom: 15px;
 }
 .collection-list{
-    width: 24.8095%;
+    /* width: 24.8095%; */
+    margin-right: 15px;
 
 }
 
-/* .product-sale {
+.product-sale {
 	position: absolute;
-	top: 1em;
+	top: -314px;
 	left: 1em;
 	width: 2.73em;
 	height: 2.73em;
@@ -308,7 +323,7 @@ padding-top:68px;
 	white-space: nowrap;
 	background-color: #feb42e;
 	border-radius: 50%;
-} */
+}
 
 .product {
 	position: relative;
@@ -317,16 +332,20 @@ padding-top:68px;
     padding-bottom: 116.66%;
 	overflow: hidden;
 }
-.summer-collection-container .product{
-    display: block;
-}
+
 .products-item .product .product-img {
-	position: absolute;
+
 	top: 0;
 	left: 0;   
 }
 .product-button-wrapper{
     position:absolute;
+    top: -25px;
+    height:40px;
+    margin-left: 44px;
+    width: 66%;
+    background: url('../images/black-rect.png');
+    background-repeat: no-repeat;
 }
 .button {
 	display: inline-block;
@@ -341,8 +360,12 @@ padding-top:68px;
 }
 .product-button_cart {
 	bottom: 0;
-	padding: 0.71em 0.57em 0.28em;
-	background-color: #000;
+    
+    width: 62%;
+    margin-right: 36px;
+    background:#000;
+    color:white;
+    margin-top: 11px;
 }
 .product__sale_percent {
 	margin-left: -0.36em;
@@ -364,4 +387,8 @@ padding-top:68px;
 	font-style: italic;
 	line-height: 1.6667;
 	color: #fff;
+}
+
+.container-brands  img{
+    cursor: pointer;
 }
