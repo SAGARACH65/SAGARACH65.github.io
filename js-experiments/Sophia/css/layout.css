@@ -159,6 +159,7 @@ display:inline-block;
 	padding-top: 60px;
     padding-bottom: 52px;
     }
+   
 
 /*     
     .HandPicked-title{
@@ -221,6 +222,9 @@ display:inline-block;
     float: none;
   
 	vertical-align: middle;
+}
+.form-button:hover{
+    background-color: bisque;
 }
 
 .brand {
@@ -394,7 +398,7 @@ box-shadow: none;
 	background-color: #000;
 	border: none;
 }
-.form__button {
+.form-button {
     padding:0.75em 0.6em;
     line-height:5px;
 margin-top:-22px;
@@ -405,6 +409,9 @@ cursor: pointer;
     font-size: 0.75em;
 	color: #fff;
 	background-color: #363636;
+}
+.form-button:hover{
+    background-color: sky\;
 }
 .button {
 	display: inline-block;
