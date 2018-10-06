@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 @font-face {
     font-family: Playfair Display;
     src: url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.eot");
@@ -381,7 +381,7 @@ hr {
 
 .testimonial__author-job {
 	font-size: 0.875em;
-	line-height: 2.75;
+	line-height: 3.75;
 	color: #7f7e7e;
 	text-transform: uppercase;
 }
