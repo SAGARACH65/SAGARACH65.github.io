@@ -287,21 +287,26 @@ display:inline-block;
 .testimonial__body {
 	position: absolute;
 	left: 0;
-	right: 0;
+    right: 0;
+    top: 101px;
 	bottom: 0;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
-
+.testimonial__body-wrapper_right .testimonial__body{
+    text-align: right;
+}
+.right-column-testimonials{
+    margin-left: 20px;
+}
 
 .footer {
 	display: block;
 	margin: 0 auto;
-	padding-bottom: 40px;
-	
-	
+	padding-bottom: 40px;	
 }
+
 .footer-container{
     width:90em;
     background-color: #000;
@@ -309,8 +314,8 @@ display:inline-block;
 }
 .footer__block_top {
 	position: relative;
-	padding-top: 3.68em;
-	padding-bottom: 3.44em;
+	padding-top: 67.2px;
+	padding-bottom: 55px;
 	background-color: #000;
 }
 .footer-inner-container {
