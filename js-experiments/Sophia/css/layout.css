@@ -590,7 +590,17 @@ cursor: pointer;
             margin-right: 0px;
             margin-top: 0px;
         }
-        .support-mq{
+        .logo {
+            margin-left: 129px;
+        }
+        
+.header-right {
+   width: 32.875%;
+}    
+.currency-selector-value {
+    padding-left: 0.6em;
+}
+    .support-mq{
             width: 100%;
             margin-left: 76px;
         
@@ -689,7 +699,7 @@ width:20.66em
         width: 30.3%;
     }
     .container{
-        width:48em;
+        width: 45em;
     }
     .container-handpicked{
         width:48em;
@@ -698,7 +708,7 @@ width:20.66em
         padding-left: 18px;
     }
     .title {
-        width:48em;
+        width:45em;
     }
     .menu-group {
       
@@ -727,7 +737,7 @@ background-size: contain;
         width: 100%;
     }
     .container-main .container{
-        width:48em;
+        width:44em;
     }
     .copyright{
         margin-left: 35%;
