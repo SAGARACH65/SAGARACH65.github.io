@@ -486,45 +486,6 @@ cursor: pointer;
     .header-container .main-header {
         width:48em;
     }
-
-    .header-container .main-header {
-        width: 48em;
-    }
-
-    .main-container2{
-        width: 48em;
-    }
-    .container{
-        width:48em;
-    }
-    .container-handpicked{
-        width:48em;
-    }
-    .title {
-        width:48em;
-    }
-    .site-info-container {
-        width: 48em;
-    }
-    .summer-collection-container {
-        width:48em;
-    }
-    .container-main .container{
-        width:48em;
-    }
-    .testimonials__container {
-        width:48em;
-    }
-    .footer-container{
-        width:48em;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-
-    .header-container .main-header {
-        width:48em;
-    }
     .left-info {
         width: 16.5%;
        margin-left:30px;
@@ -699,8 +660,9 @@ width:20.66em
         width: 30.3%;
     }
     .container{
-        width: 45em;
+        width: 43em;
     }
+    
     .container-handpicked{
         width:48em;
     }
@@ -710,12 +672,38 @@ width:20.66em
     .title {
         width:45em;
     }
+    
     .menu-group {
       
         margin-right: 5.062%;
     }
     .support-item_return {
         left: 256px;
+    }
+    .slider li img{
+        width: 48em;
+
+        overflow: hidden;
+    }
+    .brand {
+        width: 85%;
+    }
+    .main-container {
+        margin-bottom: 0px;
+    }
+    .main-container {
+        height: 503px;
+    }
+    .slider-button {
+       
+        left: 44.5%;
+        bottom: 209px;
+        line-height: 54px;
+        width: 13%;
+        font-size: 13px;
+       }
+       .triangle-img {
+         margin-left: 189px;
     }
     .support-item_support {
         left: 499px;
@@ -739,6 +727,7 @@ background-size: contain;
     .container-main .container{
         width:44em;
     }
+    
     .copyright{
         margin-left: 35%;
     }
@@ -785,11 +774,10 @@ top: -6px;
     .header-container .main-header {
         width:22.5em;
     }
-
-    .header-container .main-header {
+    .sub-header .main-header {
         width: 22.5em;
     }
-
+    
     .main-container2{
         width: 22.5em;
     }
@@ -817,4 +805,22 @@ top: -6px;
     .footer-container{
         width:22.5em;
     }
+    
+    .container-main .container{
+    /* decrease later */
+        width:22.5em;
+    }
+    
+    .title {
+    /* decrease later */
+        width:22.5em;
+    }
+    
+    .container{
+        /* decrease later */
+        width: 22.5em;
+    }
+    .container-brands {
+        width:22.5em;
+        }
 }
