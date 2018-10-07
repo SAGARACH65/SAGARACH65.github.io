@@ -6,9 +6,10 @@ var currentIndex = 0,
     nextIndex = 1,
     IMAGES_MAX_COUNT = 3,
     isAnimationRunning = false;
+(screen.width < 800) ? IMG_WIDTH = 768 : IMG_WIDTH = 1440;
 
 
-    
+
 
 //the global currentIndex is passes so to make it a pure function
 var calculateNextIndex = function (currentIndex) {
@@ -62,7 +63,13 @@ var animateTransition = function () {
 
 
 var changeImage = function () {
-    (screen.width < 800) ? IMG_WIDTH=768:IMG_WIDTH=1440;
+    (screen.width < 800) ? IMG_WIDTH = 768 : IMG_WIDTH = 1440;
+    var sliderOptions = document.getElementsByClassName('slider-options')[0];
+    
+   
+    sliderOptions.style.top = IMG_WIDTH / 2.25 + "px"
+    sliderOptions.style.left = IMG_WIDTH / 2.2 + "px"
+
     nextIndex = calculateNextIndex(currentIndex);
     animateTransition();
     currentIndex = nextIndex;
@@ -112,13 +119,15 @@ var createDotNavigation = function () {
         li.classList.add('nav');
         dots.appendChild(li);
     }
+    console.log(IMG_WIDTH * 10 + "px");
     dots.style.listStyleType = "none"
-    dots.style.top = "640px"
-    dots.style.left = "652px"
+    dots.style.top = IMG_WIDTH / 2.25 + "px"
+    dots.style.left = IMG_WIDTH / 2.2 + "px"
     dots.style.width = "900px"
     dots.style.marginRight = "20px"
     dots.style.height = "900px"
     dots.style.position = 'absolute';
+    dots.classList.add('slider-options');
     mainContainer.appendChild(dots);
 }
 
