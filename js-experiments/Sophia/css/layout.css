@@ -521,7 +521,12 @@ cursor: pointer;
              font-weight: 600;
              color: #fff;
              text-align: left;
+             z-index: 10;
              /* background-color: #000; */
+    }
+    .bottom-left-header-content .options-bot li {
+        
+        width: 82px;
     }
     .bottom-left-header-content:hover  .options-bot  {
       
@@ -610,7 +615,7 @@ cursor: pointer;
         }
         .title-text {
         background-size: contain;
-        font-size: 20.6px;
+        font-size: 19.4px;
 line-height: 21px;
         }
         .sub-container-first{
