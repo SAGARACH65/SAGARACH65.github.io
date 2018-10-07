@@ -1,3 +1,12 @@
+
+function clickHandler(){
+   document.getElementsByClassName("options-bot")[0].classList.add("show");
+   let a= document.getElementsByClassName("options-bot")[0];
+   console.log(a);
+}
+
+
+
 var images = document.getElementsByClassName('slider')[0];
 var sliderImg = document.getElementsByClassName('slider-img')[0];
 console.log(screen.width);
@@ -113,7 +122,6 @@ var createDotNavigation = function () {
 
     var dots = document.createElement("ul");
 
-
     for (var i = 0; i <= IMAGES_MAX_COUNT; i++) {
         var li = document.createElement("li");
         li.classList.add('nav');
@@ -136,3 +144,5 @@ createDotNavigation();
 
 //starts the main slider loop
 runMainInterval();
+
+
