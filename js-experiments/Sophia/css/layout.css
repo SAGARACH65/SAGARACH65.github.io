@@ -567,7 +567,7 @@ cursor: pointer;
         
             margin-top:20px;
         }
-        a div{
+        .arrow-up{
             display:none;
         }
         .support-icon_support {
@@ -767,6 +767,9 @@ top: -6px;
     }
     .footer-container{
         width:48em;
+    }
+    .menu-group__title_cs{
+        margin-bottom: 8px;
     }
 }
 
