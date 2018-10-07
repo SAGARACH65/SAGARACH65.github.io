@@ -515,9 +515,9 @@ cursor: pointer;
             display:none;
              padding-left: 1.16em;
              padding-right: 2.5em;
-             padding-top: 0.83em;
+             padding-top: -20px;
              padding-bottom: 0.83em;
-             font-size: 0.75em;
+             font-size: 13px;
              font-weight: 600;
              color: #fff;
              text-align: left;
@@ -531,10 +531,10 @@ cursor: pointer;
     }
     .bottom-left-header-content:hover  .options-bot li  {
       
-         color:white;
          background-color: white;
         display:inline-block ;
     }
+  
 
     .support-col {
        
@@ -799,8 +799,8 @@ top: -6px;
 
 @media only screen and (max-width: 361px) {
     .header-container .main-header {
-        width:22.5em;
-        margin-left: 10px;
+        width:22.0em;
+        /* margin-left: 10px; */
     }
     .sub-header .main-header {
         width: 22.5em;
@@ -866,9 +866,7 @@ top: -6px;
     .container-handpicked{
         width:22.5em;
     }
-    .title {
-        width:22.5em;
-    }
+    
     .site-info-container {
         width: 22.5em;
     }
@@ -884,10 +882,12 @@ top: -6px;
     .footer-container{
         width:22.5em;
     }
-    
+    .brand {
+        width: 62%;
+    }
     .container-main .container{
     /* decrease later */
-        width:22.5em;
+    width: 17.5em;
     }
     .site-info{
         display: none;
@@ -933,12 +933,12 @@ margin-right:0px;
 
     .title {
     /* decrease later */
-        width:22.5em;
+    width: 19.5em;
     }
     
     .container{
         /* decrease later */
-        width: 22.5em;
+        width: 18.5em;
     }
     .col-1-6 {
         width: 48.3%;
@@ -946,5 +946,30 @@ margin-right:0px;
     }
     .container-brands {
         width:22.5em;
+        }
+        .layout-columns {
+            padding-bottom: 26px;
+            
+            width: 94%;
+        }
+        .testimonials__container {
+            background-image:none;
+            background-color: #D9BE8F;
+            
+        }
+        .menu-group_connected {
+        display:none;
+        }
+        .copyright {
+            margin-left: 16%;
+        }
+        .payments {
+            margin-left: 16%;
+        }
+        .menu-group {
+            margin-right: 3.562%;
+        }
+        .sub-container-first {
+            margin-right: 0px;
         }
 }
