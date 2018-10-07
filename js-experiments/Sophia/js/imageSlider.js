@@ -15,8 +15,10 @@ var currentIndex = 0,
     nextIndex = 1,
     IMAGES_MAX_COUNT = 3,
     isAnimationRunning = false;
-(screen.width < 800) ? IMG_WIDTH = 768 : IMG_WIDTH = 1440;
 
+
+(screen.width < 800) ? IMG_WIDTH = 768 : IMG_WIDTH = 1440;
+(screen.width<400)? IMG_WIDTH = 360 : IMG_WIDTH = IMG_WIDTH;
 
 
 
@@ -73,11 +75,18 @@ var animateTransition = function () {
 
 var changeImage = function () {
     (screen.width < 800) ? IMG_WIDTH = 768 : IMG_WIDTH = 1440;
+    (screen.width<400)? IMG_WIDTH = 360 : IMG_WIDTH = IMG_WIDTH;
+
     var sliderOptions = document.getElementsByClassName('slider-options')[0];
     
    
     sliderOptions.style.top = IMG_WIDTH / 2.25 + "px"
     sliderOptions.style.left = IMG_WIDTH / 2.2 + "px"
+    if((screen.width<400)){
+        sliderOptions.style.top = IMG_WIDTH / 2.5 + "px"
+        sliderOptions.style.left = IMG_WIDTH / 2.6 + "px"  
+    }
+    
 
     nextIndex = calculateNextIndex(currentIndex);
     animateTransition();

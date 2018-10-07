@@ -528,7 +528,6 @@ cursor: pointer;
         display:block;
         position:absolute;
         left:30px;
-        top:-40px;
     }
     .bottom-left-header-content:hover  .options-bot li  {
       
@@ -801,13 +800,65 @@ top: -6px;
 @media only screen and (max-width: 361px) {
     .header-container .main-header {
         width:22.5em;
+        margin-left: 10px;
     }
     .sub-header .main-header {
         width: 22.5em;
     }
+    .right-header-content {
+        width:100%;
+    }
+    .bottom-left-header-content {
+        margin-left: 13px;
+    
+    }
+    
+    .logo {
+        margin-left: 91px;
+    }
+.options li::after {
+
+    content: "|";
+    margin-right: 8px;
+    margin-left: 8px;
+
+}
+.right-header-content .options li {
+    font-size: 11px;
+}
+    .left-info{
+        display:none;
+    }
+    .header-right {
+        width: 100%;
+        margin-top: 83px;
+        float: none;
+        margin-right:0px;
+    }
+    .header-right .social-options-header li {
+        line-height: 112px;
+    
+    }
     
     .main-container2{
         width: 22.5em;
+    }
+    .currency-selector-list {
+        top: 27px;
+    }
+
+    .slider li img {
+        width: 22.5em;
+    }
+    .triangle-img{
+        display: none;
+    }
+    .slider-button {
+        left: 43.5%;
+        bottom: 372px;
+        line-height: 21px;
+        width: 15%;
+        font-size: 9px;
     }
     .container{
         width:22.5em;
