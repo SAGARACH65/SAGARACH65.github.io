@@ -3,7 +3,7 @@
     src: url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.eot");
     src: local(Playfair Display), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.woff") format('woff'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.woff2") format('woff2'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.eot?#iefix") format('embedded-opentype'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.ttf") format('truetype'), url("../fonts/PlayfairDisplay/PlayfairDisplay_italic.svg#PlayfairDisplay_italic") format('svg');
     font-style: italic;
-    font-weight: lighter;
+    font-weight: 600;
   }
  
   @font-face {
@@ -11,7 +11,7 @@
     src: url("../fonts/Lato/Lato_regular.eot");
     src: local(Lato), url("../fonts/Lato/Lato_regular.woff") format('woff'), url("../fonts/Lato/Lato_regular.woff2") format('woff2'), url("../fonts/Lato/Lato_regular.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato/Lato_regular.ttf") format('truetype'), url("../fonts/Lato/Lato_regular.svg#Lato_regular") format('svg');
     font-style: normal;
-    font-weight: lighter;
+    font-weight: 600;
   }
 
 .right-header-content options {
@@ -45,7 +45,6 @@ content:"";
 	line-height: 1.25;
 	color: #fff;
 	text-align: left;
-	text-transform: uppercase;
     background-color: #000;
   
 }
@@ -542,3 +541,4 @@ height: 348px;
 .container-brands  img{
     cursor: pointer;
 }
+

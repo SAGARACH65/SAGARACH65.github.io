@@ -201,9 +201,6 @@ display:inline-block;
    
 }
 
-
-
-
 .our-brands-container .container-main {
 	display: block;
 	
@@ -221,7 +218,7 @@ display:inline-block;
 	display: inline-block;
     float: none;
   
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 .form-button:hover{
     background-color: bisque;
@@ -236,8 +233,6 @@ display:inline-block;
 }
 .main__row_testimonials {
     padding-top: 89px;
-   
-
 }
 
 
@@ -410,9 +405,7 @@ cursor: pointer;
 	color: #fff;
 	background-color: #363636;
 }
-.form-button:hover{
-    background-color: sky\;
-}
+
 .button {
 	display: inline-block;
 	
@@ -484,4 +477,334 @@ cursor: pointer;
 }
 .menu-group__title{
     cursor:pointer;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .header-container .main-header {
+        width:48em;
+    }
+
+    .header-container .main-header {
+        width: 48em;
+    }
+
+    .main-container2{
+        width: 48em;
+    }
+    .container{
+        width:48em;
+    }
+    .container-handpicked{
+        width:48em;
+    }
+    .title {
+        width:48em;
+    }
+    .site-info-container {
+        width: 48em;
+    }
+    .summer-collection-container {
+        width:48em;
+    }
+    .container-main .container{
+        width:48em;
+    }
+    .testimonials__container {
+        width:48em;
+    }
+    .footer-container{
+        width:48em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .header-container .main-header {
+        width:48em;
+    }
+    .left-info {
+        width: 16.5%;
+       margin-left:30px;
+       margin-top:3px;
+    }
+
+    .right-header-content {
+        width: 67.402%;
+       
+    }
+    .sub-header .main-header {
+        width: 48em;
+        margin: auto;
+    }
+    .bottom-left-header-content {
+        margin-top: 14px;
+        margin-left:30px;
+    }
+    .bottom-left-header-content .options-bot li{
+            display: none;
+             padding-left: 1.16em;
+             padding-right: 2.5em;
+             padding-top: 0.83em;
+             padding-bottom: 0.83em;
+             font-size: 0.75em;
+             font-weight: 600;
+             color: #fff;
+             text-align: left;
+             background-color: #000;
+    }
+
+    .support-col {
+       
+        margin-left: 0px;
+        }
+
+        .support-icon_shipping {
+            width: 30px;
+            height: 29px;
+            margin-left: 22px;
+            margin-top: 5px;
+            float: left;
+            overflow: hidden;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .support-text {
+            font-size: 14px;
+         float: left;
+         margin-left: 6px;
+         margin-top: -4px;
+        }
+        .support-item_return .support-text {
+        margin-right:0px;
+        }
+        .support-item_support .support-text {
+            margin-right: 0px;
+        }
+        .support-text_sm {
+        float:left;
+        }
+        .support-item_support .support-text_sm {
+            margin-right: 0px;
+            margin-top: 0px;
+        }
+        .support-mq{
+            width: 100%;
+            margin-left: 76px;
+        
+            margin-top:20px;
+        }
+        a div{
+            display:none;
+        }
+        .support-icon_support {
+            margin-left: 30px;
+            margin-top: -10px;
+            float:left;
+        }
+        .support-item_return .support-text_sm {
+            margin-right: -77px;
+            margin-top: -48px;
+            margin-top: -14px;
+        }
+        .support-text_sm {
+            font-size: 11px;
+            margin-top: 22px;
+        }
+        .support-icon_return {
+            margin-left: 31px;
+            float:left;
+            margin-top: -6px;
+        }
+        .title-text {
+        background-size: contain;
+        font-size: 20.6px;
+line-height: 21px;
+        }
+        .sub-container-first{
+            margin-left: 189px;
+        }
+        .sub-container-second {
+            margin-left: 160px;
+        }
+        .sub-container-third {
+            margin-left: 189px;
+        }
+        .support-item_shipping .support-text_sm {
+
+            margin-right: 0px;
+            margin-top: 3px;
+            float: left;
+        }
+        .support-item_shipping .support-text {
+
+            margin-right: 0px;
+        
+        }
+        .container-brands-inner {
+        padding-right:0px;
+        }
+        .collection-container {
+        width:48em;
+        }
+        .support-item_shipping {
+            width: 33.15%;
+           
+            padding-left: 0px;
+            margin-left: 0px;
+              }
+    .header-container .main-header {
+        width: 48em;
+    }
+    .form{
+width:20.66em
+    }
+    .form__input {
+        width: 11.66em;
+    }
+    .products {
+    padding-left: 71px;
+    margin-right:0px;
+    }
+    .container-brands {
+    width:48em;
+    padding-top:0px;
+    }
+    button {
+        margin-right: 44px;
+    }
+    .form-button{
+        margin-top: -4px;
+    }
+
+    .main-container2{
+        width: 48em;
+    }
+    .main__row_testimonials {
+        padding-top: 0px;
+    }
+    .col-1-6 {
+        width: 30.3%;
+    }
+    .container{
+        width:48em;
+    }
+    .container-handpicked{
+        width:48em;
+    }
+    .footer-inner-container {
+        padding-left: 18px;
+    }
+    .title {
+        width:48em;
+    }
+    .menu-group {
+      
+        margin-right: 5.062%;
+    }
+    .support-item_return {
+        left: 256px;
+    }
+    .support-item_support {
+        left: 499px;
+        line-height: 0px;
+background-size: contain;
+    }
+    .site-info-container {
+        width: 48em;
+    }
+    .social .social__item {
+    margin-right:4px;
+    }
+    .summer-collection-container {
+        width:48em;
+    }
+    .footer__block_bottom .container {
+        padding-left: 0px;
+        margin-right: 0px;
+        width: 100%;
+    }
+    .container-main .container{
+        width:48em;
+    }
+    .copyright{
+        margin-left: 35%;
+    }
+    .payments{
+        margin-left: 35%;
+    }
+    .testimonials__container {
+        width:48em;
+        background-size: contain;
+        
+        background-repeat: no-repeat;
+    }
+    .testimonial__text{
+        line-height: 1.0;
+    }
+    .testimonial {
+    padding-bottom:0px;
+    }
+    .testimonial__body {
+        left: -19px;
+right: 0;
+top: -6px;
+    }
+    .menu-group_connected {
+    padding-left:0px;
+    }
+    .layout-columns {
+        width: 48%;
+    }
+    .testimonial__author-name {
+        font-size: 28px;
+        margin-top: 0.6em;
+    }
+    .testimonials__container .inner-container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .footer-container{
+        width:48em;
+    }
+}
+
+@media only screen and (max-width: 361px) {
+    .header-container .main-header {
+        width:22.5em;
+    }
+
+    .header-container .main-header {
+        width: 22.5em;
+    }
+
+    .main-container2{
+        width: 22.5em;
+    }
+    .container{
+        width:22.5em;
+    }
+    .container-handpicked{
+        width:22.5em;
+    }
+    .title {
+        width:22.5em;
+    }
+    .site-info-container {
+        width: 22.5em;
+    }
+    .summer-collection-container {
+        width:22.5em;
+    }
+    .container-main .container{
+        width:22.5em;
+    }
+    .testimonials__container {
+        width:22.5em;
+    }
+    .footer-container{
+        width:22.5em;
+    }
 }
