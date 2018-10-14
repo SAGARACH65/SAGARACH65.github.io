@@ -344,7 +344,7 @@ button {
     color: white;
     height: 42px;
     background-color: #F0975B;
-    display:none;
+    display: none;
 }
 
 .featured-large .overlay-button {
@@ -356,10 +356,12 @@ button {
     width: 105px;
     color: white;
     height: 42px;
-    display:none;
+    display: none;
     background-color: #F0975B;
 }
-
+.overlay-button:hover{
+    background-color: #f88132;
+}
 
 .products-item {
     position: relative;
@@ -381,8 +383,8 @@ button {
     background: rgba(0, 0, 0, .6);
 }
 
-.featured-item .overlay:hover .overlay-button{
-    display:block;  
+.featured-item .overlay:hover .overlay-button {
+    display: block;
 }
 
 .container-handpicked .featured-col .featured-item {
