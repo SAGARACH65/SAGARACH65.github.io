@@ -334,6 +334,33 @@ button {
     margin: 20px 25px;
 }
 
+.featured-small .overlay-button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    margin-top: 262px;
+    margin-left: 112px;
+    width: 105px;
+    color: white;
+    height: 42px;
+    background-color: #F0975B;
+    display:none;
+}
+
+.featured-large .overlay-button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    margin-top: 683px;
+    margin-left: 155px;
+    width: 105px;
+    color: white;
+    height: 42px;
+    display:none;
+    background-color: #F0975B;
+}
+
+
 .products-item {
     position: relative;
 }
@@ -352,6 +379,10 @@ button {
 
 .featured-small .overlay:hover, .featured-large .overlay:hover {
     background: rgba(0, 0, 0, .6);
+}
+
+.featured-item .overlay:hover .overlay-button{
+    display:block;  
 }
 
 .container-handpicked .featured-col .featured-item {
