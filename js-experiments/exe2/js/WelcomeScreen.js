@@ -1,5 +1,5 @@
 //assignment1
-var currentWidth = 0;
+var currentWidth = 1;
 
 var generateBox = function (left, top) {
 
@@ -9,7 +9,7 @@ var generateBox = function (left, top) {
     smallDiv.style.height = "20px";
     smallDiv.style.position = "absolute";
     smallDiv.style.left = left + "px";
-    smallDiv.style.top = top + "px";
+    smallDiv.style.top = top + "px" ;
 
     smallDiv.setAttribute("class", "x");
     document.body.appendChild(smallDiv);
