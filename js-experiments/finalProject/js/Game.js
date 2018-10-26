@@ -131,11 +131,11 @@ class Game {
     }
 
     drawBackground() {
-        drawImage(this.ctx, 'images/b.png', 0, 0, ROAD_PARAM.CANVAS_WIDTH , 549 * ASPECT_RATIO);
+        drawImage(this.ctx, 'images/b.png', 0, 0, ROAD_PARAM.CANVAS_WIDTH, 549 * HEIGHT_MULTIPLIER + 549);
     }
 
     drawPlayer() {
-        this.player.draw(this.ctx, 'images/spritesheet.high.png', this.carSprite, this.canvas.width / 2 + 30, 600, this.isSpacePressed);
+        this.player.draw(this.ctx, 'images/spritesheet.high.png', this.carSprite, this.canvas.width / 2 + 30 * WIDTH_MULTIPLIER + 30, 600 * HEIGHT_MULTIPLIER + 600, this.isSpacePressed);
     }
 
     playSounds() {
@@ -164,7 +164,7 @@ class Game {
 
     showInitialCountDown() {
         if (this.isInitialCountDownOngoing)
-            writeText(this.ctx, this.canvas.width / 2, 490 * ASPECT_RATIO, this.initialCountDownValue, '700 150px  PerfectDark', 'white');
+            writeText(this.ctx, this.canvas.width / 2, 490 * HEIGHT_MULTIPLIER + 490, this.initialCountDownValue, '700 150px  PerfectDark', 'white');
 
         if (this.isInitialCountDownOngoing && !this.isInTimeout) {
             this.isInTimeout = true;
@@ -185,7 +185,7 @@ class Game {
 
     gameLoop() {
         //  CLEARING THE SCREEN BEFORE EACH UPDATE
-        this.ctx.clearRect(0, 0, this.canvas.width, this.road.findSegmentIndex());
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         // this.playSounds();
         this.drawBackground();
@@ -199,41 +199,41 @@ class Game {
     }
 
     keyDownHandler(e) {
-        if (e.keyCode == 39) {
+        if (e.keyCode == KEY_RIGHT) {
             this.isRightPressed = true;
             this.carSprite = CAR_RIGHT;
         }
-        else if (e.keyCode == 37) {
+        else if (e.keyCode == KEY_LEFT) {
             this.isLeftPressed = true;
             this.carSprite = CAR_LEFT;
         }
-        else if (e.keyCode == 38) {
+        else if (e.keyCode == KEY_UP) {
             this.isUpPressed = true;
         }
-        else if (e.keyCode == 40) {
+        else if (e.keyCode == KEY_DOWN) {
             this.isDownPressed = true;
         }
-        else if (e.keyCode == 32) {
+        else if (e.keyCode == KEY_SPACE) {
             this.isSpacePressed = true;
         }
     }
 
     keyUpHandler(e) {
-        if (e.keyCode == 39) {
+        if (e.keyCode == KEY_RIGHT) {
             this.isRightPressed = false;
             this.carSprite = CAR_CENTRE;
         }
-        else if (e.keyCode == 37) {
+        else if (e.keyCode == KEY_LEFT) {
             this.isLeftPressed = false;
             this.carSprite = CAR_CENTRE;
         }
-        else if (e.keyCode == 38) {
+        else if (e.keyCode == KEY_UP) {
             this.isUpPressed = false;
         }
-        else if (e.keyCode == 40) {
+        else if (e.keyCode == KEY_DOWN) {
             this.isDownPressed = false;
         }
-        else if (e.keyCode == 32) {
+        else if (e.keyCode == KEY_SPACE) {
             this.isSpacePressed = false;
         }
     }

@@ -69,18 +69,16 @@ const ROAD_PARAM = {
     // CANVAS_HEIGHT: 997
     CANVAS_WIDTH: window.innerWidth || document.body.clientWidth,
     CANVAS_HEIGHT: window.innerHeight || document.body.clientHeight
-
 }
 
-//this game was orginally designed in 1920/997 screen so for other screen resolutions aspect ratio is used to fit them
-//Note:    997/1920=0.5192708333
-const ASPECT_RATIO_MULTIPLIER = 0.5192708333;
-const ASPECT_RATIO = (ROAD_PARAM.CANVAS_WIDTH / ROAD_PARAM.CANVAS_HEIGHT) * ASPECT_RATIO_MULTIPLIER;
-// const ASPECT_RATIO = 1;
+//this game was orginally designed in 1920/997 screen so for other screen resolutions,percentage is calculated
+
+const WIDTH_MULTIPLIER = (ROAD_PARAM.CANVAS_WIDTH - 1920) / 1920;
+const HEIGHT_MULTIPLIER = (ROAD_PARAM.CANVAS_HEIGHT - 997) / 997;
 
 const TREES = [
-    { img: 'images/tree.png', width: 64 * ASPECT_RATIO, height: 154 * ASPECT_RATIO },
-    { img: 'images/tree2.png', width: 62 * ASPECT_RATIO, height: 95 * ASPECT_RATIO },
+    { img: 'images/tree.png', width: 64 * WIDTH_MULTIPLIER + 64, height: 154 * HEIGHT_MULTIPLIER + 154 },
+    { img: 'images/tree2.png', width: 62 * WIDTH_MULTIPLIER + 62, height: 95 * HEIGHT_MULTIPLIER + 95 },
 ];
 
 const GAME_IMAGES = [
@@ -109,7 +107,25 @@ const CENTRIFUGAL_FORCE = 0.0007;
 const PLAYER_WIDTH = 200;
 const PLAYER_HEIGHT = 150;
 const MAX_NITRO = 400;
-const NITRO_INCREMENT = 14;
+//the multiple by which the speed is changed when nitro is pressed
+const NITRO_MULTIPLIER_INCREMENT = 14;
+const NITRO_INCREASE_FACTOR = 100;
+const NITRO_DECREASE_FACTOR = 50;
+const CURVE_POSITION_UPDATE_THRESHOLD=50;
+
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
 const NO_OF_ENEMIES = 2;
+
+
+//////////////////////////////////////////////constants used in DashBoard.js////////////////////////////////////////////////////
+const STEERING_ROTATION = 50;
+
+
+//////////////////////////////////////////////constants used in Game.js////////////////////////////////////////////////////
+
+const KEY_LEFT = 37;
+const KEY_RIGHT = 39;
+const KEY_UP = 38;
+const KEY_DOWN = 40;
+const KEY_SPACE = 32;

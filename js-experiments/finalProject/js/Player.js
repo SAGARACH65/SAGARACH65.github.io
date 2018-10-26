@@ -2,7 +2,7 @@ class Player {
     constructor() {
         this.speed = 0;
         this.playerX = 0;
-        this.nitro = 400;
+        this.nitro = 0;
     }
 
     //sign is the -1 or +1 depending on the 
@@ -11,15 +11,16 @@ class Player {
     }
 
     updateXInCurve(curveValue) {
-        if (this.speed > 50) this.playerX -= curveValue * CENTRIFUGAL_FORCE;
+        //we only update if there is speed ,if car is in stall  dont update
+        if (this.speed > CURVE_POSITION_UPDATE_THRESHOLD) this.playerX -= curveValue * CENTRIFUGAL_FORCE;
     }
 
     increaseNitro() {
-        if (this.nitro + MAX_NITRO / 100 <= MAX_NITRO) this.nitro += MAX_NITRO / 100;
+        if (this.nitro + MAX_NITRO / NITRO_INCREASE_FACTOR <= MAX_NITRO) this.nitro += MAX_NITRO / NITRO_INCREASE_FACTOR;
     }
 
     decreaseNitro() {
-        (this.nitro - MAX_NITRO / 10 >= 0) ? this.nitro -= MAX_NITRO / 50 : this.nitro = 0;
+        (this.nitro - MAX_NITRO / NITRO_DECREASE_FACTOR >= 0) ? this.nitro -= MAX_NITRO / NITRO_DECREASE_FACTOR : this.nitro = 0;
     }
 
     updateSpeed(buttonState) {
@@ -27,13 +28,13 @@ class Player {
         let currentMaxSpeed, currentAcceleration = ACCELERATION;
 
         //changes max speed depending on the road type
-        (this.playerX < -1.3 || this.playerX > 0.8) ? currentMaxSpeed = OFF_ROAD_MAX_SPEED : currentMaxSpeed = MAX_SPEED;
+        currentMaxSpeed = (this.playerX < -1.3 || this.playerX > 0.8) ? OFF_ROAD_MAX_SPEED : MAX_SPEED;
 
         //changes max speed depending upon nitro
         if (buttonState.isSpacePressed && this.nitro > 0) {
 
-            currentMaxSpeed *= NITRO_INCREMENT;
-            currentAcceleration *= NITRO_INCREMENT;
+            currentMaxSpeed *= NITRO_MULTIPLIER_INCREMENT;
+            currentAcceleration *= NITRO_MULTIPLIER_INCREMENT;
             this.decreaseNitro();
         }
 
@@ -55,15 +56,24 @@ class Player {
         let spriteSheet = new Image();
         spriteSheet.src = image;
 
+        //this gives the nitro effect
         if (this.nitro > 0 && isSpacePressed) {
+            ctx.shadowColor = '#41dcf4';
+            ctx.shadowBlur = 100;
+            ctx.shadowOffsetY = 60;
         }
-        ctx.shadowColor = '#41dcf4';
-        // ctx.shadowColor = '#fc4a1a';
-        ctx.shadowBlur = 100;
-        ctx.shadowOffsetY = 60;
 
-        ctx.drawImage(spriteSheet, sprite.x, sprite.y, sprite.w,
-            sprite.h, destX , destY , PLAYER_WIDTH * ASPECT_RATIO, PLAYER_HEIGHT * ASPECT_RATIO);
+        ctx.drawImage(
+            spriteSheet,
+            sprite.x,
+            sprite.y,
+            sprite.w,
+            sprite.h,
+            destX,
+            destY,
+            PLAYER_WIDTH * WIDTH_MULTIPLIER + PLAYER_WIDTH,
+            PLAYER_HEIGHT * WIDTH_MULTIPLIER + PLAYER_HEIGHT
+        );
 
         ctx.shadowBlur = 0;
         ctx.shadowOffsetY = 0;

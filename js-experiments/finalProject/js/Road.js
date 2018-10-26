@@ -66,11 +66,27 @@ class Road {
         for (let n = baseSegmentIndex; n < ROAD_PARAM.NO_OF_SEG_TO_DRAW + baseSegmentIndex; n++) {
             let segment = this.segments[n];
 
-            this.project(segment.p1, (playerX * ROAD_PARAM.WIDTH) - x, ROAD_PARAM.CAMERA_HEIGHT,
-                position, ROAD_PARAM.CAMERA_DEPTH, ROAD_PARAM.CANVAS_WIDTH, ROAD_PARAM.CANVAS_HEIGHT, ROAD_PARAM.WIDTH);
+            this.project(
+                segment.p1,
+                (playerX * ROAD_PARAM.WIDTH) - x,
+                ROAD_PARAM.CAMERA_HEIGHT,
+                position,
+                ROAD_PARAM.CAMERA_DEPTH,
+                ROAD_PARAM.CANVAS_WIDTH,
+                ROAD_PARAM.CANVAS_HEIGHT,
+                ROAD_PARAM.WIDTH
+            );
 
-            this.project(segment.p2, (playerX * ROAD_PARAM.WIDTH) - x - dx, ROAD_PARAM.CAMERA_HEIGHT,
-                position, ROAD_PARAM.CAMERA_DEPTH, ROAD_PARAM.CANVAS_WIDTH, ROAD_PARAM.CANVAS_HEIGHT, ROAD_PARAM.WIDTH);
+            this.project(
+                segment.p2,
+                (playerX * ROAD_PARAM.WIDTH) - x - dx,
+                ROAD_PARAM.CAMERA_HEIGHT,
+                position,
+                ROAD_PARAM.CAMERA_DEPTH,
+                ROAD_PARAM.CANVAS_WIDTH,
+                ROAD_PARAM.CANVAS_HEIGHT,
+                ROAD_PARAM.WIDTH
+            );
 
             x += dx;
             dx += segment.curvature;
@@ -78,9 +94,19 @@ class Road {
             //the segments that are behind us dont need to be rendered
             if ((segment.p2.screenCoordinates.y >= ROAD_PARAM.CANVAS_HEIGHT)) continue;
 
-            this.renderSegment(ctx, n, ROAD_PARAM.CANVAS_WIDTH, ROAD_PARAM.NO_OF_LANES, segment.p1.screenCoordinates.x, segment.p1.screenCoordinates.y,
-                segment.p1.screenCoordinates.w, segment.p2.screenCoordinates.x, segment.p2.screenCoordinates.y, segment.p2.screenCoordinates.w,
-                segment.color);
+            this.renderSegment(
+                ctx,
+                n,
+                ROAD_PARAM.CANVAS_WIDTH,
+                ROAD_PARAM.NO_OF_LANES,
+                segment.p1.screenCoordinates.x,
+                segment.p1.screenCoordinates.y,
+                segment.p1.screenCoordinates.w,
+                segment.p2.screenCoordinates.x,
+                segment.p2.screenCoordinates.y,
+                segment.p2.screenCoordinates.w,
+                segment.color
+            );
         }
 
         for (let n = ROAD_PARAM.NO_OF_SEG_TO_DRAW + baseSegmentIndex; n >= baseSegmentIndex; n--)
@@ -106,7 +132,8 @@ class Road {
     }
 
     renderFinishAndStartLines(ctx, currentSegment, x1, y1, w1, x2, y2, w2) {
-        if ((currentSegment >= TOTAL_LENGTH_OF_ROAD && currentSegment <= TOTAL_LENGTH_OF_ROAD + 3) || ((currentSegment <= 9) && currentSegment >= 7))
+        if ((currentSegment >= TOTAL_LENGTH_OF_ROAD && currentSegment <= TOTAL_LENGTH_OF_ROAD + 3)
+            || ((currentSegment <= 9) && currentSegment >= 7))
             drawPolygon(ctx, x1 - w1, y1, x1 + w1, y1, x2 + w2, y2, x2 - w2, y2, (currentSegment % 2 === 0) ? 'black' : 'white');
     }
 
