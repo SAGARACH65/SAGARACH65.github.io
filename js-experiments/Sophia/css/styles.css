@@ -359,7 +359,8 @@ button {
     display: none;
     background-color: #F0975B;
 }
-.overlay-button:hover{
+
+.overlay-button:hover {
     background-color: #f88132;
 }
 
