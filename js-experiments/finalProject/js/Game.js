@@ -34,7 +34,7 @@ class Game {
         this.enemies = [];
 
         for (let x = 0; x < NO_OF_ENEMIES; x++)
-            this.enemies.push(new Enemies((x + 1) * 100, (x + 1) * 200, x, (x + 1) * 3300, x));
+            this.enemies.push(new Enemies( (x + 1) * 200, x, (x + 1) * 3300, x));
 
         this.player = new Player();
         this.dashBoard = new DashBoard();
@@ -123,10 +123,12 @@ class Game {
     updateEnemies() {
         if (!this.isInitialCountDownOngoing) {
             this.enemies.map(enemy => {
-                enemy.updateSpeed();
                 enemy.updateZPos();
+                enemy.updateSpeed();
+                enemy.checkIfEnemyCrossedFinishLine();
             });
         }
+
     }
 
     update() {
@@ -237,46 +239,61 @@ class Game {
     }
 
     keyDownHandler(e) {
-        if (e.keyCode == KEY_RIGHT) {
-            this.isRightPressed = true;
-            this.carSprite = CAR_RIGHT;
-        }
-        else if (e.keyCode == KEY_LEFT) {
-            this.isLeftPressed = true;
-            this.carSprite = CAR_LEFT;
-        }
-        else if (e.keyCode == KEY_UP) {
-            this.isUpPressed = true;
-        }
-        else if (e.keyCode == KEY_DOWN) {
-            this.isDownPressed = true;
-        }
-        else if (e.keyCode == KEY_SPACE) {
-            this.isSpacePressed = true;
+
+        switch (e.keyCode) {
+            case KEY_RIGHT:
+                this.isRightPressed = true;
+                this.carSprite = CAR_RIGHT;
+                break;
+
+            case KEY_LEFT:
+                this.isLeftPressed = true;
+                this.carSprite = CAR_LEFT;
+                break;
+
+            case KEY_UP:
+                this.isUpPressed = true;
+                break;
+
+            case KEY_DOWN:
+                this.isDownPressed = true;
+                break;
+
+            case KEY_SPACE:
+                this.isSpacePressed = true;
+                break;
         }
     }
 
     keyUpHandler(e) {
-        if (e.keyCode == KEY_RIGHT) {
-            this.isRightPressed = false;
-            this.carSprite = CAR_CENTRE;
-        }
-        else if (e.keyCode == KEY_LEFT) {
-            this.isLeftPressed = false;
-            this.carSprite = CAR_CENTRE;
-        }
-        else if (e.keyCode == KEY_UP) {
-            this.isUpPressed = false;
-        }
-        else if (e.keyCode == KEY_DOWN) {
-            this.isDownPressed = false;
-        }
-        else if (e.keyCode == KEY_SPACE) {
-            this.isSpacePressed = false;
+
+        switch (e.keyCode) {
+            case KEY_RIGHT:
+                this.isRightPressed = false;
+                this.carSprite = CAR_CENTRE;
+                break;
+
+            case KEY_LEFT:
+                this.isLeftPressed = false;
+                this.carSprite = CAR_CENTRE;
+                break;
+
+            case KEY_UP:
+                this.isUpPressed = false;
+                break;
+
+            case KEY_DOWN:
+                this.isDownPressed = false;
+                break;
+
+            case KEY_SPACE:
+                this.isSpacePressed = false;
+                break;
         }
     }
 
     start() {
+        //load all the images before the game starts
         let preLoader = new PreLoader();
         preLoader.load(() => {
             setInterval(this.gameLoop, 40);

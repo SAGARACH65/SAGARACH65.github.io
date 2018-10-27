@@ -6,7 +6,6 @@ class PreLoader {
         this.loadedImages = 0;
     }
 
-
     load(callback) {
         GAME_IMAGES.map(image => {
             var img = new Image();

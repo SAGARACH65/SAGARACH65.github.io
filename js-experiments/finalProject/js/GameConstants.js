@@ -1,14 +1,14 @@
 //////////////////////////////////////////////constants used in Game.js////////////////////////////////////////////////////
 const trackMap = [
     { type: 'straight', number: 100, curvature: 0 },
-    { type: 'curve', number: 300, curvature: -65 },
-    { type: 'straight', number: 300, curvature: 0 },
-    { type: 'curve', number: 300, curvature: 65 },
-    { type: 'curve', number: 300, curvature: -20 },
-    { type: 'straight', number: 300, curvature: 0 },
-    { type: 'curve', number: 300, curvature: -65 },
-    { type: 'straight', number: 300, curvature: 0 },
-    { type: 'curve', number: 300, curvature: 65 },
+    // { type: 'curve', number: 300, curvature: -65 },
+    // { type: 'straight', number: 300, curvature: 0 },
+    // { type: 'curve', number: 300, curvature: 65 },
+    // { type: 'curve', number: 300, curvature: -20 },
+    // { type: 'straight', number: 300, curvature: 0 },
+    // { type: 'curve', number: 300, curvature: -65 },
+    // { type: 'straight', number: 300, curvature: 0 },
+    // { type: 'curve', number: 300, curvature: 65 },
     { type: 'straight', number: 500, curvature: 0 },
 ];
 
@@ -44,7 +44,7 @@ const CAR_RIGHT = {
     h: 38
 };
 const CAR_RIGHT2 = {
-    img:'images/spritesheet.high.png',
+    img: 'images/spritesheet.high.png',
     x: 148,
     y: 130,
     width: 77,
@@ -123,7 +123,8 @@ const CURVE_POSITION_UPDATE_THRESHOLD = 50;
 
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
-const NO_OF_ENEMIES = 10;
+const NO_OF_ENEMIES = 8;
+const ENEMY_ACCELERATION_FACTOR = 80;
 
 
 //////////////////////////////////////////////constants used in DashBoard.js////////////////////////////////////////////////////

@@ -56,7 +56,6 @@ class DashBoard {
         );
     }
 
-
     drawRPMNeedle(ctx, currentSpeed, maxSpeed) {
         let colorGradient = makeGradient(ctx, '#f7b733', '#fc4a1a');
         let shadowColor = '#f7b733';

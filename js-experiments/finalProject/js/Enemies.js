@@ -1,12 +1,17 @@
 class Enemies {
 
-    constructor(acceleration, maxSpeed, index, zPos, name) {
+    constructor(maxSpeed, index, zPos, name) {
         this.speed = 0;
-        this.acceleration = acceleration;
         this.maxSpeed = maxSpeed;
+        this.acceleration = maxSpeed / ENEMY_ACCELERATION_FACTOR;
         this.x = this.calculateRandomXPos(index);
         this.zPos = zPos;
         this.name = name;
+        this.isOverFinishLine = false;
+    }
+
+    checkIfEnemyCrossedFinishLine() {
+        if (this.zPos >= TOTAL_LENGTH_OF_ROAD * ROAD_PARAM.SEGMENT_LENGTH) this.isOverFinishLine = true;
     }
 
     //randomly generates the starting position of the enemy cars
@@ -16,7 +21,11 @@ class Enemies {
     }
 
     updateSpeed() {
-        (!(this.speed >= this.maxSpeed)) ? this.speed += this.acceleration : this.speed = this.maxSpeed;
+        //stop the car after they have reached the finish line
+        if (!this.isOverFinishLine)
+            (!(this.speed >= this.maxSpeed)) ? this.speed += this.acceleration : this.speed = this.maxSpeed;
+        else
+            (!(this.speed <= 0)) ? this.speed -= this.acceleration : this.speed = 0;
     }
 
     updateZPos() {
