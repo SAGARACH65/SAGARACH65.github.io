@@ -30,6 +30,12 @@ class Game {
             this.addRoad(sector.number / 2, sector.curvature);
         });
 
+
+        this.enemies = [];
+
+        for (let x = 0; x < NO_OF_ENEMIES; x++)
+            this.enemies.push(new Enemies((x + 1) * 100, (x + 1) * 200, x, (x + 1) * 3300, x));
+
         this.player = new Player();
         this.dashBoard = new DashBoard();
 
@@ -43,11 +49,13 @@ class Game {
 
     }
 
+    //gradually increases the curvature from 0 to the target
     enterSector(length, curvature) {
         for (let n = 0; n < length; n++)
             this.road.initializeSegments(getEnterCurvature(n, curvature, length));
     }
 
+    //gradually decreases curvature from target to 0
     exitSector(length, curvature) {
         for (let n = 0; n < length; n++)
             this.road.initializeSegments(getExitCurvature(curvature, n, length));
@@ -65,10 +73,7 @@ class Game {
     }
 
     drawRoad() {
-        // //450*250 i.e after 250 segments start from the beginning
-        // if (this.position > 112500) this.position = 0;
-
-        this.road.drawRoad(this.ctx, this.position, this.player.playerX);
+        this.road.drawRoad(this.ctx, this.position, this.player.playerX, this.enemies);
     }
 
     updatePlayerAsPerCurve() {
@@ -98,7 +103,7 @@ class Game {
     }
 
     checkIfGameEnded() {
-        return (this.road.findSegmentIndex(this.position) > TOTAL_LENGTH_OF_ROAD) ? true : false;
+        return (this.road.findSegmentIndex(this.position) > TOTAL_LENGTH_OF_ROAD);
     }
 
     checkAndHandleGameEnd() {
@@ -115,6 +120,15 @@ class Game {
         }
     }
 
+    updateEnemies() {
+        if (!this.isInitialCountDownOngoing) {
+            this.enemies.map(enemy => {
+                enemy.updateSpeed();
+                enemy.updateZPos();
+            });
+        }
+    }
+
     update() {
         this.updateNitro();
 
@@ -125,9 +139,13 @@ class Game {
 
         this.updatePlayerXPos();
 
+        this.updateEnemies();
+
         this.position += this.player.speed;
 
         this.checkAndHandleGameEnd();
+
+
     }
 
     drawBackground() {
@@ -264,7 +282,6 @@ class Game {
             setInterval(this.gameLoop, 40);
             CAR_START.play();
         });
-
     }
 }
 

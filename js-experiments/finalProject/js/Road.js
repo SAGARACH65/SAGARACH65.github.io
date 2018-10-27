@@ -1,4 +1,4 @@
-
+let xx = 0;
 class Road {
 
     constructor() {
@@ -58,7 +58,30 @@ class Road {
     }
 
 
-    drawRoad(ctx, position, playerX) {
+    drawEnemyCars(ctx, currentSegmentIndex, currentSegment, enemiesArr) {
+
+        enemiesArr.map(enemy => {
+            //draw on the road segment if it is the one containing the enemy
+            if (currentSegmentIndex === this.findSegmentIndex(enemy.zPos)) {
+                // let sign = currentSegment.tree.sideToDrawTree;
+// console.log(currentSegment.p2.screenCoordinates.x);
+                let carScale = currentSegment.p2.screenCoordinates.scale;
+                let carX = currentSegment.p2.screenCoordinates.x+currentSegment.p2.screenCoordinates.w/enemy.x;
+
+                let carY = currentSegment.p2.screenCoordinates.y;
+
+                let carWidth = (PLAYER_WIDTH * carScale * ROAD_PARAM.CANVAS_WIDTH * 5.5);
+                let carHeight = (PLAYER_HEIGHT * carScale * ROAD_PARAM.CANVAS_WIDTH * 5.5);
+
+
+                carY += - carHeight;
+                enemy.draw(ctx, 'images/spritesheet.high.png', CAR_CENTRE, carX, carY, carWidth, carHeight);
+
+            }
+        });
+    }
+
+    drawRoad(ctx, position, playerX, enemiesArr) {
         let baseSegmentIndex = this.findSegmentIndex(position);
 
         let dx = -this.segments[baseSegmentIndex].curvature, x = 0;
@@ -66,6 +89,7 @@ class Road {
         for (let n = baseSegmentIndex; n < ROAD_PARAM.NO_OF_SEG_TO_DRAW + baseSegmentIndex; n++) {
             let segment = this.segments[n];
 
+            //projecting the two points on the road independently 
             this.project(
                 segment.p1,
                 (playerX * ROAD_PARAM.WIDTH) - x,
@@ -109,9 +133,13 @@ class Road {
             );
         }
 
-        for (let n = ROAD_PARAM.NO_OF_SEG_TO_DRAW + baseSegmentIndex; n >= baseSegmentIndex; n--)
+        for (let n = ROAD_PARAM.NO_OF_SEG_TO_DRAW + baseSegmentIndex; n >= baseSegmentIndex; n--) {
             //trees are drawn every 5 segments so as to maintain sparsity
-            if (n % 5 === 0) this.drawTrees(ctx, this.segments[n]);
+            if (n % 5 === 0)
+                this.drawTrees(ctx, this.segments[n]);
+
+            this.drawEnemyCars(ctx, n, this.segments[n], enemiesArr);
+        }
 
     }
 
@@ -152,8 +180,6 @@ class Road {
 
         drawPolygon(ctx, x1 - w1 - r1, y1, x1 - w1, y1, x2 - w2, y2, x2 - w2 - r2, y2, color.sideStrip);
         drawPolygon(ctx, x1 + w1 + r1, y1, x1 + w1, y1, x2 + w2, y2, x2 + w2 + r2, y2, color.sideStrip);
-
-
         drawPolygon(ctx, x1 - w1, y1, x1 + w1, y1, x2 + w2, y2, x2 - w2, y2, color.road);
 
         //draws start and finish lines
@@ -172,7 +198,6 @@ class Road {
             laneX1 += laneW1;
             laneX2 += laneW2;
         }
-
     }
 
     //finds the segment depending on the z value provided

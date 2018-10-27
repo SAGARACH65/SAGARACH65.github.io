@@ -18,6 +18,7 @@ const TOTAL_LENGTH_OF_ROAD = (() => {
         total += trackMap[i].number;
 
     //140 is added as we havent added the last sector
+    //else the game will crash as it wont get any segments to render
     return total + 140;
 })();
 
@@ -42,7 +43,13 @@ const CAR_RIGHT = {
     w: 77,
     h: 38
 };
-
+const CAR_RIGHT2 = {
+    img:'images/spritesheet.high.png',
+    x: 148,
+    y: 130,
+    width: 77,
+    height: 38
+};
 const DIFFERENCE_TO_INCREASE_NITRO = 7;
 
 //game Sounds
@@ -71,8 +78,8 @@ const ROAD_PARAM = {
     CANVAS_HEIGHT: window.innerHeight || document.body.clientHeight
 }
 
-//this game was orginally designed in 1920/997 screen so for other screen resolutions,percentage is calculated
 
+//this game was orginally designed in 1920/997 screen so for other screen resolutions,percentage is calculated
 const WIDTH_MULTIPLIER = (ROAD_PARAM.CANVAS_WIDTH - 1920) / 1920;
 const HEIGHT_MULTIPLIER = (ROAD_PARAM.CANVAS_HEIGHT - 997) / 997;
 
@@ -116,7 +123,7 @@ const CURVE_POSITION_UPDATE_THRESHOLD = 50;
 
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
-const NO_OF_ENEMIES = 2;
+const NO_OF_ENEMIES = 10;
 
 
 //////////////////////////////////////////////constants used in DashBoard.js////////////////////////////////////////////////////
