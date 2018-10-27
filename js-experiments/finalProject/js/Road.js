@@ -64,9 +64,9 @@ class Road {
             //draw on the road segment if it is the one containing the enemy
             if (currentSegmentIndex === this.findSegmentIndex(enemy.zPos)) {
                 // let sign = currentSegment.tree.sideToDrawTree;
-// console.log(currentSegment.p2.screenCoordinates.x);
+                // console.log(currentSegment.p2.screenCoordinates.x);
                 let carScale = currentSegment.p2.screenCoordinates.scale;
-                let carX = currentSegment.p2.screenCoordinates.x+currentSegment.p2.screenCoordinates.w/enemy.x;
+                let carX = currentSegment.p2.screenCoordinates.x + currentSegment.p2.screenCoordinates.w / enemy.x;
 
                 let carY = currentSegment.p2.screenCoordinates.y;
 
@@ -75,7 +75,7 @@ class Road {
 
 
                 carY += - carHeight;
-                enemy.draw(ctx, 'images/spritesheet.high.png', CAR_CENTRE, carX, carY, carWidth, carHeight);
+                enemy.draw(ctx, currentSegment.curvature, carX, carY, carWidth, carHeight);
 
             }
         });

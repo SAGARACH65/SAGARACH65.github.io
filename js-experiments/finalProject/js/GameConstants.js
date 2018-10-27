@@ -1,14 +1,14 @@
 //////////////////////////////////////////////constants used in Game.js////////////////////////////////////////////////////
 const trackMap = [
     { type: 'straight', number: 100, curvature: 0 },
-    // { type: 'curve', number: 300, curvature: -65 },
-    // { type: 'straight', number: 300, curvature: 0 },
-    // { type: 'curve', number: 300, curvature: 65 },
-    // { type: 'curve', number: 300, curvature: -20 },
-    // { type: 'straight', number: 300, curvature: 0 },
-    // { type: 'curve', number: 300, curvature: -65 },
-    // { type: 'straight', number: 300, curvature: 0 },
-    // { type: 'curve', number: 300, curvature: 65 },
+    { type: 'curve', number: 300, curvature: -65 },
+    { type: 'straight', number: 300, curvature: 0 },
+    { type: 'curve', number: 300, curvature: 65 },
+    { type: 'curve', number: 300, curvature: -20 },
+    { type: 'straight', number: 300, curvature: 0 },
+    { type: 'curve', number: 300, curvature: -65 },
+    { type: 'straight', number: 300, curvature: 0 },
+    { type: 'curve', number: 300, curvature: 65 },
     { type: 'straight', number: 500, curvature: 0 },
 ];
 
@@ -96,6 +96,7 @@ const GAME_IMAGES = [
     'images/spritesheet.high.png',
     'images/b.png',
     'images/finish2.png',
+    'images/enemies.png',
 ];
 
 //////////////////////////////////////////////constants used in Player.js////////////////////////////////////////////////////
@@ -125,7 +126,30 @@ const CURVE_POSITION_UPDATE_THRESHOLD = 50;
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
 const NO_OF_ENEMIES = 8;
 const ENEMY_ACCELERATION_FACTOR = 80;
-
+const ENEMY_IMAGES = [
+    {
+        carLeft: {
+            x: 6, y: 23, w: 217, h: 101
+        },
+        carCentre: {
+            x: 445, y: 23, w: 190, h: 98
+        },
+        carRight: {
+            x: 858, y: 22, w: 217, h: 101
+        }
+    },
+    {
+        carLeft: {
+            x: 6, y: 23, w: 217, h: 101
+        },
+        carCentre: {
+            x: 445, y: 23, w: 190, h: 98
+        },
+        carRight: {
+            x: 858, y: 22, w: 217, h: 101
+        }
+    }
+];
 
 //////////////////////////////////////////////constants used in DashBoard.js////////////////////////////////////////////////////
 const STEERING_ROTATION = 50;

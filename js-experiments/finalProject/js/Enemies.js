@@ -8,6 +8,11 @@ class Enemies {
         this.zPos = zPos;
         this.name = name;
         this.isOverFinishLine = false;
+        this.spriteLocation = this.findRandomImage();
+    }
+
+    findRandomImage() {
+        return ENEMY_IMAGES[generateRandomNO(-1, ENEMY_IMAGES.length)];
     }
 
     checkIfEnemyCrossedFinishLine() {
@@ -37,9 +42,14 @@ class Enemies {
         if ((this.x < -1.3 || this.x > 0.8)) this.x -= increment;
     }
 
-    draw(ctx, image, sprite, destX, destY, width, height) {
+    draw(ctx, curvature, destX, destY, width, height) {
         let spriteSheet = new Image();
-        spriteSheet.src = image;
+        spriteSheet.src = 'images/enemies.png';
+        let sprite;
+
+        if (curvature < 0) sprite = this.spriteLocation.carLeft;
+        else if (curvature > 0) sprite = this.spriteLocation.carRight;
+        else sprite = this.spriteLocation.carCentre;
 
         ctx.drawImage(
             spriteSheet,

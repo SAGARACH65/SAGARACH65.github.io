@@ -32,9 +32,9 @@ class Game {
 
 
         this.enemies = [];
-
+        //creating enemies dynamically
         for (let x = 0; x < NO_OF_ENEMIES; x++)
-            this.enemies.push(new Enemies( (x + 1) * 200, x, (x + 1) * 3300, x));
+            this.enemies.push(new Enemies((x + 1) * 200, x, (x + 1) * 3300, x));
 
         this.player = new Player();
         this.dashBoard = new DashBoard();
@@ -128,7 +128,6 @@ class Game {
                 enemy.checkIfEnemyCrossedFinishLine();
             });
         }
-
     }
 
     update() {
@@ -146,7 +145,6 @@ class Game {
         this.position += this.player.speed;
 
         this.checkAndHandleGameEnd();
-
 
     }
 
