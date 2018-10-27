@@ -135,14 +135,28 @@ class Game {
     }
 
     drawPlayer() {
-        this.player.draw(this.ctx, 'images/spritesheet.high.png', this.carSprite, this.canvas.width / 2 + 30 * WIDTH_MULTIPLIER + 30, 600 * HEIGHT_MULTIPLIER + 600, this.isSpacePressed);
+        this.player.draw(
+            this.ctx,
+            'images/spritesheet.high.png',
+            this.carSprite,
+            this.canvas.width / 2 + 30 * WIDTH_MULTIPLIER + 30,
+            600 * HEIGHT_MULTIPLIER + 600,
+            this.isSpacePressed
+        );
     }
 
     playSounds() {
         if (this.isUpPressed) CAR_ACCELERATE.play();
-        if (this.isDownPressed) { CAR_ACCELERATE.pause(); CAR_DECELERATE.play(); }
+
+        if (this.isDownPressed) {
+            CAR_ACCELERATE.pause();
+            CAR_DECELERATE.play();
+        }
+
         if ((this.isLeftPressed || this.isRightPressed)
-            && this.road.segments[this.road.findSegmentIndex(this.position)].curvature != 0) CAR_SKID.play();
+            && this.road.segments[this.road.findSegmentIndex(this.position)].curvature != 0
+        )
+            CAR_SKID.play();
     }
 
     drawDashBoard() {
@@ -164,7 +178,13 @@ class Game {
 
     showInitialCountDown() {
         if (this.isInitialCountDownOngoing)
-            writeText(this.ctx, this.canvas.width / 2, 490 * HEIGHT_MULTIPLIER + 490, this.initialCountDownValue, '700 150px  PerfectDark', 'white');
+            writeText(
+                this.ctx,
+                this.canvas.width / 2, 490 * HEIGHT_MULTIPLIER + 490,
+                this.initialCountDownValue,
+                '700 150px  PerfectDark',
+                'white'
+            );
 
         if (this.isInitialCountDownOngoing && !this.isInTimeout) {
             this.isInTimeout = true;

@@ -29,7 +29,7 @@ class DashBoard {
     drawSpeed(ctx, currentSpeed, maxSpeed) {
         let speed = Math.ceil(currentSpeed / maxSpeed * 160);
         let fontSize = 45 * HEIGHT_MULTIPLIER + 45;
-        
+
         writeText(
             ctx,
             ROAD_PARAM.CANVAS_WIDTH / 2 - (600 * WIDTH_MULTIPLIER + 600),
@@ -42,7 +42,6 @@ class DashBoard {
     drawSpeedNeedle(ctx, currentSpeed, maxSpeed) {
         let colorGradient = makeGradient(ctx, '#41dcf4', '#00b8fe');
         let shadowColor = '#00c6ff';
-
 
         drawSpeedoMeterArc(
             ctx,
@@ -77,14 +76,14 @@ class DashBoard {
     }
 
     drawSpeedometer(ctx, currentSpeed, maxSpeed) {
-        let y = (ROAD_PARAM.CANVAS_WIDTH / 2 - (600 * WIDTH_MULTIPLIER + 600)) - (210 * HEIGHT_MULTIPLIER + 210);
 
         drawImage(
             ctx,
             'images/spedoMeterTrans.png',
-            y,
+            (ROAD_PARAM.CANVAS_WIDTH / 2 - (600 * WIDTH_MULTIPLIER + 600)) - (210 * HEIGHT_MULTIPLIER + 210),
             ROAD_PARAM.CANVAS_HEIGHT - (440 * HEIGHT_MULTIPLIER + 440),
-            420 * HEIGHT_MULTIPLIER + 420, 420 * HEIGHT_MULTIPLIER + 420
+            420 * HEIGHT_MULTIPLIER + 420,
+            420 * HEIGHT_MULTIPLIER + 420
         );
 
         this.drawSpeed(ctx, currentSpeed, maxSpeed);
@@ -104,12 +103,12 @@ class DashBoard {
             'rgba(0, 0, 0, 0.3)'
         );
 
-
         let progressGradient = makeGradient(ctx, '#43e97b', '#38f9d7');
 
         //this is added just to stop the progress bar from moving beyond the background
         let width = (baseSegment <= totalSegments) ? baseSegment / totalSegments * 600 : 600;
 
+        //drawing the % completion 
         drawRect(
             ctx,
             700 * WIDTH_MULTIPLIER + 700,
@@ -119,8 +118,16 @@ class DashBoard {
             progressGradient
         );
 
+        //drawing the finish icon
+        drawImage(
+            ctx,
+            'images/finish2.png',
+            1300 * WIDTH_MULTIPLIER + 1300,
+            ROAD_PARAM.CANVAS_HEIGHT - (150 * HEIGHT_MULTIPLIER + 150),
+            50 * WIDTH_MULTIPLIER + 50,
+            50 * HEIGHT_MULTIPLIER + 50
+        );
     }
-
 
     drawNitroMeter(ctx, fullNitro, remainingNitro) {
 

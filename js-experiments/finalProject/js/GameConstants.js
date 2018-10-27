@@ -87,7 +87,8 @@ const GAME_IMAGES = [
     'images/spedoMeterTrans.png',
     'images/steering_wheel-.png',
     'images/spritesheet.high.png',
-    'images/b.png'
+    'images/b.png',
+    'images/finish2.png',
 ];
 
 //////////////////////////////////////////////constants used in Player.js////////////////////////////////////////////////////
@@ -111,7 +112,7 @@ const MAX_NITRO = 400;
 const NITRO_MULTIPLIER_INCREMENT = 14;
 const NITRO_INCREASE_FACTOR = 100;
 const NITRO_DECREASE_FACTOR = 50;
-const CURVE_POSITION_UPDATE_THRESHOLD=50;
+const CURVE_POSITION_UPDATE_THRESHOLD = 50;
 
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
