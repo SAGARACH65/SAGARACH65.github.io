@@ -1,0 +1,284 @@
+body {
+    width: auto;
+}
+
+.header {
+    background-color: #7dd9e8;
+    margin-bottom: 31px;
+    /* min-width: 62.625em; */
+    width: auto;
+}
+
+.sub-headerzz {
+    width: auto;
+    /* min-width: 62.625em; */
+}
+
+.main-header {
+    width: 58.6875em;
+    margin: 20px auto 16px auto;
+}
+
+.left-logo {
+    width: 61.980830%;
+    float: left;
+}
+
+.header-info {
+    width: 15.3851970181%;
+    float: right;
+    margin-top: 4px;
+    font-size: 10px;
+}
+
+.input-search {
+    margin-top: 18px;
+    width: 57.731958%;
+    float: right;
+}
+
+.sub-header {
+    background-color: #f5f5f5;
+    width: auto;
+    font-family: 'Muli';
+    /* min-width: 62.625em; */
+}
+
+.wrapper-sub-header {
+    width: 58.6875em;
+    margin: 0 auto;
+}
+
+.header-notification {
+    width: 31.9488817891%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+.notification-content-lt {
+    padding-left: 19px;
+    font-size: 11px;
+    width: 40.6666666667%;
+    float: left;
+}
+
+.notification-content-rt {
+    width: 36.3333333333%;
+    padding-left: 21px;
+    font-size: 11px;
+    float: right;
+}
+
+.notification-active {
+    color: #000;
+}
+
+.notification-active-box {
+    background-image: url("../images/tbi-blue.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.notification-active-friend {
+    background-image: url("../images/tbi-bw.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.notification-inactive-friend {
+    background-image: url("../images/friend-bw.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.notification-inactive-box {
+    background-image: url("../images/tbi-bw.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.main-bottom {
+    width: 100%;
+}
+
+.left-navigation {
+    width: 23.9278145695%;
+    float: left;
+    margin-right: 11px;
+}
+
+.main-content {
+    padding-left: 30px;
+    padding-right: 20px;
+    float: right;
+    width: 67.5496688742%;
+}
+
+.main-container2 {
+    width: 58.6875em;
+    background-image: url('../images/body-bg.png');
+    margin: 0 auto;
+    background-position: center
+}
+
+.left-container {
+    width: 80.404685836%;
+    float: left;
+}
+
+.navigation-bar {
+    background-image: url('../images/tab-top.png');
+    background-position: center
+}
+
+.description {
+    margin-left: 6px;
+    float: left;
+}
+
+.content {
+    font-size: 11px;
+    color: #616161;
+}
+
+.right-navigation {
+    float: right;
+    width: 17.708402556%;
+    margin-right: 9.5px;
+}
+
+.footer-container {
+    width: auto;
+    margin-top: 25px;
+    /* min-width: 62.625em; */
+    background-color: #727272;
+}
+
+.footer {
+    font-size: 9px;
+    width: 104.0875em;
+    margin: 0 auto;
+    color: #fff;
+    padding-top: 21px;
+    padding-bottom: 14px;
+}
+
+.footer-left {
+    float: left;
+    margin-left: 5px;
+}
+
+.footer-right {
+    float: right;
+    font-size: 9px;
+}
+
+.footer-list {
+    background: #727272;
+    width: 19.4547856371%;
+    float: left;
+    font-size: 10px;
+    color: #fff;
+}
+
+.footer-copyright {
+    background: #727272;
+    width: 4.4433769665%;
+    float: right;
+    font-family: "Istok Web";
+    font-size: 8px;
+    color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-header {
+        width: 48em;
+    }
+    .main-container2 {
+        width: 44.9em;
+        
+    }
+    .wrapper-sub-header {
+        width: 48em;
+    }
+    .bottom-nav-ul {
+        width: 100%;
+    }
+    .header-notification {
+        width: 37%;
+    }
+    .input-search {
+        margin-top: 18px;
+        width: 70.402%;
+    }
+    .header-info {
+        width: 19.385%;
+        float: right;
+        margin-top: 4px;
+        font-size: 10px;
+        margin-right: 40px;
+    }
+    .left-logo {
+        width: 61.980830%;
+        margin-left: 15px;
+    }
+    .footer {
+        width: 100%;
+    }
+    .footer-right {
+        margin-left: 360px;
+        float: none;
+    }
+    .right-navigation {
+        margin-right: 0px;
+        width: 22.85%;
+    }
+    .app-name {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+    .input-search {
+        float: none;
+    }
+    .bottom-nav-ul {
+        width: 97%;
+        float: none;
+        margin-left: 15px;
+        margin-bottom: 10px;
+    }
+    .header-notification {
+        float: none;
+        margin-left: 15px;
+    }
+    .wrapper-sub-header {
+        padding-bottom: 10px;
+    }
+    .left-navigation {
+        display: none;
+        width: 0px;
+    }
+    .main-container2 {
+        background-image: none;
+    }
+    .left-container {
+        width: 71.22%;
+    }
+    .right-navigation {
+        float: left;
+        width: 17.8498402556%;
+        margin-left: 50px;
+    }
+    .main-content {
+        width: 100%;
+        float: left
+    }
+    .bottom-nav-ul-bot {
+        width: 50%;
+        width: 103% !important;
+    }
+    .main-bottom {
+        width: 100%
+    }
+}
