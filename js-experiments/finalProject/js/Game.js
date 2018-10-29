@@ -153,7 +153,6 @@ class Game {
         this.position += this.player.speed;
 
         this.checkAndHandleGameEnd();
-
     }
 
     drawBackground() {
@@ -193,7 +192,6 @@ class Game {
 
     drawRank() {
         this.dashBoard.drawRankInfo(this.ctx, this.player.rank, this.player.aheadEnemyName, this.player.behindEnemyName);
-
     }
 
     addEventListeners() {

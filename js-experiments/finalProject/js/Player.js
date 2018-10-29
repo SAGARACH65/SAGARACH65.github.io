@@ -52,7 +52,6 @@ class Player {
                 enemy.zPos - ENEMY_Z_WIDTH > currentZ
             )
                 this.handleEnemyCollision(enemy);
-
         });
     }
 

@@ -12,7 +12,7 @@ const trackMap = [
     { type: 'straight', number: 500, curvature: 0 },
 ];
 
-const FINISH_LINE_LENGTH = 14;
+const FINISH_LINE_LENGTH = 140;
 
 const TOTAL_LENGTH_OF_ROAD = (() => {
     let total = 0;
@@ -45,6 +45,7 @@ const CAR_RIGHT = {
     w: 77,
     h: 38
 };
+
 const CAR_RIGHT2 = {
     img: 'images/spritesheet.high.png',
     x: 148,
@@ -52,6 +53,7 @@ const CAR_RIGHT2 = {
     width: 77,
     height: 38
 };
+
 const DIFFERENCE_TO_INCREASE_NITRO = 7;
 
 //game Sounds
@@ -79,8 +81,8 @@ const ROAD_PARAM = {
     CANVAS_WIDTH: window.innerWidth || document.body.clientWidth,
     CANVAS_HEIGHT: window.innerHeight || document.body.clientHeight
 }
-const TREE_SPARSITY_FACTOR = 5;
 
+const TREE_SPARSITY_FACTOR = 5;
 
 //this game was orginally designed in 1920/997 screen so for other screen resolutions,percentage is calculated
 const WIDTH_MULTIPLIER = (ROAD_PARAM.CANVAS_WIDTH - 1920) / 1920;
@@ -133,7 +135,7 @@ const ROAD_CENTRE_TO_LEFT_TREE_DISTANCE = -1.25;
 const ROAD_CENTRE_TO_RIGHT_TREE_DISTANCE = 1.55;
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
-const NO_OF_ENEMIES = 10;
+const NO_OF_ENEMIES = 6;
 const ENEMY_ACCELERATION_FACTOR = 80;
 const ENEMY_COLLISION_SPEED_DECREASE_FACTOR = 1.4;
 const ENEMY_IMAGES = [
@@ -190,4 +192,5 @@ const PLAYER_NAME = [
     'SHREEJIT',
     'ANIL',
     'AMAN',
+    'SURAVI',
 ];

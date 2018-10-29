@@ -27,7 +27,7 @@ class Road {
     }
 
     /**
-     * this function retruns -ve or +ve value for left and right side respectively.
+     * this function returns -ve or +ve value for left and right side respectively.
      * the sign is decided by random for straight roads
      * for left turns it gives only gives +ve value
      * and for right turn it only gives -ve values
@@ -56,7 +56,6 @@ class Road {
 
         treeX += sign * treeWidth;
         treeY += - treeHeight;
-
 
         drawImage(ctx, currentSegment.tree.img, treeX, treeY, treeWidth, treeHeight);
     }
@@ -94,7 +93,7 @@ class Road {
                 // enemy.x=carX;
 
                 let carX = (currentSegment.p1.screenCoordinates.x - currentSegment.p2.screenCoordinates.x)
-                    * percentageIn + currentSegment.p2.screenCoordinates.x + currentSegment.p1.screenCoordinates.w / enemy.x;
+                    * percentageIn + currentSegment.p2.screenCoordinates.x - currentSegment.p2.screenCoordinates.w / enemy.x;
 
                 let carY = (currentSegment.p1.screenCoordinates.y - currentSegment.p2.screenCoordinates.y)
                     * percentageIn + currentSegment.p1.screenCoordinates.y;
