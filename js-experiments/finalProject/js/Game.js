@@ -78,8 +78,8 @@ class Game {
     }
 
     updateBackground(currentCurve) {
-        if (currentCurve < 0) this.backgroundImageStart += currentCurve / BACKGROUND_MOVEMENT_FACTOR;
         if (currentCurve > 0) this.backgroundImageStart -= currentCurve / BACKGROUND_MOVEMENT_FACTOR;
+        if (currentCurve < 0) this.backgroundImageStart += currentCurve / BACKGROUND_MOVEMENT_FACTOR;
     }
 
 
