@@ -146,8 +146,6 @@ class Road {
             //the segments that are behind us dont need to be rendered
             if ((segment.p2.screenCoordinates.y >= ROAD_PARAM.CANVAS_HEIGHT)) continue;
 
-
-            // if(n==4) segment.color=  { road: '#fff', grass: '#fff', sideStrip: '#fff', lane: '#fff' };
             this.drawSegment(
                 ctx,
                 n,
