@@ -13,6 +13,7 @@ class Player {
         this.playerX += (sign * TURNING_SPEED);
     }
 
+
     updateXInCurve(curveValue) {
         //we only update if there is speed ,if car is in stall  dont update
         if (this.speed > CURVE_POSITION_UPDATE_THRESHOLD) this.playerX -= curveValue * CENTRIFUGAL_FORCE;
@@ -33,7 +34,7 @@ class Player {
 
     handleTreeCollision() {
         this.speed = 0;
-       
+
     }
 
     checkAndHandleEnemyCollision(currentZ, enemiesArr) {

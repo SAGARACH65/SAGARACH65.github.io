@@ -7,6 +7,7 @@ class Game {
         this.canvas.setAttribute('height', ROAD_PARAM.CANVAS_HEIGHT);
 
         this.ctx = this.canvas.getContext("2d");
+        this.backgroundImageStart = -(ROAD_PARAM.CANVAS_WIDTH) * 2;
 
         this.position = 0;   //   Z position of the camera 
         this.currentSegment = 3;
@@ -76,6 +77,12 @@ class Game {
         this.road.drawRoad(this.ctx, this.position, this.player.playerX, this.enemies);
     }
 
+    updateBackground(currentCurve) {
+        if (currentCurve < 0) this.backgroundImageStart += currentCurve / BACKGROUND_MOVEMENT_FACTOR;
+        if (currentCurve > 0) this.backgroundImageStart -= currentCurve / BACKGROUND_MOVEMENT_FACTOR;
+    }
+
+
     updatePlayerAsPerCurve() {
         //player is pushed out of the track to simulate the effect of a curve
         let currentCurveIndex = this.road.findSegmentIndex(this.position);
@@ -83,6 +90,7 @@ class Game {
 
         if (currentCurve !== 0) {
             this.player.updateXInCurve(currentCurve);
+            this.updateBackground(currentCurve);
             // if (this.isLeftPressed || this.isRightPressed) CAR_SKID.play();
         }
     }
@@ -107,8 +115,18 @@ class Game {
         return (this.road.findSegmentIndex(this.position) > TOTAL_LENGTH_OF_ROAD);
     }
 
-    checkAndHandleGameEnd() {
+    showGameOver() {
+        writeText(
+            this.ctx,
+            this.canvas.width / 2, 200 * HEIGHT_MULTIPLIER + 200,
+            `Game Over! Your Position: ${this.player.rank}`,
+            '700 50px  PerfectDark',
+            'white'
+        );
+    }
 
+    checkAndHandleGameEnd() {
+        if (this.isGameOver) this.showGameOver();
         if (this.checkIfGameEnded() && !this.isGameOver) {
             this.removeEventListeners();
 
@@ -117,6 +135,7 @@ class Game {
 
             //this speed is added to counteract the condition when player enters exit zone with nitro and speed is very high to decelerate fast
             this.player.speed = (this.player.speed > MAX_SPEED) ? MAX_SPEED : this.player.speed / 1.5;
+
             this.isGameOver = true;
         }
     }
@@ -156,7 +175,7 @@ class Game {
     }
 
     drawBackground() {
-        drawImage(this.ctx, 'images/b.png', 0, 0, ROAD_PARAM.CANVAS_WIDTH, 549 * HEIGHT_MULTIPLIER + 549);
+        drawImage(this.ctx, 'images/b.png', this.backgroundImageStart, 0, ROAD_PARAM.CANVAS_WIDTH * 5, 549 * HEIGHT_MULTIPLIER + 549);
     }
 
     drawPlayer() {
@@ -256,7 +275,7 @@ class Game {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.playSounds();
-       
+
         this.draw();
         this.update();
         this.checkAndHandleCollision()

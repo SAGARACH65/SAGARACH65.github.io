@@ -19,8 +19,6 @@ const TOTAL_LENGTH_OF_ROAD = (() => {
     for (let i = 0; i < trackMap.length - 1; i++)
         total += trackMap[i].number;
 
-    //140 is added as we havent added the last sector
-    //else the game will crash as it wont get any segments to render
     return total + FINISH_LINE_LENGTH;
 })();
 
@@ -44,14 +42,6 @@ const CAR_RIGHT = {
     y: 130,
     w: 77,
     h: 38
-};
-
-const CAR_RIGHT2 = {
-    img: 'images/spritesheet.high.png',
-    x: 148,
-    y: 130,
-    width: 77,
-    height: 38
 };
 
 const DIFFERENCE_TO_INCREASE_NITRO = 7;
@@ -184,6 +174,7 @@ const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
+const BACKGROUND_MOVEMENT_FACTOR = 17;
 const KEY_SPACE = 32;
 
 const PLAYER_NAME = [
