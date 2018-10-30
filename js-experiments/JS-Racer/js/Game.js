@@ -1,4 +1,3 @@
-
 class Game {
 
     constructor() {
@@ -21,6 +20,7 @@ class Game {
         this.isRightPressed = false;
         this.isLeftPressed = false;
         this.isUpPressed = false;
+
         this.isDownPressed = false;
         this.isSpacePressed = false;
 
@@ -89,7 +89,6 @@ class Game {
         if (currentCurve !== 0) {
             this.player.updateXInCurve(currentCurve);
             this.updateBackground(currentCurve);
-            // if (this.isLeftPressed || this.isRightPressed) CAR_SKID.play();
         }
     }
 
@@ -238,6 +237,7 @@ class Game {
                 if (this.initialCountDownValue === 'GO!!') {
                     this.isInitialCountDownOngoing = false;
                     this.addEventListeners();
+                    this.isUpPressed = isMobile();
                 }
 
                 if (this.initialCountDownValue === 1) this.initialCountDownValue = 'GO!!';

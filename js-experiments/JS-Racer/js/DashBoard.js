@@ -35,7 +35,8 @@ class DashBoard {
             ROAD_PARAM.CANVAS_WIDTH / 2 - (600 * WIDTH_MULTIPLIER + 600),
             ROAD_PARAM.CANVAS_HEIGHT - (257 * HEIGHT_MULTIPLIER + 257),
             speed,
-            `700 ${fontSize}px  NeuroPol`, 'white'
+            `700 ${fontSize}px  NeuroPol`,
+            'white'
         );
     }
 

@@ -47,7 +47,7 @@ const CAR_RIGHT = {
 const DIFFERENCE_TO_INCREASE_NITRO = 7;
 
 //game Sounds
-const CAR_ACCELERATE = createSoundObject('sounds/main-engine.wav');
+const CAR_ACCELERATE = createSoundObject('sounds/accelerate.mp3');
 const CAR_DECELERATE = createSoundObject('sounds/car+geardown.mp3');
 const CAR_SKID = createSoundObject('sounds/skid.wav');
 const CAR_START = createSoundObject('sounds/carstartgarage.mp3');
@@ -174,8 +174,8 @@ const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
-const BACKGROUND_MOVEMENT_FACTOR = 17;
 const KEY_SPACE = 32;
+const BACKGROUND_MOVEMENT_FACTOR = 14;
 
 const PLAYER_NAME = [
     'MANISH',

@@ -9,6 +9,10 @@ const drawPolygon = (ctx, x1, y1, x2, y2, x3, y3, x4, y4, color) => {
     ctx.fill();
 }
 
+const isMobile = () => {
+    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
+}
+
 const makeGradient = (ctx, startColor, endColor) => {
     let speedGradient = ctx.createLinearGradient(0, 1000, 0, 0)
     speedGradient.addColorStop(1, startColor);

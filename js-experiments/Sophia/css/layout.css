@@ -20,7 +20,7 @@ body {
 }
 
 .header-container .main-header {
-    max-width: 90em;
+    min-width: 90em;
     padding-top: 12px;
     padding-bottom: 10px;
     margin: auto;
@@ -33,7 +33,7 @@ body {
 }
 
 .sub-header .main-header {
-    max-width: 90em;
+    min-width: 90em;
     margin: auto;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .main-container2 {
-    max-width: 90em;
+    min-width: 90em;
     margin: 0 auto;
 }
 
@@ -81,11 +81,11 @@ body {
 }
 
 .container {
-    max-width: 90em;
+    min-width: 90em;
 }
 
 .container-handpicked {
-    max-width: 90em;
+    min-width: 90em;
     margin: auto;
 }
 
@@ -166,7 +166,7 @@ body {
 }
 
 .title {
-    max-width: 90em;
+    min-width: 90em;
     margin: auto;
     text-align: center;
     padding-top: 60px;
@@ -196,7 +196,7 @@ body {
 }
 
 .site-info-container {
-    max-width: 90em;
+    min-width: 90em;
     margin: auto;
     /*  */
 }
@@ -208,7 +208,7 @@ body {
 }
 
 .summer-collection-container {
-    max-width: 90em;
+    min-width: 90em;
     margin: auto;
 }
 
@@ -218,7 +218,7 @@ body {
 }
 
 .container-main .container {
-    max-width: 90em;
+    min-width: 90em;
     padding-left: 40px;
 }
 
@@ -253,7 +253,7 @@ body {
 }
 
 .testimonials__container {
-    max-width: 90em;
+    min-width: 90em;
     margin: 0 auto;
     display: block;
     background: url('../images/Rectangle25.png');
@@ -328,7 +328,7 @@ body {
 }
 
 .footer-container {
-    max-width: 90em;
+    min-width: 90em;
     background-color: #000;
     margin: auto;
 }
@@ -518,7 +518,7 @@ a {
     display: block;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (min-width: 1000px) {
     .header-container .main-header {
         width: 48em;
     }
@@ -807,164 +807,164 @@ a {
     }
 }
 
-@media only screen and (max-width: 361px) {
-    .header-container .main-header {
-        width: 22.0em;
-        /* margin-left: 10px; */
-    }
-    .sub-header .main-header {
-        width: 22.5em;
-    }
-    .right-header-content {
-        width: 100%;
-    }
-    .bottom-left-header-content {
-        margin-left: 13px;
-    }
-    .logo {
-        margin-left: 91px;
-    }
-    .options li::after {
-        content: "|";
-        margin-right: 8px;
-        margin-left: 8px;
-    }
-    .right-header-content .options li {
-        font-size: 11px;
-    }
-    .left-info {
-        display: none;
-    }
-    .header-right {
-        width: 100%;
-        margin-top: 83px;
-        float: none;
-        margin-right: 0px;
-    }
-    .header-right .social-options-header li {
-        line-height: 112px;
-    }
-    .main-container2 {
-        width: 22.5em;
-    }
-    .currency-selector-list {
-        top: 27px;
-    }
-    .slider li img {
-        width: 22.5em;
-    }
-    .triangle-img {
-        display: none;
-    }
-    .slider-button {
-        left: 43.5%;
-        bottom: 56px;
-        line-height: 21px;
-        width: 15%;
-        font-size: 9px;
-    }
-    .container {
-        width: 22.5em;
-    }
-    .container-handpicked {
-        width: 22.5em;
-    }
-    .site-info-container {
-        width: 22.5em;
-    }
-    .summer-collection-container {
-        width: 22.5em;
-    }
-    .container-main .container {
-        width: 22.5em;
-    }
-    .testimonials__container {
-        width: 22.5em;
-    }
-    .footer-container {
-        width: 22.5em;
-    }
-    .brand {
-        width: 62%;
-    }
-    .container-main .container {
-        /* decrease later */
-        width: 17.5em;
-    }
-    .site-info {
-        display: none;
-    }
-    .main-container {
-        height: 190px;
-    }
-    .title-text {
-        background-image: none;
-    }
-    .sub-container-first {
-        margin-left: 0px;
-    }
-    .sub-container-first {
-        margin-right: 14px;
-        margin-left: 0px;
-    }
-    .sub-container-second {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .sub-container-third {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .collection-container {
-        width: 22.5em;
-    }
-    .featured-item .product-img {
-        width: 22.5em;
-    }
-    .featured-small .overlay {
-        width: 308px;
-        height: 312px;
-    }
-    .featured-large .overlay {
-        width: 309px;
-        height: 595px;
-    }
-    .title {
-        /* decrease later */
-        width: 19.5em;
-    }
-    .container {
-        /* decrease later */
-        width: 18.5em;
-    }
-    .col-1-6 {
-        width: 48.3%;
-        margin-bottom: 28px;
-    }
-    .container-brands {
-        width: 22.5em;
-    }
-    .layout-columns {
-        padding-bottom: 26px;
-        width: 94%;
-    }
-    .testimonials__container {
-        background-image: none;
-        background-color: #D9BE8F;
-    }
-    .menu-group_connected {
-        display: none;
-    }
-    .copyright {
-        margin-left: 16%;
-    }
-    .payments {
-        margin-left: 16%;
-    }
-    .menu-group {
-        margin-right: 3.562%;
-    }
-    .sub-container-first {
-        margin-right: 0px;
-    }
+@media only screen and (min-width: 361px) {
 }
+        .header-container .main-header {
+            width: 22.0em;
+            /* margin-left: 10px; */
+        }
+        .sub-header .main-header {
+            width: 22.5em;
+        }
+        .right-header-content {
+            width: 100%;
+        }
+        .bottom-left-header-content {
+            margin-left: 13px;
+        }
+        .logo {
+            margin-left: 91px;
+        }
+        .options li::after {
+            content: "|";
+            margin-right: 8px;
+            margin-left: 8px;
+        }
+        .right-header-content .options li {
+            font-size: 11px;
+        }
+        .left-info {
+            display: none;
+        }
+        .header-right {
+            width: 100%;
+            margin-top: 83px;
+            float: none;
+            margin-right: 0px;
+        }
+        .header-right .social-options-header li {
+            line-height: 112px;
+        }
+        .main-container2 {
+            width: 22.5em;
+        }
+        .currency-selector-list {
+            top: 27px;
+        }
+        .slider li img {
+            width: 22.5em;
+        }
+        .triangle-img {
+            display: none;
+        }
+        .slider-button {
+            left: 43.5%;
+            bottom: 56px;
+            line-height: 21px;
+            width: 15%;
+            font-size: 9px;
+        }
+        .container {
+            width: 22.5em;
+        }
+        .container-handpicked {
+            width: 22.5em;
+        }
+        .site-info-container {
+            width: 22.5em;
+        }
+        .summer-collection-container {
+            width: 22.5em;
+        }
+        .container-main .container {
+            width: 22.5em;
+        }
+        .testimonials__container {
+            width: 22.5em;
+        }
+        .footer-container {
+            width: 22.5em;
+        }
+        .brand {
+            width: 62%;
+        }
+        .container-main .container {
+            /* decrease later */
+            width: 17.5em;
+        }
+        .site-info {
+            display: none;
+        }
+        .main-container {
+            height: 190px;
+        }
+        .title-text {
+            background-image: none;
+        }
+        .sub-container-first {
+            margin-left: 0px;
+        }
+        .sub-container-first {
+            margin-right: 14px;
+            margin-left: 0px;
+        }
+        .sub-container-second {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .sub-container-third {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .collection-container {
+            width: 22.5em;
+        }
+        .featured-item .product-img {
+            width: 22.5em;
+        }
+        .featured-small .overlay {
+            width: 308px;
+            height: 312px;
+        }
+        .featured-large .overlay {
+            width: 309px;
+            height: 595px;
+        }
+        .title {
+            /* decrease later */
+            width: 19.5em;
+        }
+        .container {
+            /* decrease later */
+            width: 18.5em;
+        }
+        .col-1-6 {
+            width: 48.3%;
+            margin-bottom: 28px;
+        }
+        .container-brands {
+            width: 22.5em;
+        }
+        .layout-columns {
+            padding-bottom: 26px;
+            width: 94%;
+        }
+        .testimonials__container {
+            background-image: none;
+            background-color: #D9BE8F;
+        }
+        .menu-group_connected {
+            display: none;
+        }
+        .copyright {
+            margin-left: 16%;
+        }
+        .payments {
+            margin-left: 16%;
+        }
+        .menu-group {
+            margin-right: 3.562%;
+        }
+        .sub-container-first {
+            margin-right: 0px;
+        }
