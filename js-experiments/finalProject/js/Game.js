@@ -78,10 +78,8 @@ class Game {
     }
 
     updateBackground(currentCurve) {
-        if (currentCurve > 0) this.backgroundImageStart -= currentCurve / BACKGROUND_MOVEMENT_FACTOR;
-        if (currentCurve < 0) this.backgroundImageStart += currentCurve / BACKGROUND_MOVEMENT_FACTOR;
+        this.backgroundImageStart -= currentCurve / BACKGROUND_MOVEMENT_FACTOR;
     }
-
 
     updatePlayerAsPerCurve() {
         //player is pushed out of the track to simulate the effect of a curve

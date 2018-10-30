@@ -27,8 +27,8 @@ class DashBoard {
     }
 
     drawSpeed(ctx, currentSpeed, maxSpeed) {
-        let speed = Math.ceil(currentSpeed / maxSpeed * 160);
-        let fontSize = 45 * HEIGHT_MULTIPLIER + 45;
+        const speed = Math.ceil(currentSpeed / maxSpeed * 160);
+        const fontSize = 45 * HEIGHT_MULTIPLIER + 45;
 
         writeText(
             ctx,
@@ -39,8 +39,9 @@ class DashBoard {
         );
     }
 
+    //it draws the ahead and behind enemies and the rank of the player
     drawRankInfo(ctx, rank, aheadEnemyName, behindEnemyName) {
-        let fontSize = 30 * HEIGHT_MULTIPLIER + 30;
+        const fontSize = 30 * HEIGHT_MULTIPLIER + 30;
         writeText(
             ctx,
             ROAD_PARAM.CANVAS_WIDTH / 2 + 50 * HEIGHT_MULTIPLIER + 50,
@@ -70,8 +71,8 @@ class DashBoard {
     }
 
     drawSpeedNeedle(ctx, currentSpeed, maxSpeed) {
-        let colorGradient = makeGradient(ctx, '#41dcf4', '#00b8fe');
-        let shadowColor = '#00c6ff';
+        const colorGradient = makeGradient(ctx, '#41dcf4', '#00b8fe');
+        const shadowColor = '#00c6ff';
 
         drawSpeedoMeterArc(
             ctx,
@@ -87,9 +88,9 @@ class DashBoard {
     }
 
     drawRPMNeedle(ctx, currentSpeed, maxSpeed) {
-        let colorGradient = makeGradient(ctx, '#f7b733', '#fc4a1a');
-        let shadowColor = '#f7b733';
-        let rpm = currentSpeed / maxSpeed * 7;
+        const colorGradient = makeGradient(ctx, '#f7b733', '#fc4a1a');
+        const shadowColor = '#f7b733';
+        const rpm = currentSpeed / maxSpeed * 7;
 
         drawSpeedoMeterArc(
             ctx,
