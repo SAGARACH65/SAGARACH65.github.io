@@ -125,7 +125,7 @@ const ROAD_CENTRE_TO_LEFT_TREE_DISTANCE = -1.25;
 const ROAD_CENTRE_TO_RIGHT_TREE_DISTANCE = 1.55;
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
-const NO_OF_ENEMIES = 6;
+const NO_OF_ENEMIES = 5;
 const ENEMY_ACCELERATION_FACTOR = 80;
 const ENEMY_COLLISION_SPEED_DECREASE_FACTOR = 1.4;
 const ENEMY_IMAGES = [
