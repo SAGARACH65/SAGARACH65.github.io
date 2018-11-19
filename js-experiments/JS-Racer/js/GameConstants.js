@@ -112,7 +112,7 @@ const PLAYER_WIDTH = 200;
 const PLAYER_HEIGHT = 150;
 const MAX_NITRO = 400;
 //the multiple by which the speed is changed when nitro is pressed
-const NITRO_MULTIPLIER_INCREMENT = 14;
+const NITRO_MULTIPLIER_INCREMENT = 40;
 const NITRO_INCREASE_FACTOR = 100;
 const NITRO_DECREASE_FACTOR = 50;
 const CURVE_POSITION_UPDATE_THRESHOLD = 50;
@@ -125,7 +125,7 @@ const ROAD_CENTRE_TO_LEFT_TREE_DISTANCE = -1.25;
 const ROAD_CENTRE_TO_RIGHT_TREE_DISTANCE = 1.55;
 
 //////////////////////////////////////////////constants used in Enemy.js////////////////////////////////////////////////////
-const NO_OF_ENEMIES = 5;
+const NO_OF_ENEMIES = 6;
 const ENEMY_ACCELERATION_FACTOR = 80;
 const ENEMY_COLLISION_SPEED_DECREASE_FACTOR = 1.4;
 const ENEMY_IMAGES = [
@@ -182,6 +182,6 @@ const PLAYER_NAME = [
     'KISHOR',
     'SHREEJIT',
     'ANIL',
-    'AMAN',
+    'BIPIN',
     'SURAVI',
 ];
